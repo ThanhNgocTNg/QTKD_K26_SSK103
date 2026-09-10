@@ -3349,6 +3349,10 @@
     }
   }
 </style><style id="ssk103-theory-viz-css">
+  article.lesson-panel.hidden:not([style*="display: block"]),
+  [hidden] {
+    display: none !important;
+  }
   .ssk-theory-visual-wrapper,
   .ssk-definition-callout-wrapper,
   .ssk-summary-panel-wrapper {
@@ -4040,6 +4044,239 @@
   .lesson-panel .prose .source-visualization > div > div[style*="#bbf7d0"] > div[style*="position: absolute"] {
     opacity: 0.035 !important;
   }
+  #panel-s4-l2 .ssk-practice-frame .source-visualization > div > div[style*="#dcfce7"],
+  #panel-s4-l2 .ssk-practice-frame .source-visualization > div > div[style*="#bbf7d0"] {
+    border: 1.5px solid #4ade80 !important;
+    border-left-width: 1.5px !important;
+  }
+  #panel-s4-l2 .ssk-decision-table-shell {
+    position: relative;
+    margin: 24px 0 6px !important;
+    padding: 18px !important;
+    border: 1px solid rgba(148, 163, 184, 0.24) !important;
+    border-left: 1px solid rgba(148, 163, 184, 0.24) !important;
+    border-radius: 20px !important;
+    background:
+      linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(248, 250, 252, 0.92)),
+      radial-gradient(circle at 14% 0%, rgba(14, 165, 233, 0.12), transparent 32%),
+      radial-gradient(circle at 94% 16%, rgba(34, 197, 94, 0.11), transparent 30%) !important;
+    box-shadow: 0 18px 44px rgba(15, 23, 42, 0.08) !important;
+    overflow: hidden !important;
+  }
+  #panel-s4-l2 .ssk-decision-table-shell.source-viz-content {
+    transform: none !important;
+  }
+  #panel-s4-l2 .ssk-decision-table-shell::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+      linear-gradient(rgba(148, 163, 184, 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(148, 163, 184, 0.08) 1px, transparent 1px);
+    background-size: 28px 28px;
+    mask-image: linear-gradient(180deg, black, transparent 75%);
+  }
+  #panel-s4-l2 .ssk-decision-table-shell.is-template {
+    border-color: rgba(245, 158, 11, 0.28) !important;
+    border-left-color: rgba(245, 158, 11, 0.28) !important;
+    background:
+      linear-gradient(135deg, rgba(255, 251, 235, 0.92), rgba(255, 255, 255, 0.96)),
+      radial-gradient(circle at 90% 0%, rgba(245, 158, 11, 0.14), transparent 34%) !important;
+  }
+  #panel-s4-l2 .ssk-decision-table-shell > h4 {
+    position: relative;
+    z-index: 1;
+    margin: 0 0 8px !important;
+    color: #92400e !important;
+    font-size: 17px !important;
+    font-weight: 950 !important;
+  }
+  #panel-s4-l2 .ssk-decision-table-shell > p {
+    position: relative;
+    z-index: 1;
+    color: #475569 !important;
+    line-height: 1.6 !important;
+  }
+  #panel-s4-l2 .ssk-decision-table-title {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 14px;
+    color: #0f172a;
+    font-size: 14px;
+    font-weight: 950;
+  }
+  #panel-s4-l2 .ssk-decision-table-title span {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  #panel-s4-l2 .ssk-decision-table-title i {
+    color: #dc2626;
+    font-size: 18px;
+  }
+  #panel-s4-l2 .ssk-decision-table-title small {
+    color: #64748b;
+    font-size: 11px;
+    font-weight: 850;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  #panel-s4-l2 .ssk-decision-table-scroll {
+    position: relative;
+    z-index: 1;
+    max-width: 100%;
+    overflow-x: auto !important;
+    padding: 2px 2px 10px;
+    scrollbar-width: thin;
+    scrollbar-color: #cbd5e1 transparent;
+    -webkit-overflow-scrolling: touch;
+  }
+  #panel-s4-l2 .ssk-decision-table-scroll::-webkit-scrollbar {
+    height: 9px;
+  }
+  #panel-s4-l2 .ssk-decision-table-scroll::-webkit-scrollbar-thumb {
+    border-radius: 999px;
+    background: #cbd5e1;
+  }
+  #panel-s4-l2 table.ssk-decision-table {
+    width: max(760px, 100%) !important;
+    border-collapse: separate !important;
+    border-spacing: 0 !important;
+    table-layout: fixed;
+    border: 0 !important;
+    background: transparent !important;
+    text-align: center !important;
+  }
+  #panel-s4-l2 .ssk-decision-table th,
+  #panel-s4-l2 .ssk-decision-table td {
+    position: relative;
+    min-width: 128px;
+    padding: 15px 16px !important;
+    border: 0 !important;
+    border-right: 1px solid #e2e8f0 !important;
+    border-bottom: 1px solid #e2e8f0 !important;
+    background: rgba(255, 255, 255, 0.88) !important;
+    color: #334155 !important;
+    line-height: 1.42;
+    vertical-align: middle;
+    transition:
+      background-color 180ms ease,
+      color 180ms ease,
+      box-shadow 180ms ease,
+      transform 180ms ease,
+      border-color 180ms ease;
+    will-change: background-color, transform;
+  }
+  #panel-s4-l2 .ssk-decision-table th:first-child,
+  #panel-s4-l2 .ssk-decision-table td:first-child {
+    position: sticky;
+    left: 0;
+    z-index: 3;
+    min-width: 230px;
+    text-align: left !important;
+    font-weight: 900 !important;
+    color: #0f172a !important;
+    background: rgba(248, 250, 252, 0.98) !important;
+    box-shadow: 10px 0 18px rgba(15, 23, 42, 0.05);
+  }
+  #panel-s4-l2 .ssk-decision-table thead th {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background: #f8fafc !important;
+    color: #1d4ed8 !important;
+    font-size: 13px;
+    font-weight: 950 !important;
+  }
+  #panel-s4-l2 .ssk-decision-table thead th:first-child {
+    z-index: 4;
+  }
+  #panel-s4-l2 .ssk-decision-table tbody tr:nth-child(even) td {
+    background: rgba(248, 250, 252, 0.74) !important;
+  }
+  #panel-s4-l2 .ssk-decision-table tbody tr:hover td,
+  #panel-s4-l2 .ssk-decision-table tbody tr:focus-within td {
+    background: #f8fbff !important;
+    border-color: #bfdbfe !important;
+  }
+  #panel-s4-l2 .ssk-decision-table :is(th, td).is-col-hover {
+    background: #eff6ff !important;
+    color: #1d4ed8 !important;
+    box-shadow: inset 0 0 0 999px rgba(59, 130, 246, 0.035);
+  }
+  #panel-s4-l2 .ssk-decision-table td:hover {
+    z-index: 5;
+    transform: translateY(-1px);
+    background: #ffffff !important;
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.11);
+  }
+  #panel-s4-l2 .ssk-decision-table .is-best-cell {
+    color: #15803d !important;
+    font-weight: 950 !important;
+    background: #f0fdf4 !important;
+  }
+  #panel-s4-l2 .ssk-decision-table .is-winning-cell {
+    color: #b91c1c !important;
+    font-size: 1rem !important;
+    font-weight: 950 !important;
+    background: linear-gradient(135deg, #fff1f2, #ffffff) !important;
+    box-shadow: inset 0 0 0 2px rgba(220, 38, 38, 0.16);
+  }
+  #panel-s4-l2 .ssk-decision-table .is-total-row td {
+    background: #eef6ff !important;
+    color: #1e3a8a !important;
+    font-weight: 950 !important;
+  }
+  #panel-s4-l2 .ssk-decision-table-shell.is-template .ssk-decision-table th,
+  #panel-s4-l2 .ssk-decision-table-shell.is-template .ssk-decision-table td {
+    border-color: #fde68a !important;
+  }
+  #panel-s4-l2 .ssk-decision-table-shell.is-template .ssk-decision-table thead th,
+  #panel-s4-l2 .ssk-decision-table-shell.is-template .ssk-decision-table .is-total-row td {
+    background: #fffbeb !important;
+    color: #92400e !important;
+  }
+  #panel-s4-l2 .ssk-decision-table-shell.is-template .ssk-decision-table :is(th, td).is-col-hover,
+  #panel-s4-l2 .ssk-decision-table-shell.is-template .ssk-decision-table tbody tr:hover td {
+    background: #fff7ed !important;
+    border-color: #fbbf24 !important;
+    color: #92400e !important;
+  }
+  @media (max-width: 760px) {
+    #panel-s4-l2 .ssk-decision-table-shell {
+      margin-inline: -8px !important;
+      padding: 14px;
+      border-radius: 16px;
+    }
+    #panel-s4-l2 .ssk-decision-table-title {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+    #panel-s4-l2 .ssk-decision-table th,
+    #panel-s4-l2 .ssk-decision-table td {
+      min-width: 132px;
+      padding: 13px 14px !important;
+      font-size: 13px;
+    }
+    #panel-s4-l2 .ssk-decision-table th:first-child,
+    #panel-s4-l2 .ssk-decision-table td:first-child {
+      min-width: 190px;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    #panel-s4-l2 .ssk-decision-table th,
+    #panel-s4-l2 .ssk-decision-table td {
+      transition: none !important;
+    }
+    #panel-s4-l2 .ssk-decision-table td:hover {
+      transform: none;
+    }
+  }
   .ssk-model-board--iceberg .ssk-iceberg {
     max-width: none !important;
     gap: 12px !important;
@@ -4151,11 +4388,11 @@
 <body class="bg-gray-50 text-gray-800 transition-colors duration-300 flex flex-col min-h-screen"><header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-gray-200 px-4 md:px-8 py-3.5 flex items-center justify-between shadow-xs"><div class="flex items-center gap-3"><button id="session-menu-trigger" type="button" onclick="toggleSessionMenu()" onmouseenter="openSessionMenu()" onmouseleave="scheduleSessionMenuClose()" onfocus="openSessionMenu()" aria-controls="sidebar" aria-expanded="false"><i class="ph-bold ph-list text-lg text-rikkei-red"></i><span>Danh sách Session</span><i class="ph-bold ph-caret-down text-xs"></i></button><div class="flex items-center gap-3 cursor-pointer" onclick="showView('view-overview')"><img src="https://rikkei.edu.vn/wp-content/uploads/2025/09/Logo.png" alt="Rikkei Logo" class="h-8 md:h-10 object-contain"><span class="hidden sm:inline-flex px-3 py-1 rounded-full bg-rikkei-light text-rikkei-darkred font-black text-sm border border-rikkei-border">SSK103</span></div></div><div id="current-lesson-indicator" class="current-lesson-indicator" aria-live="polite"><span data-current-lesson-meta>SSK103</span><strong data-current-lesson-title>Chọn bài học</strong></div><div class="flex items-center gap-2 sm:gap-3"><button onclick="showView('view-overview')" class="px-3.5 py-2 rounded-xl bg-gray-100 hover:bg-gray-200 text-xs font-bold flex items-center gap-1.5 transition"><i class="ph-bold ph-house text-base text-rikkei-red"></i><span class="hidden sm:inline">Tổng quan</span></button></div></header><div class="flex flex-1"><aside id="sidebar" onmouseenter="openSessionMenu()" onmouseleave="scheduleSessionMenuClose()"><div class="space-y-1"><div class="text-[11px] font-black uppercase tracking-widest text-gray-400 px-3">CHƯƠNG TRÌNH HỌC</div><button onclick="showView('view-overview')" class="w-full text-left p-3 rounded-2xl hover:bg-gray-100 font-bold text-xs flex items-center gap-2.5 text-gray-700 transition"><i class="ph-bold ph-squares-four text-lg text-rikkei-red"></i><span>Khung Tổng Quan Môn Học</span></button></div><div class="space-y-1.5"><div class="text-[11px] font-black uppercase tracking-widest text-gray-400 px-3 pb-1 border-b border-gray-100">DANH SÁCH SESSION (4)</div>
     <button onclick="showSession(1)" class="sidebar-sec-btn w-full text-left p-3 rounded-2xl hover:bg-rikkei-red/10 hover:text-rikkei-red font-bold text-xs flex items-start gap-3 text-gray-700 transition group">
       <span class="w-6 h-6 rounded-lg bg-gray-100 group-hover:bg-rikkei-red group-hover:text-white text-[11px] font-black flex items-center justify-center shrink-0 mt-0.5 transition">01</span>
-      <span class="line-clamp-2 leading-snug">Nhận diện và làm rõ vấn đề</span>
+      <span class="line-clamp-2 leading-snug">Tổng quan về tư duy phân tích</span>
     </button>
     <button onclick="showSession(2)" class="sidebar-sec-btn w-full text-left p-3 rounded-2xl hover:bg-rikkei-red/10 hover:text-rikkei-red font-bold text-xs flex items-start gap-3 text-gray-700 transition group">
       <span class="w-6 h-6 rounded-lg bg-gray-100 group-hover:bg-rikkei-red group-hover:text-white text-[11px] font-black flex items-center justify-center shrink-0 mt-0.5 transition">02</span>
-      <span class="line-clamp-2 leading-snug">Phân rã vấn đề và tìm nguyên nhân</span>
+      <span class="line-clamp-2 leading-snug">Phân tích vấn đề và phương pháp khai thác nguyên nhân gốc rễ</span>
     </button>
     <button onclick="showSession(3)" class="sidebar-sec-btn w-full text-left p-3 rounded-2xl hover:bg-rikkei-red/10 hover:text-rikkei-red font-bold text-xs flex items-start gap-3 text-gray-700 transition group">
       <span class="w-6 h-6 rounded-lg bg-gray-100 group-hover:bg-rikkei-red group-hover:text-white text-[11px] font-black flex items-center justify-center shrink-0 mt-0.5 transition">03</span>
@@ -4163,7 +4400,7 @@
     </button>
     <button onclick="showSession(4)" class="sidebar-sec-btn w-full text-left p-3 rounded-2xl hover:bg-rikkei-red/10 hover:text-rikkei-red font-bold text-xs flex items-start gap-3 text-gray-700 transition group">
       <span class="w-6 h-6 rounded-lg bg-gray-100 group-hover:bg-rikkei-red group-hover:text-white text-[11px] font-black flex items-center justify-center shrink-0 mt-0.5 transition">04</span>
-      <span class="line-clamp-2 leading-snug">Từ phân tích đến giải quyết vấn đề và ra quyết định</span>
+      <span class="line-clamp-2 leading-snug">Tổng hợp kết quả phân tích và ra quyết định</span>
     </button></div></aside><aside id="lesson-outline" aria-label="Phụ lục bài học"></aside><main class="flex-1 p-4 sm:p-6 md:p-8 max-w-7xl mx-auto w-full"><div id="view-overview" class="space-y-8 animate-fade">
     <section class="overview-course-hero">
       <div>
@@ -4176,12 +4413,12 @@
       <h3>Danh Mục Session Đào Tạo</h3>
       <div class="overview-session-grid"><button onclick="showSession(1)" class="overview-session-card group" type="button">
       <span class="overview-session-pill">SESSION 01</span>
-      <h4>Nhận diện và làm rõ vấn đề</h4>
+      <h4>Tổng quan về tư duy phân tích</h4>
       <p>Nhận diện đúng vấn đề, phân biệt tư duy cảm tính và tư duy phân tích trước khi ra quyết định.</p>
       <span class="overview-session-action"><span>Vào học session này</span><i class="ph-bold ph-arrow-right"></i></span>
     </button><button onclick="showSession(2)" class="overview-session-card group" type="button">
       <span class="overview-session-pill">SESSION 02</span>
-      <h4>Phân rã vấn đề và tìm nguyên nhân</h4>
+      <h4>Phân tích vấn đề và phương pháp khai thác nguyên nhân gốc rễ</h4>
       <p>Phân rã vấn đề bằng MECE, cây vấn đề và kỹ thuật truy nguyên nguyên nhân gốc.</p>
       <span class="overview-session-action"><span>Vào học session này</span><i class="ph-bold ph-arrow-right"></i></span>
     </button><button onclick="showSession(3)" class="overview-session-card group" type="button">
@@ -4191,12 +4428,12 @@
       <span class="overview-session-action"><span>Vào học session này</span><i class="ph-bold ph-arrow-right"></i></span>
     </button><button onclick="showSession(4)" class="overview-session-card group" type="button">
       <span class="overview-session-pill">SESSION 04</span>
-      <h4>Từ phân tích đến giải quyết vấn đề và ra quyết định</h4>
+      <h4>Tổng hợp kết quả phân tích và ra quyết định</h4>
       <p>Tổng hợp kết quả phân tích, xây dựng phương án và lựa chọn quyết định bằng tiêu chí rõ ràng.</p>
       <span class="overview-session-action"><span>Vào học session này</span><i class="ph-bold ph-arrow-right"></i></span>
     </button></div>
     </section>
-  </div><div id="view-session-1" class="hidden space-y-8 animate-fade"><section class="session-header bg-white p-6 sm:p-8 rounded-3xl border border-gray-200 shadow-xs space-y-4"><div class="flex items-center justify-between flex-wrap gap-3 border-b border-gray-100 pb-4"><span class="bg-rikkei-red text-white font-black text-xs px-3.5 py-1.5 rounded-full uppercase tracking-wider">SESSION 01 • NỘI DUNG CHUYÊN SÂU</span><button onclick="showView('view-overview')" class="px-4 py-2 rounded-xl bg-gray-100 hover:bg-gray-200 text-xs font-bold flex items-center gap-1.5 transition"><i class="ph-bold ph-arrow-left"></i> Quay lại Danh sách Session</button></div><h2 class="font-heading font-black text-xl sm:text-2xl md:text-3xl text-gray-900 leading-tight">Nhận diện và làm rõ vấn đề</h2><p class="text-xs sm:text-sm text-gray-600 leading-relaxed">Nội dung được lấy trực tiếp từ bài đọc nguồn, giữ các sơ đồ, bảng và khung ứng dụng trong bài.</p><div class="flex items-center gap-2 flex-wrap pt-3 border-t border-gray-100"><button id="btn-s1-l1" onclick="showLessonTab(1, '1', true)" class="tab-btn flex-1 justify-center px-4 py-2.5 rounded-2xl text-xs sm:text-sm flex items-center gap-2 transition cursor-pointer active bg-rikkei-red text-white font-black shadow-md"><i class="ph-bold ph-book-open text-white"></i><span>Lesson 1</span></button><button id="btn-s1-l2" onclick="showLessonTab(1, '2', true)" class="tab-btn flex-1 justify-center px-4 py-2.5 rounded-2xl text-xs sm:text-sm flex items-center gap-2 transition cursor-pointer bg-gray-100 text-gray-700 font-bold"><i class="ph-bold ph-book-open text-rikkei-red"></i><span>Lesson 2</span></button></div></section><article id="panel-s1-l1" data-lesson-meta="Lesson 1 • Session 01" data-lesson-title="Tư duy phân tích và vai trò trong ra quyết định" class="lesson-panel  space-y-8 animate-fade bg-white p-6 sm:p-8 rounded-3xl border border-gray-200 shadow-xs"><div class="prose" data-preserve-source-visuals="true"><h2>1. Lời giải bài toán &quot;Mùi hôi&quot; của Xanh SM</h2>
+  </div><div id="view-session-1" class="hidden space-y-8 animate-fade"><section class="session-header bg-white p-6 sm:p-8 rounded-3xl border border-gray-200 shadow-xs space-y-4"><div class="flex items-center justify-between flex-wrap gap-3 border-b border-gray-100 pb-4"><span class="bg-rikkei-red text-white font-black text-xs px-3.5 py-1.5 rounded-full uppercase tracking-wider">SESSION 01 • NỘI DUNG CHUYÊN SÂU</span><button onclick="showView('view-overview')" class="px-4 py-2 rounded-xl bg-gray-100 hover:bg-gray-200 text-xs font-bold flex items-center gap-1.5 transition"><i class="ph-bold ph-arrow-left"></i> Quay lại Danh sách Session</button></div><h2 class="font-heading font-black text-xl sm:text-2xl md:text-3xl text-gray-900 leading-tight">Tổng quan về tư duy phân tích</h2><p class="text-xs sm:text-sm text-gray-600 leading-relaxed">Nội dung được lấy trực tiếp từ bài đọc nguồn, giữ các sơ đồ, bảng và khung ứng dụng trong bài.</p><div class="flex items-center gap-2 flex-wrap pt-3 border-t border-gray-100"><button id="btn-s1-l1" onclick="showLessonTab(1, '1', true)" class="tab-btn flex-1 justify-center px-4 py-2.5 rounded-2xl text-xs sm:text-sm flex items-center gap-2 transition cursor-pointer active bg-rikkei-red text-white font-black shadow-md"><i class="ph-bold ph-book-open text-white"></i><span>Lesson 1</span></button><button id="btn-s1-l2" onclick="showLessonTab(1, '2', true)" class="tab-btn flex-1 justify-center px-4 py-2.5 rounded-2xl text-xs sm:text-sm flex items-center gap-2 transition cursor-pointer bg-gray-100 text-gray-700 font-bold"><i class="ph-bold ph-book-open text-rikkei-red"></i><span>Lesson 2</span></button></div></section><article id="panel-s1-l1" data-lesson-meta="Lesson 1 • Session 01" data-lesson-title="Tư duy phân tích và vai trò trong ra quyết định" class="lesson-panel  space-y-8 animate-fade bg-white p-6 sm:p-8 rounded-3xl border border-gray-200 shadow-xs"><div class="prose" data-preserve-source-visuals="true"><h2>1. Lời giải bài toán &quot;Mùi hôi&quot; của Xanh SM</h2>
 <figure class="lesson-company-image-block">
     <button type="button" class="lesson-company-image-button" data-full-image="https://media.vneconomy.vn/images/upload/2023/04/27/taxi-xanh-hcm-4.jpg?w=1200&amp;h=630&amp;mode=crop" data-full-caption="Xanh SM • Minh họa tình huống phân tích" data-image-source="media.vneconomy.vn" aria-label="Mở ảnh minh họa toàn màn hình">
       <img src="https://media.vneconomy.vn/images/upload/2023/04/27/taxi-xanh-hcm-4.jpg?w=1200&amp;h=630&amp;mode=crop" alt="Xanh SM • Minh họa tình huống phân tích" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-company-visual-ready="true">
@@ -4207,34 +4444,13 @@
       </span>
     </button>
   </figure>
-<div class="lesson-problem-block"><p>Vào đầu năm 2023, thị trường gọi xe công nghệ tại Việt Nam gần như đã bị định hình bởi một vành đai độc quyền. Các hãng xe lớn đã rơi vào hố sâu của Tư duy cảm tính. Họ mặc định tin vào giả định: &quot;Khách hàng Việt Nam chỉ quan tâm đến giá cước rẻ&quot;. Hệ quả là họ thả nổi chất lượng, ép chiết khấu tài xế khiến chất lượng dịch vụ lao dốc không phanh.</p></div>
-<p>Tuy nhiên, hãng xe điện Xanh SM (GSM) của tỷ phú Phạm Nhật Vượng lại sử dụng Tư duy phân tích để mổ xẻ dữ liệu hành vi. Bằng kỹ năng bóc tách vấn đề, họ tách rời hai khái niệm: &quot;Nhu cầu di chuyển&quot; và &quot;Trải nghiệm cảm xúc trên xe&quot;. Dữ liệu phân tích chỉ ra một sự thật khách quan tàn nhẫn: Khách hàng - đặc biệt là Gen Z và dân văn phòng - đã quá mệt mỏi với những chiếc xe nồng nặc mùi xăng và thái độ phục vụ cau có của tài xế. Từ đó, Xanh SM tái định nghĩa lại bài toán cốt lõi: Nền tảng không cần phải chạy đua đốt tiền vào mã giảm giá, mà phải cung cấp một dịch vụ &quot;Di chuyển chuẩn 5 sao, không mùi, không tiếng ồn&quot;. Việc tung ra đội xe thuần điện mới toanh cùng quy chuẩn tài xế mặc vest đã giúp Xanh SM đánh chiếm thị phần một cách ngoạn mục chỉ sau vài tháng. Câu chuyện năm 2023 này là minh chứng tuyệt đối: Nếu bạn không có Tư duy phân tích, bạn sẽ mãi đi giải quyết một bài toán sai.</p>
+<div class="lesson-problem-block"><p>Vào đầu năm 2023, thị trường gọi xe công nghệ tại Việt Nam gần như đã bị định hình bởi một vành đai độc quyền. Các hãng xe lớn đã bị mắc kẹt trong Tư duy cảm tính. Họ mặc định tin vào giả định: &quot;Khách hàng Việt Nam chỉ quan tâm đến giá cước rẻ&quot;. Hệ quả là họ thả nổi chất lượng, ép chiết khấu tài xế khiến chất lượng dịch vụ lao dốc không phanh. Trong khi đó, khách hàng - đặc biệt là Gen Z và dân văn phòng - ngày càng tỏ ra mệt mỏi và bắt đầu rời bỏ các nền tảng quen thuộc. Một cuộc khủng hoảng ngầm về lòng trung thành của khách hàng đang diễn ra, đòi hỏi các hãng xe phải tìm ra đúng điểm nghẽn thực sự thay vì tiếp tục loay hoay trong ma trận đốt tiền giảm giá.</p></div>
 <h2>2. Nền tảng Tư duy Phân tích triệt tiêu cảm tính</h2>
-<div class="source-visualization not-prose ssk-theory-visual-wrapper" data-ssk-theory-visual="true"><section class="ssk-model-board ssk-model-board--radial" aria-label="Trực quan hóa lý thuyết"><header class="ssk-model-header"><h3>Từ tín hiệu rời rạc đến quyết định rõ ràng</h3><p>Mô hình này biến phân tích thành một chuỗi thao tác nhìn được: thu thập, phân rã, liên kết và kết luận.</p></header>
-      <div class="ssk-radial-stage">
-        <svg class="ssk-radial-web" viewBox="0 0 640 440" aria-hidden="true">
-          <circle cx="320" cy="220" r="148"></circle>
-          <path d="M320 220 L320 48 M320 220 L548 220 M320 220 L320 392 M320 220 L92 220"></path>
-          <path d="M210 110 C280 72 365 72 430 110 M210 330 C280 368 365 368 430 330"></path>
-        </svg>
-        <div class="ssk-radial-core"><strong>LOGIC</strong><span>dẫn tới lựa chọn</span></div>
-        <article class="ssk-radial-node is-red" style="--x:50%;--y:18%"><span>01</span><strong>Thu thập</strong><p>Dữ liệu và dấu hiệu từ thực tế.</p></article>
-        <article class="ssk-radial-node is-blue" style="--x:82%;--y:50%"><span>02</span><strong>Phân rã</strong><p>Chia vấn đề thành phần nhỏ.</p></article>
-        <article class="ssk-radial-node is-green" style="--x:50%;--y:82%"><span>03</span><strong>Liên kết</strong><p>Tìm quan hệ nhân quả.</p></article>
-        <article class="ssk-radial-node is-amber" style="--x:18%;--y:50%"><span>04</span><strong>Kết luận</strong><p>Ra quyết định có cơ sở.</p></article>
-      </div></section></div>
-<div class="source-visualization not-prose ssk-definition-callout-wrapper"><div style="display: flex; flex-direction: column; gap: 15px; margin-bottom: 25px;">
-  <!-- Định nghĩa -->
-  <div style="background: linear-gradient(120deg, #f0f9ff 0%, #e0f2fe 100%); border-left: 6px solid #0284c7; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
-    <h4 style="color: #0369a1; margin-top: 0; margin-bottom: 10px; font-size: 1.1em;">🔍 Định nghĩa cốt lõi</h4>
-    <div style="color: #0f172a; line-height: 1.6; font-size: 0.95em;">Trong lý thuyết nhận thức, <strong>Tư duy phân tích</strong> là khả năng chia nhỏ một hệ thống thông tin khổng lồ và phức tạp thành các thành phần nhỏ hơn có thể quản lý được, nhằm hiểu rõ bản chất, xác định mối quan hệ nhân quả và rút ra kết luận logic.</div>
+<div class="source-visualization not-prose ssk-definition-callout-wrapper"><div style="background: linear-gradient(120deg, #f0f9ff 0%, #e0f2fe 100%); border-left: 6px solid #0284c7; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-bottom: 20px;">
+  <div style="color: #0f172a; line-height: 1.6; font-size: 0.95em;">
+    <strong>Tư duy phân tích</strong> là khả năng chia nhỏ một hệ thống thông tin khổng lồ và phức tạp thành các thành phần nhỏ hơn có thể quản lý được, nhằm hiểu rõ bản chất, xác định mối quan hệ nhân quả và rút ra kết luận logic. Khả năng này phát huy sức mạnh tối đa khi tổ chức đối mặt với các khủng hoảng mơ hồ mà không rõ nguyên nhân. Khi đó, thay vì vội vã đưa ra giải pháp, người phân tích cần tiến hành thu thập dữ liệu khách quan để bóc tách vấn đề gốc rễ theo đúng nguyên tắc 80/20 (tập trung giải quyết 20% nguyên nhân cốt lõi để xử lý 80% hậu quả của vấn đề).
   </div>
-  
-  <!-- Cách dùng -->
-  <div style="background: linear-gradient(120deg, #f8fafc 0%, #f1f5f9 100%); border-left: 6px solid #64748b; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
-    <h4 style="color: #475569; margin-top: 0; margin-bottom: 10px; font-size: 1.1em;">⚙️ Khi nào dùng & Cách dùng</h4>
-    <div style="color: #334155; line-height: 1.6; font-size: 0.95em;"><strong>Khi nào dùng:</strong> Khi tổ chức đối mặt với các khủng hoảng mơ hồ (như doanh thu giảm đột ngột) mà không ai biết rõ nguyên nhân, dẫn đến các phòng ban đổ lỗi bằng cảm tính.<br><br><strong>Cách dùng:</strong> Áp dụng nguyên tắc 'Chậm lại để đi nhanh hơn'. Dừng việc đưa ra giải pháp, tiến hành thu thập dữ liệu khách quan và bóc tách nguyên nhân gốc rễ trước (Quy tắc 80/20).</div>
-  </div>
+
 </div></div>
 <p>Nhiều sinh viên thường nhầm lẫn giữa Tư duy phân tích và Tư duy sáng tạo. Trong khi tư duy sáng tạo nhằm mở rộng các giới hạn để bay bổng với ý tưởng, thì Tư duy phân tích lại là quá trình chắt lọc, sử dụng lý trí để loại bỏ những cảm tính, thiên kiến nhằm tìm ra một sự thật cốt lõi. Khả năng này đòi hỏi sự hoài nghi mang tính xây dựng: Không chấp nhận thông tin ở bề mặt kiểu &quot;Nhiều người đi xe hãng A thì hãng A tốt&quot;, mà phải tự hỏi &quot;Tại sao họ đi?&quot; và &quot;Họ phàn nàn gì trên mạng xã hội?&quot;. Trong môi trường làm việc số, năng lực phân tích dữ liệu và tình huống là kỹ năng sinh tồn bắt buộc trước khi đưa ra bất kỳ chiến dịch hay sản phẩm nào.</p>
 <div class="mermaid">mindmap
@@ -4251,52 +4467,47 @@
     Ra Quyết định
       Dựa trên Bằng chứng
       Loại bỏ cảm tính</div>
-<div class="ssk-practice-frame"><p>Trong khi các đối thủ dựa dẫm vào cảm tính (nghĩ rằng cứ tung mã khuyến mãi là khách sẽ đi), Xanh SM lại áp dụng lý thuyết Phân tích dữ liệu lớn cực kỳ lạnh lùng. Họ phân tích hàng triệu lượt phản hồi trên mạng xã hội mà không màng đến cảm xúc. Dữ liệu trả về cho thấy: Nỗi ám ảnh về &quot;Mùi xe&quot; và &quot;Say xe&quot; là rào cản lớn nhất khiến dân văn phòng e ngại đi taxi truyền thống. Tổng hợp phân tích này, Xanh SM quyết định biến Trải nghiệm không mùi của xe điện thành nhân vật chính. Quyết định loại bỏ cảm tính để hoàn toàn tin tưởng vào số liệu phân tích Nỗi đau khách hàng đã tạo ra một hiện tượng bùng nổ của năm 2023.</p>
-</div><div class="ssk-outcome-frame"><p>Bằng cách tập trung giải quyết bài toán cốt lõi là &#039;Trải nghiệm không mùi&#039;, Xanh SM đã chiếm lĩnh thị phần gọi xe công nghệ một cách thần tốc chỉ sau chưa đầy 1 năm ra mắt, vươn lên vị trí top đầu và định hình lại toàn bộ tiêu chuẩn dịch vụ của ngành.</p></div>
+<div class="ssk-practice-frame"><p>Trong khi các đối thủ dựa dẫm vào cảm tính (nghĩ rằng cứ tung mã khuyến mãi là khách sẽ đi), Xanh SM lại áp dụng phương pháp Phân tích dữ liệu lớn cực kỳ lạnh lùng. Họ phân tích hàng triệu lượt phản hồi trên mạng xã hội mà không màng đến cảm xúc. Dữ liệu trả về cho thấy: Sự khó chịu về &quot;Mùi xe&quot;, &quot;Say xe&quot; và &quot;Thái độ phục vụ&quot; là rào cản lớn nhất khiến dân văn phòng e ngại đi taxi truyền thống. Tổng hợp phân tích này, Xanh SM quyết định biến Trải nghiệm không mùi của xe điện và dịch vụ tài xế 5 sao thành nhân vật chính. Quyết định loại bỏ cảm tính để hoàn toàn tin tưởng vào số liệu phân tích Nỗi đau khách hàng đã tạo ra một hiện tượng bùng nổ của năm 2023.</p>
+</div><div class="ssk-outcome-frame"><p>Bằng cách tập trung giải quyết bài toán cốt lõi là &#039;Trải nghiệm không mùi&#039; và &#039;Dịch vụ chuẩn mực&#039;, Xanh SM đã chiếm lĩnh thị phần gọi xe công nghệ một cách thần tốc chỉ sau chưa đầy 1 năm ra mắt, vươn lên vị trí top đầu và định hình lại toàn bộ tiêu chuẩn dịch vụ của ngành.</p></div>
 <h2>3. Lưu ý</h2>
-<p>Trong quá trình áp dụng lý thuyết vào thực tiễn, người phân tích cần đặc biệt chú ý sự khác biệt giữa cách làm theo bản năng và cách làm chuẩn học thuật:</p>
+<p>Trong quá trình ứng dụng tư duy này vào thực tiễn, người phân tích cần phân định rạch ròi giữa việc phản ứng dựa trên trực giác và việc giải quyết sự cố bằng lăng kính dữ liệu:</p>
 <div class="source-visualization not-prose"><div style="display: flex; flex-direction: column; gap: 20px; margin: 20px 0;">
   <!-- Hộp Đỏ cảnh báo rủi ro -->
   <div style="background: linear-gradient(135deg, #fee2e2, #fecaca); border: 1px solid #f87171; border-radius: 12px; padding: 20px; box-shadow: 0 8px 15px rgba(239,68,68,0.15); position: relative; overflow: hidden;">
-    <div style="position: absolute; top: -10px; right: -10px; font-size: 5rem; opacity: 0.1;">❌</div>
     <h4 style="color: #b91c1c; margin-top: 0; font-size: 1.2em; margin-bottom: 15px; display: flex; align-items: center; gap: 8px;">
-      <span style="font-size: 1.3em;">❌</span> Khi áp dụng lý thuyết này, chúng ta rất dễ mắc phải các lỗi phổ biến sau:
+      Khi rèn luyện hệ tư duy này, chúng ta rất dễ mắc phải các lỗi phổ biến sau:
     </h4>
     <div style="font-size: 0.95em; color: #7f1d1d; line-height: 1.6; margin-bottom: 12px;"><strong>1. Chữa triệu chứng thay vì căn nguyên:</strong> Thấy lượt khách giảm, lập tức kết luận do suy thoái kinh tế và tung mã giảm giá vô tội vạ mà không tìm hiểu nguyên nhân gốc.</div>
     <div style="font-size: 0.95em; color: #7f1d1d; line-height: 1.6;"><strong>2. Lạm dụng trực giác cá nhân:</strong> Ra quyết định dựa trên linh cảm hoặc lời truyền miệng thay vì đo lường dữ liệu thực tế khách quan.</div>
+
+  
   </div>
   <!-- Hộp Xanh lá định hướng giải pháp -->
   <div style="background: linear-gradient(135deg, #dcfce7, #bbf7d0); border: 1px solid #4ade80; border-radius: 12px; padding: 20px; box-shadow: 0 8px 15px rgba(34,197,94,0.15); position: relative; overflow: hidden;">
-    <div style="position: absolute; top: -10px; right: -10px; font-size: 5rem; opacity: 0.1;">✅</div>
     <h4 style="color: #15803d; margin-top: 0; font-size: 1.2em; margin-bottom: 15px; display: flex; align-items: center; gap: 8px;">
-      <span style="font-size: 1.3em;">✅</span> Để hệ thống phân tích hoạt động trơn tru, hãy ghi nhớ các nguyên tắc cốt lõi:
+      Để hệ thống phân tích hoạt động trơn tru, hãy ghi nhớ các nguyên tắc cốt lõi:
     </h4>
     <div style="font-size: 0.95em; color: #14532d; line-height: 1.6; margin-bottom: 12px;"><strong>1. Chậm lại để đi nhanh hơn:</strong> Dành 80% thời gian bóc tách dữ liệu để tìm ra vấn đề gốc rễ trước khi đưa ra bất kỳ giải pháp nào.</div>
     <div style="font-size: 0.95em; color: #14532d; line-height: 1.6;"><strong>2. Thu thập dữ kiện đa chiều:</strong> Lấy cả dữ liệu định lượng (báo cáo doanh thu) và định tính (phản hồi khách hàng) để có góc nhìn toàn cảnh.</div>
-  </div>
-</div></div>
+
+</div></div></div>
 <h2>4. Tổng kết</h2>
 <div class="source-visualization not-prose ssk-summary-panel-wrapper"><section class="ssk-summary-board">
         <header><span>T&#7893;ng k&#7871;t</span><h3>G&#243;i &#253; ch&#237;nh c&#7911;a b&#224;i</h3></header>
         <div class="ssk-summary-grid"><article class="ssk-summary-card">
           <b>01</b>
-          <h4>Định nghĩa</h4>
-          <p>Là năng lực chẻ nhỏ một hệ thống phức tạp thành các thành phần có thể quản lý được để tìm ra quy luật vận hành.</p>
+          <h4>Định nghĩa & Bản chất</h4>
+          <p>Bản chất: Chia nhỏ hệ thống thông tin khổng lồ và phức tạp thành các thành phần có thể quản lý được. Mục tiêu cốt lõi: Nhìn thấu bản chất sự việc, loại bỏ hoàn toàn sự cảm tính và thiên kiến xác nhận. Nguyên tắc: Dựa trên dữ liệu đo lường được (Data-driven), không dựa trên linh cảm hay lời đồn đoán.</p>
           
         </article><article class="ssk-summary-card">
           <b>02</b>
-          <h4>Khi nào dùng?</h4>
-          <p>Khi đối mặt với một vấn đề mơ hồ, phức tạp, hoặc khi các giải pháp cảm tính/trực giác liên tiếp thất bại.</p>
-          
-        </article><article class="ssk-summary-card">
-          <b>03</b>
-          <h4>Cách dùng</h4>
-          <p>Chậm lại để đi nhanh hơn. Thu thập dữ liệu thực tế (Data-driven) và truy tìm nguyên nhân gốc rễ (Root Cause) trước khi hành động.</p>
+          <h4>Quy trình ứng dụng thực chiến</h4>
+          <p>1. Thu thập: Khai thác dữ liệu định lượng và định tính đa chiều. 2. Bóc tách: Nhận diện điểm nghẽn và nỗi đau thực sự của hệ thống. 3. Tìm quy luật: Thiết lập chuỗi Nhân-Quả để hiểu gốc rễ vấn đề. 4. Quyết định: Ra quyết định khách quan, chữa đúng 'căn bệnh' thay vì 'triệu chứng'.</p>
           
         </article></div>
       </section></div>
 <h2>5. Tài liệu tham khảo</h2>
-<ul><li>Kahneman, D. (2011). <em>Thinking, Fast and Slow</em>. Farrar, Straus and Giroux.</li><li>Paul, R., &amp; Elder, L. (2006). <em>Critical Thinking: Tools for Taking Charge of Your Learning and Your Life</em>. Pearson.</li></ul></div><div class="mt-10 pt-6 border-t-2 border-gray-200/80 flex flex-col sm:flex-row items-center justify-between gap-4"><button onclick="prevLessonInSession(1, '1')" class="w-full sm:w-auto px-5 py-3 rounded-2xl border-2 border-gray-300 bg-white text-gray-700 hover:bg-gray-100 font-bold text-xs sm:text-sm flex items-center justify-center gap-2.5 transition shadow-2xs group cursor-pointer"><i class="ph-bold ph-arrow-left text-base text-gray-500 group-hover:-translate-x-1 transition"></i><span>Bài trước</span></button><button onclick="nextLessonInSession(1, '1')" class="w-full sm:w-auto px-6 py-3.5 rounded-2xl bg-gradient-to-r from-rikkei-red to-red-600 hover:from-rikkei-darkred hover:to-red-700 text-white font-black text-xs sm:text-sm flex items-center justify-center gap-3 transition shadow-md hover:shadow-xl group cursor-pointer"><span>Bài tiếp theo</span><i class="ph-bold ph-arrow-right text-base text-white group-hover:translate-x-1 transition"></i></button></div></article><article id="panel-s1-l2" data-lesson-meta="Lesson 2 • Session 01" data-lesson-title="Nhận diện và làm rõ vấn đề" class="lesson-panel hidden space-y-8 animate-fade bg-white p-6 sm:p-8 rounded-3xl border border-gray-200 shadow-xs"><div class="prose" data-preserve-source-visuals="true"><h2>1. Các ứng dụng gọi xe loay hoay với ma trận giá rẻ</h2>
+<ul><li>Kahneman, D. (2011). <em>Thinking, Fast and Slow</em>. Farrar, Straus and Giroux.</li><li>Paul, R., &amp; Elder, L. (2006). <em>Critical Thinking: Tools for Taking Charge of Your Learning and Your Life</em>. Pearson.</li></ul></div><div class="mt-10 pt-6 border-t-2 border-gray-200/80 flex flex-col sm:flex-row items-center justify-between gap-4"><button onclick="prevLessonInSession(1, '1')" class="w-full sm:w-auto px-5 py-3 rounded-2xl border-2 border-gray-300 bg-white text-gray-700 hover:bg-gray-100 font-bold text-xs sm:text-sm flex items-center justify-center gap-2.5 transition shadow-2xs group cursor-pointer"><i class="ph-bold ph-arrow-left text-base text-gray-500 group-hover:-translate-x-1 transition"></i><span>Bài trước</span></button><button onclick="nextLessonInSession(1, '1')" class="w-full sm:w-auto px-6 py-3.5 rounded-2xl bg-gradient-to-r from-rikkei-red to-red-600 hover:from-rikkei-darkred hover:to-red-700 text-white font-black text-xs sm:text-sm flex items-center justify-center gap-3 transition shadow-md hover:shadow-xl group cursor-pointer"><span>Bài tiếp theo</span><i class="ph-bold ph-arrow-right text-base text-white group-hover:translate-x-1 transition"></i></button></div></article><article id="panel-s1-l2" data-lesson-meta="Lesson 2 • Session 01" data-lesson-title="Tổng quan về tư duy phân tích" class="lesson-panel hidden space-y-8 animate-fade bg-white p-6 sm:p-8 rounded-3xl border border-gray-200 shadow-xs"><div class="prose" data-preserve-source-visuals="true"><h2>1. Các ứng dụng gọi xe loay hoay với ma trận giá rẻ</h2>
 <figure class="lesson-company-image-block">
     <button type="button" class="lesson-company-image-button" data-full-image="https://images2.thanhnien.vn/528068263637045248/2023/12/27/a1-17036458962351173115719.jpg" data-full-caption="Xanh SM • Minh họa tình huống phân tích" data-image-source="images2.thanhnien.vn" aria-label="Mở ảnh minh họa toàn màn hình">
       <img src="https://images2.thanhnien.vn/528068263637045248/2023/12/27/a1-17036458962351173115719.jpg" alt="Xanh SM • Minh họa tình huống phân tích" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-company-visual-ready="true">
@@ -4307,38 +4518,26 @@
       </span>
     </button>
   </figure>
-<div class="lesson-problem-block"><p>Khi các ứng dụng gọi xe truyền thống đối mặt với sự sụt giảm lượng khách hàng trung thành, các quản lý thường than thở chung chung: &quot;Khách hàng dạo này thắt chặt chi tiêu quá&quot;. Nếu bỏ qua các bước phân tích bài bản, người quản lý thường có xu hướng ngay lập tức viết ra Định nghĩa vấn đề: &quot;Ứng dụng của chúng ta cần phải phát thêm nhiều mã giảm giá 50%&quot;. Đây là một Định nghĩa vấn đề tồi tệ vì nó lồng ghép sẵn giải pháp (phát mã), biến họ thành những kẻ đốt tiền vô nghĩa.</p></div>
-<p>Tuy nhiên, đội ngũ chiến lược của Xanh SM (GSM) không làm vậy. Họ lôi <strong>Lý thuyết 5W1H</strong> ra để ép hệ thống thông tin phải trả lời rõ ràng: Sự khó chịu xảy ra với AI? (Who: Với khối nhân viên văn phòng và sinh viên - Gen Z). Xảy ra Ở ĐÂU? (Where: Bên trong khoang cabin các xe dịch vụ cũ). KHI NÀO? (When: Đặc biệt trong các chuyến đi dài hoặc giờ cao điểm kẹt xe). Tác động LÀ GÌ? (How: Tỷ lệ khách hàng từ bỏ app cũ tăng 30% khi có sự kiện quan trọng cần di chuyển). Dựa trên sự nghiêm ngặt của lý thuyết, họ cho ra đời một <strong>Định nghĩa vấn đề</strong> chuẩn mực: <em>&quot;Tệp khách hàng dân văn phòng (Who) đang bị mệt mỏi và ám ảnh (What) khi phải ngồi trong các khoang xe nặng mùi (Where) vào mỗi buổi sáng đi làm (When), dẫn đến sự sụt giảm 30% tỷ lệ giữ chân trên các nền tảng cũ (How)&quot;</em>. Từ phát biểu sạch sẽ này, không hề ám chỉ đến mã giảm giá, giải pháp cốt lõi xuất hiện: Đội xe thuần điện 100% không phát thải. Việc áp dụng đúng lý thuyết 5W1H đã đẻ ra một tiêu chuẩn ngành hoàn toàn mới trong năm 2023.</p>
+<div class="lesson-problem-block"><p>Khi các ứng dụng gọi xe truyền thống đối mặt với sự sụt giảm lượng khách hàng trung thành, các quản lý thường than thở chung chung: &quot;Khách hàng dạo này thắt chặt chi tiêu quá&quot;. Nếu bỏ qua các bước phân tích bài bản, người quản lý thường có xu hướng ngay lập tức viết ra Định nghĩa vấn đề: &quot;Ứng dụng của chúng ta cần phải phát thêm nhiều mã giảm giá 50%&quot;. Đây là một Định nghĩa vấn đề tồi tệ vì nó lồng ghép sẵn giải pháp (phát mã), vô tình biến họ thành những kẻ đốt tiền vô nghĩa mà không chạm được đến nỗi đau thực sự của người dùng. Tổ chức đang bị mắc kẹt giữa hàng tá những lời phàn nàn rời rạc, và họ cần một bộ lọc khắt khe để khoanh vùng lại chính xác nguyên nhân của sự sụt giảm này trước khi tung ra bất kỳ giải pháp nào.</p></div>
 <h2>2. Bộ lọc 5W1H và Định nghĩa vấn đề của Xanh SM</h2>
-<div class="source-visualization not-prose ssk-theory-visual-wrapper" data-ssk-theory-visual="true"><section class="ssk-model-board ssk-model-board--question" aria-label="Trực quan hóa lý thuyết"><header class="ssk-model-header"><h3>Định nghĩa vấn đề bằng 6 góc nhìn</h3><p>Mẫu này gom câu hỏi quanh một lõi duy nhất: vấn đề phải rõ người, rõ bối cảnh, rõ tác động trước khi bàn giải pháp.</p></header>
-      <div class="ssk-radial-stage ssk-hex-stage">
-        <svg class="ssk-radial-web" viewBox="0 0 640 460" aria-hidden="true">
-          <ellipse cx="320" cy="230" rx="205" ry="132"></ellipse>
-          <path d="M320 230 L320 54 M320 230 L520 142 M320 230 L520 318 M320 230 L320 406 M320 230 L120 318 M320 230 L120 142"></path>
-        </svg>
-        <div class="ssk-radial-core"><strong>VẤN ĐỀ</strong><span>chưa gắn giải pháp</span></div>
-        <article class="ssk-radial-node is-red" style="--x:50%;--y:15%"><span>01</span><strong>Who</strong><p>Ai liên quan hoặc bị ảnh hưởng?</p></article>
-        <article class="ssk-radial-node is-blue" style="--x:82%;--y:32%"><span>02</span><strong>What</strong><p>Chuyện gì đang xảy ra?</p></article>
-        <article class="ssk-radial-node is-green" style="--x:82%;--y:66%"><span>03</span><strong>Where</strong><p>Xảy ra ở đâu trong hệ thống?</p></article>
-        <article class="ssk-radial-node is-amber" style="--x:50%;--y:84%"><span>04</span><strong>When</strong><p>Mốc thời gian và tần suất?</p></article>
-        <article class="ssk-radial-node is-red" style="--x:18%;--y:66%"><span>05</span><strong>Why</strong><p>Vì sao đáng xử lý lúc này?</p></article>
-        <article class="ssk-radial-node is-blue" style="--x:18%;--y:32%"><span>06</span><strong>How</strong><p>Diễn ra theo cơ chế nào?</p></article>
-      </div>
-      <div class="ssk-model-output"><strong>Đầu ra</strong><span>Một phát biểu vấn đề sạch, đo được và chưa nhảy vội sang lời giải.</span></div></section></div>
-<div class="source-visualization not-prose ssk-definition-callout-wrapper"><div style="display: flex; flex-direction: column; gap: 15px; margin-bottom: 25px;">
-  <!-- Định nghĩa -->
-  <div style="background: linear-gradient(120deg, #f0f9ff 0%, #e0f2fe 100%); border-left: 6px solid #0284c7; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
-    <h4 style="color: #0369a1; margin-top: 0; margin-bottom: 10px; font-size: 1.1em;">🔍 Định nghĩa cốt lõi</h4>
-    <div style="color: #0f172a; line-height: 1.6; font-size: 0.95em;"><strong>Định nghĩa vấn đề</strong> là việc xác định chính xác khoảng cách (The Gap) giữa hiện trạng thực tế và mục tiêu kỳ vọng. Khung <strong>5W1H</strong> (What, Who, Where, When, Why, How) là công cụ sắc bén nhất để khoanh vùng và đóng khung sự cố này.</div>
+<div class="source-visualization not-prose ssk-definition-callout-wrapper"><div style="background: linear-gradient(120deg, #f0f9ff 0%, #e0f2fe 100%); border-left: 6px solid #0284c7; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-bottom: 20px;">
+  <div style="color: #0f172a; line-height: 1.6; font-size: 0.95em;">
+    <strong>Định nghĩa vấn đề</strong> là việc xác định chính xác khoảng cách (The Gap) giữa hiện trạng thực tế và mục tiêu kỳ vọng. Khung <strong>5W1H</strong> (What, Who, Where, When, Why, How) là công cụ sắc bén nhất để khoanh vùng và đóng khung sự cố này. Công cụ này được áp dụng khi phát hiện sự cố nhưng các mô tả hiện tại đang quá mập mờ, chung chung. Bằng cách đặt 6 câu hỏi khắt khe (Sự kiện gì? Nhóm nào? Ở đâu? Khi nào? Tại sao? Tác động?), người quản lý có thể khoanh vùng chính xác khu vực xảy ra sự cố mà không lồng ghép sẵn giải pháp vào câu trả lời.
   </div>
-  
-  <!-- Cách dùng -->
-  <div style="background: linear-gradient(120deg, #f8fafc 0%, #f1f5f9 100%); border-left: 6px solid #64748b; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
-    <h4 style="color: #475569; margin-top: 0; margin-bottom: 10px; font-size: 1.1em;">⚙️ Khi nào dùng & Cách dùng</h4>
-    <div style="color: #334155; line-height: 1.6; font-size: 0.95em;"><strong>Khi nào dùng:</strong> Khi phát hiện sự cố nhưng các mô tả đang quá mập mờ, chung chung (Ví dụ: <em>'Doanh thu giảm, chúng ta cần bán nhiều hơn'</em>).<br><br><strong>Cách dùng:</strong> Đặt 6 câu hỏi khắt khe: Sự kiện gì (What)? Nhóm nào (Who)? Ở đâu (Where)? Khi nào (When)? Tại sao (Why)? Tác động (How)? Tuyệt đối không lồng ghép giải pháp vào câu trả lời.</div>
-  </div>
+
 </div></div>
-<p>Một Định nghĩa vấn đề chuẩn học thuật phải đo lường được khoảng cách giữa &quot;Trạng thái hiện tại&quot; và &quot;Trạng thái mong muốn&quot;, đồng thời KHÔNG được chứa đựng bất kỳ giải pháp hay sự đổ lỗi nào bên trong nó. Để đóng khung được vấn đề, giới phân tích bắt buộc phải sử dụng bộ công cụ <strong>5W1H (Who, What, When, Where, Why, How)</strong>. Khung tư duy này ép buộc não bộ người phân tích phải vẽ ra một bức tranh toàn cảnh về sự cố. Nếu bạn làm phân tích mà bỏ sót chữ &quot;Where&quot; (xảy ra ở nền tảng nào), bạn có thể lãng phí hàng trăm triệu chạy quảng cáo sai tệp. Việc mổ xẻ sự kiện bằng 5W1H không phải là lý thuyết suông, mà là sự rèn luyện tính kỷ luật tối thượng của logic.</p>
+<p>Một Định nghĩa vấn đề chuẩn mực phải đo lường được khoảng cách giữa &quot;Trạng thái hiện tại&quot; và &quot;Trạng thái mong muốn&quot;, đồng thời KHÔNG được chứa đựng bất kỳ giải pháp hay sự đổ lỗi nào bên trong nó. Để đóng khung được vấn đề, giới phân tích bắt buộc phải sử dụng bộ công cụ <strong>5W1H (Who, What, When, Where, Why, How)</strong>. Khung tư duy này ép buộc não bộ người phân tích phải vẽ ra một bức tranh toàn cảnh về sự cố. Nếu bạn làm phân tích mà bỏ sót chữ &quot;Where&quot; (xảy ra ở nền tảng nào), bạn có thể lãng phí hàng trăm triệu chạy quảng cáo sai tệp. Việc mổ xẻ sự kiện bằng 5W1H không phải là lời nói suông, mà là sự rèn luyện tính logic chặt chẽ của tư duy phân tích.</p>
+<div class="source-visualization not-prose"><div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px; margin: 20px 0; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">
+  <h4 style="color: #0f172a; margin-top: 0; margin-bottom: 15px; border-bottom: 2px solid #f1f5f9; padding-bottom: 10px;">Bộ câu hỏi đóng khung vấn đề (5W1H)</h4>
+  <ul style="list-style-type: none; padding-left: 0; margin: 0; color: #334155; line-height: 1.8;">
+    <li style="margin-bottom: 10px;"><strong>🔴 What (Cái gì):</strong> Bản chất sự việc hoặc sự cố đang xảy ra là gì?</li>
+    <li style="margin-bottom: 10px;"><strong>👤 Who (Ai):</strong> Ai là người gây ra hoặc Nhóm đối tượng nào đang bị tác động trực tiếp?</li>
+    <li style="margin-bottom: 10px;"><strong>📍 Where (Ở đâu):</strong> Sự cố phát sinh tại không gian, địa điểm hay nền tảng nào?</li>
+    <li style="margin-bottom: 10px;"><strong>⏰ When (Khi nào):</strong> Khủng hoảng xảy ra vào thời điểm nào, tần suất ra sao?</li>
+    <li style="margin-bottom: 10px;"><strong>❓ Why (Tại sao):</strong> Động cơ ban đầu hoặc lý do trực tiếp dẫn đến hiện tượng này?</li>
+    <li><strong>📈 How (Như thế nào):</strong> Mức độ thiệt hại hoặc sức ảnh hưởng có thể đo lường được bằng số liệu?</li>
+  </ul>
+</div></div>
 <div class="mermaid">graph TD
     A[Nhận diện Sự kiện/Triệu chứng] --&gt; B{Công cụ 5W1H}
     B --&gt; |What| C[Bản chất sự việc là gì?]
@@ -4347,56 +4546,56 @@
     B --&gt; |When| F[Thời điểm Khách hàng bỏ cuộc?]
     B --&gt; |Why| G[Tại sao nó làm giảm doanh thu?]
     B --&gt; |How| H[Mức độ rủi ro đo lường bằng Số liệu?]
-    C &amp; D &amp; E &amp; F &amp; G &amp; H --&gt; I[Xây dựng Định nghĩa vấn đề Chuẩn học thuật]
+    C --&gt; I[Xây dựng Định nghĩa vấn đề Chuẩn xác]
+    D --&gt; I[Xây dựng Định nghĩa vấn đề Chuẩn xác]
+    E --&gt; I[Xây dựng Định nghĩa vấn đề Chuẩn xác]
+    F --&gt; I[Xây dựng Định nghĩa vấn đề Chuẩn xác]
+    G --&gt; I[Xây dựng Định nghĩa vấn đề Chuẩn xác]
+    H --&gt; I[Xây dựng Định nghĩa vấn đề Chuẩn xác]
     I --&gt; J[Khoanh vùng mục tiêu, Nghiêm cấm gài cắm giải pháp]</div>
-<div class="ssk-practice-frame"><p>Khi nhận thấy lượng khách hàng văn phòng sụt giảm, thay vì tung mã giảm giá vô tội vạ, Xanh SM đã dùng <strong>Lý thuyết 5W1H</strong> để định nghĩa lại sự cố:</p>
-<ul><li><strong>What:</strong> Lượng đặt chuyến xe qua app giảm sút.</li><li><strong>Who:</strong> Tệp khách hàng văn phòng (Gen Y, Gen Z).</li><li><strong>Where:</strong> Tại khoang xe của các hãng công nghệ truyền thống.</li><li><strong>When:</strong> Đặc biệt vào giờ cao điểm đi làm hoặc khi có sự kiện quan trọng.</li><li><strong>Why:</strong> Do mùi hôi xăng xe và thái độ tài xế không chuyên nghiệp gây mệt mỏi.</li><li><strong>How:</strong> Tác động làm giảm 30% tỷ lệ giữ chân khách hàng (Retention rate) trong quý.</li></ul>
-<p><strong>=&gt; Định nghĩa vấn đề Học thuật:</strong> <em>&quot;Khách hàng dân văn phòng (Who) đang từ bỏ việc đặt xe công nghệ (Where/What) vào các khung giờ cao điểm (When) do sự ám ảnh về mùi xe và thái độ phục vụ (Why), kéo theo hệ lụy làm giảm 30% tỷ lệ giữ chân (How)&quot;</em>. Sự mạch lạc này giúp Xanh SM không đi vào vết xe đổ giảm giá, mà trực tiếp giải quyết đúng điểm đau: Xe thuần điện 100% không mùi.</p>
+<div class="ssk-practice-frame"><p>Khi nhận thấy lượng khách hàng văn phòng sụt giảm, thay vì tung mã giảm giá vô tội vạ, Xanh SM đã dùng <strong>Công cụ 5W1H</strong> để định nghĩa lại sự cố:</p>
+<ul><li><strong>What (Cái gì):</strong> Tần suất đặt chuyến và lượng mở ứng dụng (Active Users) của khách hàng đang có dấu hiệu giảm sút rõ rệt, đặc biệt là ở phân khúc dịch vụ di chuyển hàng ngày.</li><li><strong>Who (Ai):</strong> Tệp khách hàng chủ yếu rời bỏ nền tảng là dân văn phòng, học sinh sinh viên (Gen Y, Gen Z) - những người có nhu cầu di chuyển cao nhưng nhạy cảm với chất lượng dịch vụ.</li><li><strong>Where (Ở đâu):</strong> Trải nghiệm tồi tệ phát sinh trực tiếp tại không gian chật hẹp bên trong khoang cabin của các xe dịch vụ truyền thống, và hệ lụy kéo theo là sự sụt giảm trên nền tảng ứng dụng gọi xe.</li><li><strong>When (Khi nào):</strong> Sự cố này bùng phát mạnh nhất vào các khung giờ cao điểm sáng sớm khi đi làm, hoặc khi khách hàng cần trang phục chỉnh tề để tham gia các sự kiện quan trọng.</li><li><strong>Why (Tại sao):</strong> Nguyên nhân trực tiếp là do mùi hôi xăng xe nồng nặc và thái độ phục vụ cau có, thiếu chuyên nghiệp của tài xế khiến khách hàng cảm thấy mệt mỏi, say xe và không được tôn trọng.</li><li><strong>How (Như thế nào):</strong> Cuộc khủng hoảng ngầm này đã tác động nghiêm trọng, làm sụt giảm đến 30% tỷ lệ giữ chân khách hàng (Retention Rate) và kéo tụt doanh thu trung bình trên mỗi người dùng (ARPU) trong vòng một quý.</li></ul>
+<p><strong>=&gt; Định nghĩa vấn đề Chuẩn mực:</strong> <em>&quot;Khách hàng dân văn phòng (Who) đang từ bỏ việc đặt xe công nghệ (Where/What) vào các khung giờ cao điểm (When) do sự khó chịu về mùi xe và thái độ phục vụ (Why), kéo theo hệ lụy làm giảm 30% tỷ lệ giữ chân (How)&quot;</em>. Việc khoanh vùng vấn đề rõ ràng này giúp Xanh SM không đi vào vết xe đổ giảm giá, mà trực tiếp giải quyết đúng điểm đau: Tung ra dòng xe thuần điện 100% không mùi, đi kèm với quy trình đào tạo tài xế đạt chuẩn dịch vụ 5 sao.</p>
 </div><div class="ssk-outcome-frame"><p>Bằng việc định nghĩa vấn đề chính xác với 5W1H, Xanh SM không cần đốt tiền vào mã giảm giá mà vẫn thu hút thành công lượng lớn khách hàng từ bỏ các hãng xe cũ, nhanh chóng xác lập vị thế dẫn đầu trong phân khúc.</p></div>
 <h2>3. Lưu ý</h2>
-<p>Trong quá trình áp dụng lý thuyết vào thực tiễn, người phân tích cần đặc biệt chú ý sự khác biệt giữa cách làm theo bản năng và cách làm chuẩn học thuật:</p>
+<p>Trong quá trình áp dụng khung 5W1H vào thực tiễn, các nhà quản trị thường dễ sa đà vào những cái bẫy định kiến nếu không tuân thủ đúng nguyên tắc của bộ câu hỏi này:</p>
 <div class="source-visualization not-prose"><div style="display: flex; flex-direction: column; gap: 20px; margin: 20px 0;">
   <!-- Hộp Đỏ cảnh báo rủi ro -->
   <div style="background: linear-gradient(135deg, #fee2e2, #fecaca); border: 1px solid #f87171; border-radius: 12px; padding: 20px; box-shadow: 0 8px 15px rgba(239,68,68,0.15); position: relative; overflow: hidden;">
-    <div style="position: absolute; top: -10px; right: -10px; font-size: 5rem; opacity: 0.1;">❌</div>
     <h4 style="color: #b91c1c; margin-top: 0; font-size: 1.2em; margin-bottom: 15px; display: flex; align-items: center; gap: 8px;">
-      <span style="font-size: 1.3em;">❌</span> Khi áp dụng lý thuyết này, chúng ta rất dễ mắc phải các lỗi phổ biến sau:
+      Khi áp dụng công cụ này, chúng ta rất dễ mắc phải các lỗi phổ biến sau:
     </h4>
     <div style="font-size: 0.95em; color: #7f1d1d; line-height: 1.6; margin-bottom: 12px;"><strong>1. Lồng ghép giải pháp vào định nghĩa:</strong> Viết 'Chúng ta cần phát mã giảm giá 50%' - điều này khóa chặt tư duy sáng tạo vào một lối mòn duy nhất thay vì mở rộng các lựa chọn.</div>
     <div style="font-size: 0.95em; color: #7f1d1d; line-height: 1.6;"><strong>2. Mô tả vấn đề chung chung:</strong> Viết 'Doanh thu đang giảm' là một phát biểu vô nghĩa vì nó không khoanh vùng được sự cố thuộc về Ai, Ở đâu, Khi nào.</div>
+
+  
   </div>
   <!-- Hộp Xanh lá định hướng giải pháp -->
   <div style="background: linear-gradient(135deg, #dcfce7, #bbf7d0); border: 1px solid #4ade80; border-radius: 12px; padding: 20px; box-shadow: 0 8px 15px rgba(34,197,94,0.15); position: relative; overflow: hidden;">
-    <div style="position: absolute; top: -10px; right: -10px; font-size: 5rem; opacity: 0.1;">✅</div>
     <h4 style="color: #15803d; margin-top: 0; font-size: 1.2em; margin-bottom: 15px; display: flex; align-items: center; gap: 8px;">
-      <span style="font-size: 1.3em;">✅</span> Để hệ thống phân tích hoạt động trơn tru, hãy ghi nhớ các nguyên tắc cốt lõi:
+      Để hệ thống phân tích hoạt động trơn tru, hãy ghi nhớ các nguyên tắc cốt lõi:
     </h4>
     <div style="font-size: 0.95em; color: #14532d; line-height: 1.6; margin-bottom: 12px;"><strong>1. Định nghĩa bằng 'Khoảng cách' (The Gap):</strong> Luôn mô tả độ lệch rõ ràng giữa hiện trạng thực tế và mục tiêu kỳ vọng mà tổ chức hướng tới.</div>
     <div style="font-size: 0.95em; color: #14532d; line-height: 1.6;"><strong>2. Khảo sát khắt khe theo 5W1H:</strong> Ép bản thân trả lời đủ 6 góc độ (What, Who, Where, When, Why, How) để cô lập chính xác khu vực xảy ra sự cố.</div>
-  </div>
-</div></div>
+
+</div></div></div>
 <h2>4. Tổng kết</h2>
 <div class="source-visualization not-prose ssk-summary-panel-wrapper"><section class="ssk-summary-board">
         <header><span>T&#7893;ng k&#7871;t</span><h3>G&#243;i &#253; ch&#237;nh c&#7911;a b&#224;i</h3></header>
         <div class="ssk-summary-grid"><article class="ssk-summary-card">
           <b>01</b>
-          <h4>Định nghĩa</h4>
-          <p>5W1H là khung phân tích giúp mô tả chính xác "Khoảng cách" (The Gap) giữa thực tế và kỳ vọng, tuyệt đối không lồng ghép giải pháp.</p>
+          <h4>Tầm quan trọng của Định nghĩa Vấn đề</h4>
+          <p>Khái niệm 'The Gap': Vấn đề chính là khoảng cách giữa hiện trạng thực tế và mục tiêu kỳ vọng. Tách biệt Giải pháp: Tuyệt đối không lồng ghép giải pháp vào trong định nghĩa vấn đề để tránh khóa chặt tư duy. Lợi ích: Tránh tình trạng đổ tiền và nguồn lực giải quyết sai vấn đề cốt lõi (Chữa lợn lành thành lợn què).</p>
           
         </article><article class="ssk-summary-card">
           <b>02</b>
-          <h4>Khi nào dùng?</h4>
-          <p>Khi bắt đầu tiếp nhận một sự cố mới, hoặc khi các phòng ban đang hiểu sai/hiểu lệch về bản chất của vấn đề.</p>
-          
-        </article><article class="ssk-summary-card">
-          <b>03</b>
-          <h4>Cách dùng</h4>
-          <p>Ép hệ thống thông tin trả lời 6 câu hỏi: Ai (Who), Ở đâu (Where), Sự kiện gì (What), Khi nào (When), Tại sao (Why), và Tác động ra sao (How).</p>
+          <h4>Sức mạnh của Khung 5W1H</h4>
+          <p>What & Who: Khoanh vùng chính xác Sự kiện gì đang xảy ra và Nhóm đối tượng nào bị ảnh hưởng. Where & When: Xác định Phạm vi không gian và Trục thời gian phát sinh sự cố. Why & How: Truy tìm động cơ ban đầu và Đo lường Mức độ tác động đến toàn bộ hệ thống.</p>
           
         </article></div>
       </section></div>
 <h2>5. Tài liệu tham khảo</h2>
-<ul><li>Spradlin, D. (2012). <em>Are You Solving the Right Problem?</em> Harvard Business Review.</li><li>Jones, M. D. (1998). <em>The Thinker&#039;s Toolkit: 14 Powerful Techniques for Problem Solving</em>. Crown Business.</li></ul></div><div class="mt-10 pt-6 border-t-2 border-gray-200/80 flex flex-col sm:flex-row items-center justify-between gap-4"><button onclick="prevLessonInSession(1, '2')" class="w-full sm:w-auto px-5 py-3 rounded-2xl border-2 border-gray-300 bg-white text-gray-700 hover:bg-gray-100 font-bold text-xs sm:text-sm flex items-center justify-center gap-2.5 transition shadow-2xs group cursor-pointer"><i class="ph-bold ph-arrow-left text-base text-gray-500 group-hover:-translate-x-1 transition"></i><span>Bài trước</span></button><button onclick="nextLessonInSession(1, '2')" class="w-full sm:w-auto px-6 py-3.5 rounded-2xl bg-gradient-to-r from-rikkei-red to-red-600 hover:from-rikkei-darkred hover:to-red-700 text-white font-black text-xs sm:text-sm flex items-center justify-center gap-3 transition shadow-md hover:shadow-xl group cursor-pointer"><span>Bài tiếp theo</span><i class="ph-bold ph-arrow-right text-base text-white group-hover:translate-x-1 transition"></i></button></div></article></div><div id="view-session-2" class="hidden space-y-8 animate-fade"><section class="session-header bg-white p-6 sm:p-8 rounded-3xl border border-gray-200 shadow-xs space-y-4"><div class="flex items-center justify-between flex-wrap gap-3 border-b border-gray-100 pb-4"><span class="bg-rikkei-red text-white font-black text-xs px-3.5 py-1.5 rounded-full uppercase tracking-wider">SESSION 02 • NỘI DUNG CHUYÊN SÂU</span><button onclick="showView('view-overview')" class="px-4 py-2 rounded-xl bg-gray-100 hover:bg-gray-200 text-xs font-bold flex items-center gap-1.5 transition"><i class="ph-bold ph-arrow-left"></i> Quay lại Danh sách Session</button></div><h2 class="font-heading font-black text-xl sm:text-2xl md:text-3xl text-gray-900 leading-tight">Phân rã vấn đề và tìm nguyên nhân</h2><p class="text-xs sm:text-sm text-gray-600 leading-relaxed">Nội dung được lấy trực tiếp từ bài đọc nguồn, giữ các sơ đồ, bảng và khung ứng dụng trong bài.</p><div class="flex items-center gap-2 flex-wrap pt-3 border-t border-gray-100"><button id="btn-s2-l1" onclick="showLessonTab(2, '1', true)" class="tab-btn flex-1 justify-center px-4 py-2.5 rounded-2xl text-xs sm:text-sm flex items-center gap-2 transition cursor-pointer active bg-rikkei-red text-white font-black shadow-md"><i class="ph-bold ph-book-open text-white"></i><span>Lesson 1</span></button><button id="btn-s2-l2" onclick="showLessonTab(2, '2', true)" class="tab-btn flex-1 justify-center px-4 py-2.5 rounded-2xl text-xs sm:text-sm flex items-center gap-2 transition cursor-pointer bg-gray-100 text-gray-700 font-bold"><i class="ph-bold ph-book-open text-rikkei-red"></i><span>Lesson 2</span></button></div></section><article id="panel-s2-l1" data-lesson-meta="Lesson 1 • Session 02" data-lesson-title="Phân rã vấn đề với Cây vấn đề và MECE" class="lesson-panel  space-y-8 animate-fade bg-white p-6 sm:p-8 rounded-3xl border border-gray-200 shadow-xs"><div class="prose" data-preserve-source-visuals="true"><h2>1. Bóng ma &quot;Boom hàng&quot; càn quét TikTok Shop 2023</h2>
+<ul><li>Spradlin, D. (2012). <em>Are You Solving the Right Problem?</em> Harvard Business Review.</li><li>Jones, M. D. (1998). <em>The Thinker&#039;s Toolkit: 14 Powerful Techniques for Problem Solving</em>. Crown Business.</li></ul></div><div class="mt-10 pt-6 border-t-2 border-gray-200/80 flex flex-col sm:flex-row items-center justify-between gap-4"><button onclick="prevLessonInSession(1, '2')" class="w-full sm:w-auto px-5 py-3 rounded-2xl border-2 border-gray-300 bg-white text-gray-700 hover:bg-gray-100 font-bold text-xs sm:text-sm flex items-center justify-center gap-2.5 transition shadow-2xs group cursor-pointer"><i class="ph-bold ph-arrow-left text-base text-gray-500 group-hover:-translate-x-1 transition"></i><span>Bài trước</span></button><button onclick="nextLessonInSession(1, '2')" class="w-full sm:w-auto px-6 py-3.5 rounded-2xl bg-gradient-to-r from-rikkei-red to-red-600 hover:from-rikkei-darkred hover:to-red-700 text-white font-black text-xs sm:text-sm flex items-center justify-center gap-3 transition shadow-md hover:shadow-xl group cursor-pointer"><span>Bài tiếp theo</span><i class="ph-bold ph-arrow-right text-base text-white group-hover:translate-x-1 transition"></i></button></div></article></div><div id="view-session-2" class="hidden space-y-8 animate-fade"><section class="session-header bg-white p-6 sm:p-8 rounded-3xl border border-gray-200 shadow-xs space-y-4"><div class="flex items-center justify-between flex-wrap gap-3 border-b border-gray-100 pb-4"><span class="bg-rikkei-red text-white font-black text-xs px-3.5 py-1.5 rounded-full uppercase tracking-wider">SESSION 02 • NỘI DUNG CHUYÊN SÂU</span><button onclick="showView('view-overview')" class="px-4 py-2 rounded-xl bg-gray-100 hover:bg-gray-200 text-xs font-bold flex items-center gap-1.5 transition"><i class="ph-bold ph-arrow-left"></i> Quay lại Danh sách Session</button></div><h2 class="font-heading font-black text-xl sm:text-2xl md:text-3xl text-gray-900 leading-tight">Phân tích vấn đề và phương pháp khai thác nguyên nhân gốc rễ</h2><p class="text-xs sm:text-sm text-gray-600 leading-relaxed">Nội dung được lấy trực tiếp từ bài đọc nguồn, giữ các sơ đồ, bảng và khung ứng dụng trong bài.</p><div class="flex items-center gap-2 flex-wrap pt-3 border-t border-gray-100"><button id="btn-s2-l1" onclick="showLessonTab(2, '1', true)" class="tab-btn flex-1 justify-center px-4 py-2.5 rounded-2xl text-xs sm:text-sm flex items-center gap-2 transition cursor-pointer active bg-rikkei-red text-white font-black shadow-md"><i class="ph-bold ph-book-open text-white"></i><span>Lesson 1</span></button><button id="btn-s2-l2" onclick="showLessonTab(2, '2', true)" class="tab-btn flex-1 justify-center px-4 py-2.5 rounded-2xl text-xs sm:text-sm flex items-center gap-2 transition cursor-pointer bg-gray-100 text-gray-700 font-bold"><i class="ph-bold ph-book-open text-rikkei-red"></i><span>Lesson 2</span></button></div></section><article id="panel-s2-l1" data-lesson-meta="Lesson 1 • Session 02" data-lesson-title="Phân rã vấn đề với Cây vấn đề và MECE" class="lesson-panel  space-y-8 animate-fade bg-white p-6 sm:p-8 rounded-3xl border border-gray-200 shadow-xs"><div class="prose" data-preserve-source-visuals="true"><h2>1. Bóng ma &quot;Boom hàng&quot; càn quét TikTok Shop 2023</h2>
 <figure class="lesson-company-image-block">
     <button type="button" class="lesson-company-image-button" data-full-image="https://cdn2.fptshop.com.vn/unsafe/1920x0/filters:format(webp):quality(75)/ai_tiktok_9ffa9b830f.png" data-full-caption="TikTok Shop • Minh họa tình huống phân tích" data-image-source="cdn2.fptshop.com.vn" aria-label="Mở ảnh minh họa toàn màn hình">
       <img src="https://cdn2.fptshop.com.vn/unsafe/1920x0/filters:format(webp):quality(75)/ai_tiktok_9ffa9b830f.png" alt="TikTok Shop • Minh họa tình huống phân tích" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-company-visual-ready="true">
@@ -4407,99 +4606,112 @@
       </span>
     </button>
   </figure>
-<div class="lesson-problem-block"><p>Năm 2023-2024, cơn sốt chốt đơn qua Livestream trên TikTok Shop mang lại mức doanh thu khổng lồ, nhưng đi kèm với nó là một bóng ma ám ảnh mọi nhà bán hàng: Vấn nạn &quot;Boom hàng&quot; (Khách đặt nhưng không nhận hàng) với tỷ lệ hoàn đơn có khi lên tới 30-40%.</p></div>
-<p>Trong cơn hoảng loạn, các chủ Shop nhỏ lẻ thường giải quyết bằng trực giác và cảm xúc: Họ lập ra những danh sách nguyên nhân lộn xộn (do khách hàng &quot;trẻ trâu&quot;, do shipper lười, do trời mưa...) và sau đó quay video mắng mỏ khách hàng trên mạng. Cách làm này không giải quyết được căn nguyên mà còn đẩy thương hiệu vào khủng hoảng truyền thông.</p>
-<p>Ngược lại, đội ngũ phân tích dữ liệu tại các Tổng kho lớn lại giải quyết bài toán bằng sự lạnh lùng của <strong>Lý thuyết MECE</strong> và <strong>Cây vấn đề (Issue Tree)</strong>. Thay vì đoán mò, họ chia dòng chảy của một đơn hàng thành 3 nhánh lớn:</p>
-<ul><li>Nhánh 1: Lỗi từ Khách hàng (Đổi ý, hết tiền).</li><li>Nhánh 2: Lỗi từ Vận hành của Shop (Đóng gói chậm, giao sai món).</li><li>Nhánh 3: Lỗi từ Đơn vị Vận chuyển (Giao hàng quá lâu, shipper thái độ kém).</li></ul>
-<p>Việc chẻ nhỏ vấn đề một cách có hệ thống này đã làm lộ ra một sự thật kinh hoàng: Hơn 60% tỷ lệ boom hàng không đến từ khách hàng, mà tập trung ở <strong>Nhánh 2</strong>. Do các Shop nổ quá nhiều đơn trong đêm Livestream nhưng kho bãi quá tải, dẫn đến 5 ngày sau hàng mới rời khỏi kho. Sự chậm trễ này làm khách hàng &quot;tụt cảm xúc&quot; mua sắm (FOMO) và từ chối nhận hàng. Việc tôn trọng nguyên tắc chia nhỏ vấn đề đã chứng minh: Bạn không thể chữa trị một khối u nếu không dùng dao mổ bóc tách nó ra từng lớp rõ ràng.</p>
+<div class="lesson-problem-block"><p>Năm 2023-2024, cơn sốt chốt đơn qua Livestream trên TikTok Shop mang lại mức doanh thu khổng lồ, nhưng đi kèm với nó là một bóng ma ám ảnh mọi nhà bán hàng: Vấn nạn &quot;Boom hàng&quot; (Khách đặt nhưng không nhận hàng) với tỷ lệ hoàn đơn có khi lên tới 30-40%. Trong cơn hoảng loạn, các chủ Shop nhỏ lẻ thường cố gắng giải quyết bằng trực giác và cảm xúc. Họ lập ra những danh sách nguyên nhân lộn xộn (do khách hàng &quot;trẻ trâu&quot;, do shipper lười, do trời mưa...) và sau đó quay video mắng mỏ khách hàng trên mạng. Cách làm này không giải quyết được căn nguyên mà còn đẩy thương hiệu vào khủng hoảng truyền thông. Các doanh nghiệp đang đứng trước bài toán phải tìm cách chẻ nhỏ mớ bòng bong này một cách có hệ thống, thay vì đổ lỗi vô căn cứ.</p></div>
 <h2>2. Dùng Cây vấn đề và MECE để bóc tách luồng đơn hàng</h2>
-<div class="source-visualization not-prose ssk-theory-visual-wrapper" data-ssk-theory-visual="true"><section class="ssk-model-board ssk-model-board--tree" aria-label="Trực quan hóa lý thuyết"><header class="ssk-model-header"><h3>Tách nhỏ mà không chồng lấn</h3><p>Cấu trúc cây giúp nhìn hệ thống nguyên nhân; MECE giữ các nhánh cùng cấp, không trùng và không bỏ sót.</p></header>
-      <div class="ssk-tree-model">
-        <div class="ssk-tree-root">Vấn đề trung tâm</div>
-        <div class="ssk-tree-trunk"></div>
-        <div class="ssk-tree-branches">
-          <article class="ssk-model-node "><span>01</span><strong>Khách hàng</strong><p>Hành vi, kỳ vọng, nhu cầu, khả năng chi trả.</p></article>
-          <article class="ssk-model-node "><span>02</span><strong>Quy trình</strong><p>Luồng vận hành, phối hợp, tiêu chuẩn, điểm nghẽn.</p></article>
-          <article class="ssk-model-node "><span>03</span><strong>Nền tảng</strong><p>Công nghệ, dữ liệu, nguồn lực, chính sách.</p></article>
-        </div>
-      </div>
-      <div class="ssk-rule-strip"><span>Không trùng lặp</span><span>Không bỏ sót</span><span>Cùng một cấp logic</span></div></section></div>
-<div class="source-visualization not-prose ssk-definition-callout-wrapper"><div style="display: flex; flex-direction: column; gap: 15px; margin-bottom: 25px;">
-  <!-- Định nghĩa -->
-  <div style="background: linear-gradient(120deg, #f0f9ff 0%, #e0f2fe 100%); border-left: 6px solid #0284c7; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
-    <h4 style="color: #0369a1; margin-top: 0; margin-bottom: 10px; font-size: 1.1em;">🔍 Định nghĩa cốt lõi</h4>
-    <div style="color: #0f172a; line-height: 1.6; font-size: 0.95em;"><strong>Cây vấn đề (Issue Tree)</strong> là một hệ thống phân rã vấn đề từ gốc rễ thành các nhánh nhỏ hơn một cách logic. Để có giá trị thực tiễn, nó phải tuân thủ đạo luật thép <strong>MECE</strong>: Độc lập lẫn nhau (Không chồng chéo) và Bao hàm tất cả (Không bỏ sót).</div>
+<div class="source-visualization not-prose ssk-definition-callout-wrapper"><div style="background: linear-gradient(120deg, #f0f9ff 0%, #e0f2fe 100%); border-left: 6px solid #0284c7; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-bottom: 20px;">
+  <div style="color: #0f172a; line-height: 1.6; font-size: 0.95em;">
+    <strong>Cây vấn đề (Issue Tree)</strong> là một hệ thống phân rã vấn đề từ gốc rễ thành các nhánh nhỏ hơn một cách logic. Để có giá trị thực tiễn, nó phải tuân thủ nguyên tắc cốt lõi <strong>MECE</strong>: Độc lập lẫn nhau (Không chồng chéo) và Bao hàm tất cả (Không bỏ sót). Kỹ thuật này tỏ ra vô giá khi một sự cố có quá nhiều biến số tham gia (vận hành, nhân sự, khách hàng) khiến việc liệt kê nguyên nhân trở thành mớ hỗn độn. Để áp dụng, hãy bắt đầu bằng việc chẻ nhánh đầu tiên theo hai thái cực đối lập (như Lỗi Nội bộ vs Lỗi Ngoại cảnh), sau đó tiếp tục chẻ nhỏ cho đến khi bao phủ 100% vấn đề mà các nhánh không giẫm chân lên nhau.
   </div>
-  
-  <!-- Cách dùng -->
-  <div style="background: linear-gradient(120deg, #f8fafc 0%, #f1f5f9 100%); border-left: 6px solid #64748b; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
-    <h4 style="color: #475569; margin-top: 0; margin-bottom: 10px; font-size: 1.1em;">⚙️ Khi nào dùng & Cách dùng</h4>
-    <div style="color: #334155; line-height: 1.6; font-size: 0.95em;"><strong>Khi nào dùng:</strong> Khi một sự cố có quá nhiều biến số tham gia (vận hành, nhân sự, khách hàng) khiến việc liệt kê nguyên nhân trở thành mớ hỗn độn.<br><br><strong>Cách dùng:</strong> Sử dụng mẹo 'Chia đôi đối lập' (Ví dụ: Lỗi Nội bộ vs Lỗi Ngoại cảnh). Sau đó tiếp tục chẻ nhánh đến khi bao phủ 100% không gian vấn đề mà không để các nhánh giẫm chân lên nhau.</div>
+
+</div></div>
+<p>Cây vấn đề không phải là một sơ đồ vẽ nháp tùy hứng. Đó là một hệ thống phân rã vấn đề từ gốc rễ thành các cành và nhánh nhỏ hơn một cách logic. Tuy nhiên, Cây vấn đề sẽ hoàn toàn vô giá trị nếu nó không tuân thủ nguyên tắc cốt lõi: <strong>MECE (Mutually Exclusive, Collectively Exhaustive - Độc lập lẫn nhau và Bao hàm tất cả)</strong>.</p>
+<div class="source-visualization not-prose"><div style="display: flex; gap: 20px; margin: 20px 0; flex-wrap: wrap;">
+  <div style="flex: 1; min-width: 250px; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); text-align: center;">
+    <h4 style="color: #0f172a; margin-top: 0; margin-bottom: 10px;">Mutually Exclusive<br>(Không chồng chéo)</h4>
+    <p style="color: #475569; font-size: 0.95em; line-height: 1.6; text-align: left;">Các nhánh phân rã không được phép dẫm chân lên nhau. Nếu A và B có ý nghĩa giao nhau, bạn đang tính lặp dữ liệu và tự tạo ra mớ hỗn độn.</p>
+    <div style="background: #f8fafc; padding: 12px; border-radius: 6px; margin-top: 15px; text-align: left; font-size: 0.9em; border-left: 3px solid #ef4444;">
+      <div style="margin-bottom: 8px;"><strong style="color: #ef4444;">Vi phạm:</strong> Chia khách hàng thành <em>"Nhóm thích đồ ngọt"</em> và <em>"Nhóm thích trà sữa"</em> (Trùng lặp tập khách hàng).</div>
+      <div><strong style="color: #22c55e;">Chuẩn MECE:</strong> Chia thành <em>"Nhóm Nam"</em> và <em>"Nhóm Nữ"</em> (Độc lập hoàn toàn).</div>
+    </div>
+  </div>
+  <div style="flex: 1; min-width: 250px; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); text-align: center;">
+    <h4 style="color: #0f172a; margin-top: 0; margin-bottom: 10px;">Collectively Exhaustive<br>(Không bỏ sót)</h4>
+    <p style="color: #475569; font-size: 0.95em; line-height: 1.6; text-align: left;">Khi cộng gộp tất cả các nhánh ở cùng một tầng, nó phải bao phủ trọn vẹn 100% không gian vấn đề, tuyệt đối không để lọt khe hở nào.</p>
+    <div style="background: #f8fafc; padding: 12px; border-radius: 6px; margin-top: 15px; text-align: left; font-size: 0.9em; border-left: 3px solid #ef4444;">
+      <div style="margin-bottom: 8px;"><strong style="color: #ef4444;">Vi phạm:</strong> Phân loại xe theo <em>"Xe ga"</em> và <em>"Xe số"</em> (Bị bỏ sót xe điện, xe côn).</div>
+      <div><strong style="color: #22c55e;">Chuẩn MECE:</strong> Phân loại thành <em>"Xe chạy xăng"</em> và <em>"Xe không chạy xăng"</em> (Bao trùm 100%).</div>
+    </div>
   </div>
 </div></div>
-<p>Cây vấn đề không phải là một sơ đồ vẽ nháp tùy hứng. Đó là một hệ thống phân rã vấn đề từ gốc rễ thành các cành và nhánh nhỏ hơn một cách logic. Tuy nhiên, Cây vấn đề sẽ hoàn toàn vô giá trị nếu nó không tuân thủ đạo luật thép: <strong>MECE (Mutually Exclusive, Collectively Exhaustive - Độc lập lẫn nhau và Bao hàm tất cả)</strong>.</p>
-<ul><li><strong>Độc lập lẫn nhau (Mutually Exclusive):</strong> Các nhánh phân rã không được phép Chồng chéo ý nghĩa lên nhau. Ví dụ: Nếu bạn chia nguyên nhân hoàn đơn thành &quot;Vì khách hết tiền&quot; và &quot;Vì khách là học sinh không có thu nhập&quot;, bạn đã vi phạm luật, vì 2 nhánh này đang dẫm chân lên nhau về bản chất.</li><li><strong>Bao hàm tất cả (Collectively Exhaustive):</strong> Khi cộng gộp tất cả các nhánh ở cùng một tầng, nó phải bao phủ trọn vẹn 100% không gian của vấn đề ban đầu, không để lọt bất kỳ một kẽ hở nào.</li></ul>
-<p>Sự tuân thủ tuyệt đối quy tắc &quot;Không trùng lặp - Không bỏ sót&quot; này sẽ đảm bảo mọi điểm mù đều được đưa ra ánh sáng.</p>
+<p><strong>Sự kết hợp giữa Cây vấn đề và MECE:</strong> Cây vấn đề đóng vai trò là &quot;bộ khung xương&quot; giúp phân rã sự cố lớn từ trên xuống dưới, trong khi MECE đóng vai trò là &quot;bộ lọc&quot; kiểm duyệt ngang ở từng tầng để đảm bảo các nhánh không bị trùng lặp hay thiếu sót. Bằng cách chẻ nhánh đầu tiên thành các mảng độc lập (ví dụ: Khách hàng, Vận hành, Vận chuyển), chúng ta đảm bảo bao quát 100% rủi ro.</p>
 <div class="mermaid">graph TD
-    A[Vấn đề: Tỷ lệ Boom đơn cao 30%] --&gt; B[1. Nhánh Khách hàng]
-    A --&gt; C[2. Nhánh Vận hành Shop]
-    A --&gt; D[3. Nhánh Vận chuyển]
+    A[Vấn đề: Tỷ lệ Hoàn đơn vọt lên 30%] --&gt; B[1. Nhánh Khách hàng]
+    A --&gt; C[2. Nhánh Vận hành Nội bộ]
+    A --&gt; D[3. Nhánh Vận chuyển (3rd Party)]
     
-    B --&gt; B1[1.1 Chốt đơn do FOMO, sau đó hối hận]
-    B --&gt; B2[1.2 Hết tiền mặt khi nhận hàng COD]
+    B --&gt; B1[1.1 Đổi ý sau khi mua]
+    B --&gt; B2[1.2 Không đủ tài chính lúc nhận]
+    B1 -.-&gt; B1a(Do cảm xúc FOMO nhất thời)
+    B1 -.-&gt; B1b(Tìm được giá rẻ hơn ở shop khác)
     
-    C --&gt; C1[2.1 Đóng gói chậm &gt; 3 ngày làm khách tụt hứng]
-    C --&gt; C2[2.2 Giao sai màu, sai size khiến khách từ chối]
+    C --&gt; C1[2.1 Thời gian chờ giao quá lâu]
+    C --&gt; C2[2.2 Hàng hóa không đúng kỳ vọng]
+    C1 -.-&gt; C1a(Kho quá tải không đóng kịp)
+    C1 -.-&gt; C1b(Lên đơn nhầm mã sản phẩm)
     
-    D --&gt; D1[3.1 Shipper giao trễ so với cam kết]
-    D --&gt; D2[3.2 Vỏ hộp bọc ngoài bị móp méo, ướt]
+    D --&gt; D1[3.1 Giao hàng chậm so với cam kết]
+    D --&gt; D2[3.2 Hàng hóc vật lý]
     
     style A fill:#ef4444,stroke:#333,stroke-width:2px,color:#fff
     style B fill:#3b82f6,color:#fff
     style C fill:#3b82f6,color:#fff
-    style D fill:#3b82f6,color:#fff</div>
-<div class="ssk-practice-frame"><p>Dựa trên Cây vấn đề đạt chuẩn MECE, các tổng kho lập tức áp dụng giải pháp &quot;bẻ gãy&quot; từng nhánh:</p>
-<ul><li><strong>Xử lý nhánh Vận hành (Nhánh 2):</strong> Nhận thấy 60% lỗi nằm ở khâu đóng gói chậm, họ quyết định cắt giảm tần suất Livestream từ 7 ngày/tuần xuống còn 4 ngày/tuần. Thời gian trống được dành 100% cho việc dọn kho và đóng gói luân phiên để hàng rời đi trong vòng 12h.</li><li><strong>Xử lý nhánh Khách hàng (Nhánh 1):</strong> Để chống lại việc khách &quot;hết tiền mặt&quot; hoặc &quot;đổi ý&quot;, họ loại bỏ hình thức COD (thu tiền hộ) đối với các đơn hàng giá trị cao, đồng thời tung chính sách: Tặng Voucher giảm thêm 10% nếu khách chọn thanh toán trả trước qua chuyển khoản.</li></ul>
-</div><div class="ssk-outcome-frame"><p>Việc ứng dụng cấu trúc MECE đã giúp tổng kho tìm ra đúng các điểm nghẽn trí mạng. Tỷ lệ hoàn đơn giảm mạnh từ 30% xuống mức an toàn dưới 5%. Họ đã cứu vãn được dòng tiền hàng tỷ đồng mỗi tháng thay vì tốn thời gian đi tranh cãi với khách hàng trên mạng xã hội.</p></div>
+    style D fill:#3b82f6,color:#fff
+    style B1a fill:#f8fafc,stroke:#94a3b8,stroke-dasharray: 5 5
+    style B1b fill:#f8fafc,stroke:#94a3b8,stroke-dasharray: 5 5
+    style C1a fill:#f8fafc,stroke:#94a3b8,stroke-dasharray: 5 5
+    style C1b fill:#f8fafc,stroke:#94a3b8,stroke-dasharray: 5 5</div>
+<div class="ssk-practice-frame"><p>Dựa trên Cây vấn đề 3 cấp độ đạt chuẩn MECE, ban lãnh đạo không đoán mò mà lập tức gán tỷ trọng phần trăm (%) dựa trên dữ liệu CRM thực tế cho từng nhánh phụ. Kết quả trả về một bức tranh hoàn toàn bất ngờ:</p>
+<ul><li>Nhánh <strong>2.1.a (Kho quá tải không đóng kịp)</strong> chiếm tới <strong>45%</strong> nguyên nhân hoàn đơn.</li><li>Nhánh <strong>1.1.a (Khách mua do FOMO nhất thời)</strong> chiếm <strong>35%</strong>.</li></ul>
+<p>Sự phân rã chi tiết này đã bóc trần một sự thật phũ phàng: Nguyên nhân không nằm ở chất lượng sản phẩm hay shipper, mà nằm ở sự lệch pha trầm trọng giữa phòng Marketing và phòng Vận hành kho. Từ đó, họ triển khai giải pháp &quot;bẻ gãy&quot; đúng 2 nút thắt cốt lõi:</p>
+<div class="mermaid">graph TD
+    A[Mũi khoan Giải quyết Vấn đề] --&gt; B[Nút thắt Vận hành: Xử lý 45% lỗi]
+    A --&gt; C[Nút thắt Khách hàng: Xử lý 35% lỗi]
+    
+    B --&gt; B1[Giảm Livestream từ 7 xuống 4 ngày/tuần]
+    B --&gt; B2[Cơ cấu lại kho đóng gói luân phiên 3 ca]
+    
+    C --&gt; C1[Thiết quân luật: Bỏ hoàn toàn COD đơn giá trị cao]
+    C --&gt; C2[Tặng Voucher 10% chuyển khoản trước để trói chân]
+    
+    style A fill:#22c55e,stroke:#333,stroke-width:2px,color:#fff
+    style B fill:#3b82f6,color:#fff
+    style C fill:#3b82f6,color:#fff</div>
+<ul><li><strong>Xử lý nút thắt Vận hành (Khâu đóng gói chậm):</strong> Thay vì quở trách nhân viên kho một cách cảm tính, Cây vấn đề chỉ ra điểm nghẽn vật lý: tốc độ chốt đơn là 1000 đơn/giờ nhưng công suất kho chỉ đóng được 300 đơn/giờ. Ban lãnh đạo quyết định &quot;chặn đứng&quot; đầu vào: cắt giảm tần suất Livestream từ 7 ngày/tuần xuống còn 4 ngày/tuần. Quỹ thời gian 3 ngày trống được huy động 100% nhân sự để dọn dẹp kho bãi và thiết lập quy trình đóng gói 3 ca, đảm bảo cam kết cam thép: &quot;Mọi đơn hàng phải rời kho trong vòng 12 giờ&quot;.</li><li><strong>Xử lý nút thắt Khách hàng (Hiệu ứng FOMO):</strong> Cây vấn đề cho thấy sự phụ thuộc quá mức vào phương thức COD đã tạo ra rủi ro dòng tiền khi khách hết hứng thú. Để khắc phục triệt để, tổng kho ban hành chính sách mới: Loại bỏ hoàn toàn hình thức COD đối với các đơn hàng trên 1 triệu đồng. Đồng thời, để xoa dịu tâm lý và khuyến khích hành vi cam kết, họ tung ra chính sách mồi nhử: Tặng ngay Voucher giảm thêm 10% cho những khách hàng chủ động thanh toán chuyển khoản ngay lúc chốt đơn.</li></ul>
+</div><div class="ssk-outcome-frame"><p>Việc ứng dụng cấu trúc phân rã sâu đa tầng đã giúp tổng kho tìm ra đúng các điểm nghẽn trí mạng thay vì chữa trị phần ngọn. Tỷ lệ hoàn đơn giảm vọt từ 30% xuống mức an toàn dưới 5% chỉ sau một quý. Họ đã bảo vệ thành công dòng tiền hàng tỷ đồng mỗi tháng bằng tư duy hệ thống, thay vì tốn thời gian lên mạng xã hội tranh cãi với khách hàng.</p></div>
 <h2>3. Lưu ý</h2>
-<p>Trong quá trình áp dụng lý thuyết vào thực tiễn, người phân tích cần đặc biệt chú ý sự khác biệt giữa cách làm theo bản năng và cách làm chuẩn học thuật:</p>
+<p>Trong quá trình áp dụng kỹ thuật sơ đồ hóa vào thực tiễn, việc phân rã thông tin đòi hỏi sự tỉnh táo cao độ để tránh việc tự tạo ra những &#039;điểm mù&#039; ngay trong chính hệ thống của mình:</p>
 <div class="source-visualization not-prose"><div style="display: flex; flex-direction: column; gap: 20px; margin: 20px 0;">
   <!-- Hộp Đỏ cảnh báo rủi ro -->
   <div style="background: linear-gradient(135deg, #fee2e2, #fecaca); border: 1px solid #f87171; border-radius: 12px; padding: 20px; box-shadow: 0 8px 15px rgba(239,68,68,0.15); position: relative; overflow: hidden;">
-    <div style="position: absolute; top: -10px; right: -10px; font-size: 5rem; opacity: 0.1;">❌</div>
     <h4 style="color: #b91c1c; margin-top: 0; font-size: 1.2em; margin-bottom: 15px; display: flex; align-items: center; gap: 8px;">
-      <span style="font-size: 1.3em;">❌</span> Khi áp dụng lý thuyết này, chúng ta rất dễ mắc phải các lỗi phổ biến sau:
+      Khi áp dụng công cụ này, chúng ta rất dễ mắc phải các lỗi phổ biến sau:
     </h4>
     <div style="font-size: 0.95em; color: #7f1d1d; line-height: 1.6; margin-bottom: 12px;"><strong>1. Sử dụng danh sách liệt kê ngẫu hứng:</strong> Gạch đầu dòng các nguyên nhân lộn xộn dẫn đến việc các phòng ban dẫm chân lên nhau và trùng lặp nguồn lực xử lý.</div>
     <div style="font-size: 0.95em; color: #7f1d1d; line-height: 1.6;"><strong>2. Phân rã thiếu tính bao quát:</strong> Bỏ sót các nhánh nguyên nhân phụ, tạo ra các lỗ hổng (điểm mù) trí mạng trong hệ thống quản trị.</div>
+
+  
   </div>
   <!-- Hộp Xanh lá định hướng giải pháp -->
   <div style="background: linear-gradient(135deg, #dcfce7, #bbf7d0); border: 1px solid #4ade80; border-radius: 12px; padding: 20px; box-shadow: 0 8px 15px rgba(34,197,94,0.15); position: relative; overflow: hidden;">
-    <div style="position: absolute; top: -10px; right: -10px; font-size: 5rem; opacity: 0.1;">✅</div>
     <h4 style="color: #15803d; margin-top: 0; font-size: 1.2em; margin-bottom: 15px; display: flex; align-items: center; gap: 8px;">
-      <span style="font-size: 1.3em;">✅</span> Để hệ thống phân tích hoạt động trơn tru, hãy ghi nhớ các nguyên tắc cốt lõi:
+      Để hệ thống phân tích hoạt động trơn tru, hãy ghi nhớ các nguyên tắc cốt lõi:
     </h4>
     <div style="font-size: 0.95em; color: #14532d; line-height: 1.6; margin-bottom: 12px;"><strong>1. Áp dụng Mẹo 'Chia đôi đối lập':</strong> Luôn chẻ nhánh đầu tiên thành hai thái cực (Ví dụ: Nội tại vs Ngoại cảnh) để bảo vệ logic phân rã không bị rò rỉ.</div>
     <div style="font-size: 0.95em; color: #14532d; line-height: 1.6;"><strong>2. Kiểm chứng chéo các nhánh:</strong> Đảm bảo tuân thủ đạo luật MECE: Khi cộng gộp tất cả các nhánh phụ lại, chúng bằng đúng 100% không gian của vấn đề gốc.</div>
-  </div>
-</div></div>
+
+</div></div></div>
 <h2>4. Tổng kết</h2>
 <div class="source-visualization not-prose ssk-summary-panel-wrapper"><section class="ssk-summary-board">
         <header><span>T&#7893;ng k&#7871;t</span><h3>G&#243;i &#253; ch&#237;nh c&#7911;a b&#224;i</h3></header>
         <div class="ssk-summary-grid"><article class="ssk-summary-card">
           <b>01</b>
-          <h4>Định nghĩa</h4>
-          <p>Cây vấn đề là sơ đồ phân rã trực quan. MECE là luật thép: Độc lập lẫn nhau (Không chồng chéo) và Bao hàm tất cả (Không bỏ sót).</p>
+          <h4>Kỹ thuật Cây vấn đề (Issue Tree)</h4>
+          <p>Chức năng: Sơ đồ hóa và phân rã logic từ thân cây (vấn đề gốc) ra các nhánh nguyên nhân phụ. Mẹo thực chiến: Luôn chia nhánh đầu tiên theo hai thái cực đối lập (VD: Nội tại vs Ngoại cảnh). Tính trực quan: Giúp toàn bộ tổ chức có chung một góc nhìn, tránh tình trạng các phòng ban đổ lỗi lẫn nhau.</p>
           
         </article><article class="ssk-summary-card">
           <b>02</b>
-          <h4>Khi nào dùng?</h4>
-          <p>Khi cần bóc tách một vấn đề lớn thành các nhánh nguyên nhân phụ, nhằm tránh việc liệt kê lộn xộn và bỏ lọt điểm mù.</p>
-          
-        </article><article class="ssk-summary-card">
-          <b>03</b>
-          <h4>Cách dùng</h4>
-          <p>Xác định vấn đề cốt lõi ở gốc. Dùng mẹo "chia đôi đối lập" (VD: Nội tại / Ngoại cảnh) để rẽ nhánh sao cho các nhánh thỏa mãn chuẩn MECE.</p>
+          <h4>Đạo luật Thép MECE</h4>
+          <p>Mutually Exclusive (Độc lập lẫn nhau): Các nhánh nguyên nhân tuyệt đối không được giẫm chân, chồng chéo lên nhau. Collectively Exhaustive (Bao hàm tất cả): Khi gộp tất cả các nhánh lại phải bao phủ 100% không gian vấn đề. Mục tiêu: Ngăn chặn sự lãng phí nguồn lực trùng lặp và xóa bỏ các 'Điểm mù' trí mạng.</p>
           
         </article></div>
       </section></div>
@@ -4515,29 +4727,40 @@
       </span>
     </button>
   </figure>
-<div class="lesson-problem-block"><p>Tiếp nối câu chuyện Boom hàng của năm 2023, khi hàng ngàn bưu phẩm thời trang bị trả về kho, nhân viên CSKH thường chỉ dùng Giải pháp đối phó bề mặt: Đăng bài bóc phốt khách lên các hội nhóm, chặn tài khoản khách. Sự ngu dốt này sẽ khiến ngày hôm sau hàng ngàn đơn hàng khác lại tiếp tục bị từ chối.</p></div>
-<p>Tại các công ty Điều hướng bằng dữ liệu, chuyên gia phân tích bắt buộc phải lôi <strong>Kỹ thuật hỏi dồn liên tục (5-Whys)</strong> ra để đào tận đáy của Nguyên nhân gốc rễ. Họ thực thi chuỗi lặp khắt khe:</p>
-<ul><li>&quot;TẠI SAO khách hàng Gen-Z lại bom đơn chiếc áo này?&quot; (1) -&gt; Do họ nhắn tin đòi hủy sau 3 ngày nhưng shop không rep, nên khi giao tới họ không nhận.</li><li>&quot;TẠI SAO shop không rep tin nhắn hủy đơn?&quot; (2) -&gt; Do lượng tin nhắn đổ về quá tải, nhân viên không check kịp.</li><li>&quot;TẠI SAO lượng tin nhắn lại quá tải đột biến?&quot; (3) -&gt; Do hàng bị ngâm trong kho 4 ngày chưa gửi cho bên Vận chuyển, khách sốt ruột nhắn tin chửi bới.</li><li>&quot;TẠI SAO hàng bị ngâm tận 4 ngày?&quot; (4) -&gt; Do bộ phận Livestream bán lố số lượng thực tế trong kho, khiến nhân viên đóng gói phải ngồi chờ hàng nhập về thêm.</li></ul>
-<p>Aha! Nhờ sự kỷ luật của công cụ 5-Whys, một lỗ hổng quy trình khổng lồ lộ diện: Lỗi không nằm ở &quot;Khách hàng ý thức kém&quot;, mà nằm ở Lỗ hổng kết nối dữ liệu giữa Bộ phận Livestream và Kho hàng. Giải pháp gốc rễ được tung ra: Tích hợp phần mềm trừ lùi tồn kho theo thời gian thực trên màn hình Livestream, bán hết số lượng kho là tự động sập giỏ hàng. Bằng việc tuân thủ lý thuyết học thuật, doanh nghiệp đã vá được một lỗ thủng vĩnh viễn thay vì đi cãi nhau với khách.</p>
+<div class="lesson-problem-block"><p>Tiếp nối câu chuyện Boom hàng của năm 2023, khi hàng ngàn bưu phẩm thời trang bị trả về kho, bộ phận chăm sóc khách hàng thường chỉ giải quyết bằng các biện pháp đối phó bề mặt: Đăng bài bóc phốt khách lên các hội nhóm, hoặc cấm cửa tài khoản người mua.</p></div>
+<p>Tuy nhiên, cách xử lý mang tính cảm xúc này không hề chặn được đà hoàn đơn. Ngày hôm sau, hàng ngàn đơn hàng mới lại tiếp tục bị từ chối nhận. Cứ mỗi lần một đơn bị hủy, doanh nghiệp lại chịu phí đóng gói và vận chuyển 2 chiều, bào mòn toàn bộ lợi nhuận. Tổ chức đang vật lộn với những &quot;triệu chứng&quot; nổi trên bề mặt, trong khi &quot;căn bệnh&quot; thực sự vẫn đang ăn mòn bộ máy vận hành từ bên trong.</p>
 <h2>2. Kỹ thuật 5-Whys truy vết lỗ hổng tồn kho</h2>
-<div class="source-visualization not-prose ssk-theory-visual-wrapper" data-ssk-theory-visual="true"><section class="ssk-model-board ssk-model-board--iceberg" aria-label="Trực quan hóa lý thuyết"><header class="ssk-model-header"><h3>Khoan xuống dưới triệu chứng</h3><p>Thay vì dừng ở biểu hiện, chuỗi câu hỏi buộc người học lần theo quan hệ nhân quả đến điểm cần sửa thật sự.</p></header>
-      <div class="ssk-iceberg">
-        <div class="is-surface"><span>!</span><strong>Triệu chứng</strong><p>Điều nhìn thấy trên bề mặt</p></div><div class=""><span>1</span><strong>Vì sao 1</strong><p>Nguyên nhân gần nhất</p></div><div class=""><span>2</span><strong>Vì sao 2</strong><p>Cơ chế phía sau</p></div><div class=""><span>3</span><strong>Vì sao 3</strong><p>Lỗi quy trình hoặc giả định</p></div><div class=""><span>4</span><strong>Vì sao 4</strong><p>Điểm gãy hệ thống</p></div><div class="is-root"><span>5</span><strong>Nguyên nhân gốc</strong><p>Nơi cần can thiệp</p></div>
-      </div></section></div>
-<div class="source-visualization not-prose ssk-definition-callout-wrapper"><div style="display: flex; flex-direction: column; gap: 15px; margin-bottom: 25px;">
-  <!-- Định nghĩa -->
-  <div style="background: linear-gradient(120deg, #f0f9ff 0%, #e0f2fe 100%); border-left: 6px solid #0284c7; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
-    <h4 style="color: #0369a1; margin-top: 0; margin-bottom: 10px; font-size: 1.1em;">🔍 Định nghĩa cốt lõi</h4>
-    <div style="color: #0f172a; line-height: 1.6; font-size: 0.95em;">Dựa trên <strong>Mô hình Tảng băng trôi</strong>, kỹ thuật <strong>5 Whys</strong> là phương pháp truy vết ngược bằng cách đặt câu hỏi 'Tại sao' liên tiếp ít nhất 5 lần, đi từ Triệu chứng bề mặt (Tảng băng nổi) xuống tận Nguyên nhân gốc rễ (Root Cause).</div>
+<div class="source-visualization not-prose ssk-definition-callout-wrapper"><div style="background: linear-gradient(120deg, #f0f9ff 0%, #e0f2fe 100%); border-left: 6px solid #0284c7; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-bottom: 20px;">
+  <div style="color: #0f172a; line-height: 1.6; font-size: 0.95em;">
+    Dựa trên <strong>Mô hình Tảng băng trôi</strong>, kỹ thuật <strong>5 Whys</strong> là phương pháp truy vết ngược bằng cách đặt câu hỏi 'Tại sao' liên tiếp ít nhất 5 lần, đi từ Triệu chứng bề mặt (Tảng băng nổi) xuống tận Nguyên nhân gốc rễ (Root Cause). Kỹ thuật 5 Whys được sử dụng hiệu quả nhất khi một lỗi lầm lặp đi lặp lại nhiều lần dù đã xử phạt người vi phạm, chứng tỏ hệ thống quản trị đang có lỗ hổng ẩn giấu. Bằng cách lấy hiện tượng bề mặt làm điểm xuất phát, người phân tích liên tục hỏi 'Tại sao' để đào sâu qua từng lớp vỏ, truy vết đến tận cùng để vá lại quy trình hệ thống thay vì chỉ trừng phạt cá nhân.
   </div>
-  
-  <!-- Cách dùng -->
-  <div style="background: linear-gradient(120deg, #f8fafc 0%, #f1f5f9 100%); border-left: 6px solid #64748b; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
-    <h4 style="color: #475569; margin-top: 0; margin-bottom: 10px; font-size: 1.1em;">⚙️ Khi nào dùng & Cách dùng</h4>
-    <div style="color: #334155; line-height: 1.6; font-size: 0.95em;"><strong>Khi nào dùng:</strong> Khi lỗi lầm lặp đi lặp lại nhiều lần dù đã xử lý phạt người vi phạm, chứng tỏ hệ thống quản trị đang có lỗ hổng ẩn giấu.<br><br><strong>Cách dùng:</strong> Lấy hiện tượng lỗi làm điểm xuất phát. Câu trả lời của lần 1 sẽ làm 'Hiện tượng' cho câu hỏi 'Tại sao' lần 2. Truy vết dọc cho đến khi chạm vào lỗi của Quy trình hệ thống thay vì lỗi của Cá nhân.</div>
-  </div>
+
 </div></div>
-<p>Tầng trên cùng là <strong>Triệu chứng</strong> - những thứ có thể nhìn thấy rõ và gây ồn ào (khách chửi bới, app sập). Tầng giữa là <strong>Nguyên nhân trực tiếp</strong> - yếu tố vật lý trực tiếp gây ra triệu chứng. Tầng sâu thẳm nhất mới là <strong>Nguyên nhân gốc rễ</strong> - điểm gãy vỡ bên trong quy trình thiết kế hệ thống. Bằng cách lấy câu trả lời của câu hỏi trước đó làm tiền đề bắt buộc cho câu hỏi tiếp theo, người phân tích thiết lập được một Chuỗi Nguyên nhân - Kết quả rõ ràng. Con số 5 mang tính chất biểu tượng. Khi nào bạn chạm đến một Lỗ hổng Quy trình mà nếu bạn sửa nó, sự cố sẽ KHÔNG BAO GIỜ lặp lại (Cơ chế chống lỗi), đó chính là đích đến của phân tích.</p>
+<p>Bằng cách lấy câu trả lời của câu hỏi trước đó làm tiền đề bắt buộc cho câu hỏi tiếp theo, người phân tích thiết lập được một Chuỗi Nguyên nhân - Kết quả rõ ràng để đào sâu qua từng tầng không gian của sự cố:</p>
+<div class="source-visualization not-prose"><div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); margin: 20px 0;">
+  <ul style="list-style-type: none; padding: 0; margin: 0;">
+    <li style="margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px dashed #e2e8f0;">
+      <strong style="color: #ef4444; font-size: 1.1em;">🌊 Why 1 (Hiện tượng bề mặt):</strong><br>
+      <span style="color: #475569;">Sự cố trực tiếp, ồn ào mà mắt thường nhìn thấy ngay lập tức (Ví dụ: Khách hàng la hét, App sập, Máy rỉ dầu).</span>
+    </li>
+    <li style="margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px dashed #e2e8f0;">
+      <strong style="color: #f97316; font-size: 1.1em;">⚙️ Why 2 (Nguyên nhân trực tiếp):</strong><br>
+      <span style="color: #475569;">Lỗi vật lý hoặc hành vi sai lầm trực tiếp dẫn đến hiện tượng trên (Ví dụ: Nhân viên quên trả lời, Code lỗi, Gioăng bị hỏng).</span>
+    </li>
+    <li style="margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px dashed #e2e8f0;">
+      <strong style="color: #eab308; font-size: 1.1em;">📋 Why 3 (Quy trình vận hành):</strong><br>
+      <span style="color: #475569;">Sự lỏng lẻo trong quy trình làm việc khiến lỗi vật lý có cơ hội phát sinh (Ví dụ: Không có tool check tin nhắn, Không có lịch bảo trì định kỳ).</span>
+    </li>
+    <li style="margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px dashed #e2e8f0;">
+      <strong style="color: #3b82f6; font-size: 1.1em;">🧠 Why 4 (Yếu tố con người & Đào tạo):</strong><br>
+      <span style="color: #475569;">Sự thiếu sót về mặt năng lực, nhận thức khiến nhân sự vô tình bỏ qua quy trình (Ví dụ: Nhân viên chưa được đào tạo cách dùng phần mềm).</span>
+    </li>
+    <li>
+      <strong style="color: #22c55e; font-size: 1.1em;">⚓ Why 5 (Lỗ hổng Hệ thống & Quản trị):</strong><br>
+      <span style="color: #475569;">Điểm mù tột cùng trong tư duy thiết kế hệ thống của ban lãnh đạo. Việc vá lỗi ở tầng này sẽ tạo ra 'Cơ chế chống lỗi', đảm bảo sự cố KHÔNG BAO GIỜ lặp lại (Ví dụ: Cắt giảm ngân sách đào tạo nội bộ).</span>
+    </li>
+  </ul>
+</div></div>
 <div class="mermaid">graph TD
     A((SỰ CỐ:&lt;br&gt;Khách hàng bom&lt;br&gt;đơn áo thun)) --&gt;|Why 1?| B[Khách đòi hủy nhưng shop không cho hủy]
     B --&gt;|Why 2?| C[Nhân viên CSKH không đọc được tin nhắn]
@@ -4547,52 +4770,49 @@
     
     style A fill:#ef4444,color:#fff
     style F fill:#22c55e,color:#fff,stroke-width:4px</div>
-<div class="ssk-practice-frame"><p>Trong môi trường công nghệ khốc liệt, &quot;Hỏi Tại sao 5 lần&quot; là một nghi thức bắt buộc sau mỗi lần sập Server. Họ nghiêm cấm tuyệt đối việc sử dụng 5-Whys để &quot;Đổ lỗi cá nhân&quot; tìm ra ai là người đáng bị trừ lương. Theo nguyên tắc học thuật, con người bản chất là sẽ luôn tạo ra lỗi. Nếu một hệ thống tỷ đô sụp đổ vì một lập trình viên vô tình gõ sai một dòng code, thì sa thải nhân sự đó là cách giải quyết mang tính cảm thời. Việc áp dụng đúng lý thuyết Nguyên nhân gốc rễ sẽ bẻ lái câu hỏi sang: &quot;Tại sao Hệ thống lại cho phép đoạn code sai đó được đẩy lên Product mà không có Kiểm thử tự động?&quot;. Giá trị lớn nhất của tư duy phân tích là dùng sự cố của cá nhân để thiết lập rào chắn an toàn cho toàn bộ hệ thống.</p>
-</div><div class="ssk-outcome-frame"><p>Nhờ văn hóa truy vấn 5-Whys đến cùng, hệ thống đã xây dựng được quy trình Kiểm thử tự động (CI/CD) vững chắc, giảm tỷ lệ lỗi hệ thống (Downtime) xuống gần bằng 0 và vĩnh viễn loại bỏ rủi ro tương tự trong tương lai.</p></div>
+<div class="ssk-practice-frame"><p>Quay trở lại bài toán &quot;Khách bom đơn&quot; ở trên, nếu một nhà quản lý thiếu kinh nghiệm nhìn vào sự cố, họ sẽ lập tức la mắng nhân viên CSKH vì lỗi &quot;phản hồi chậm&quot;, hoặc phạt nhân viên kho vì &quot;ngâm đơn 4 ngày&quot;. Nhưng nhờ áp dụng 5 Whys, sự thật được bóc trần qua từng lớp câu hỏi:</p>
+<ul><li><strong>Sự cố bề mặt:</strong> Khách hàng chửi rủa ầm ĩ trên Fanpage và cương quyết hủy đơn áo thun.</li><li><strong>Why 1 (Tại sao khách đòi hủy?):</strong> Vì khách nhắn tin giục giao hàng nhưng shop không cho hủy, cũng không phản hồi.</li><li><strong>Why 2 (Tại sao CSKH không phản hồi?):</strong> Vì hộp thư bị quá tải bởi hàng nghìn tin nhắn giục đơn mỗi ngày, nhân viên không check kịp.</li><li><strong>Why 3 (Tại sao khách giục đơn hàng loạt?):</strong> Vì hàng nghìn đơn hàng này đã bị &quot;ngâm&quot; trong kho quá 4 ngày mà chưa được bàn giao cho đơn vị vận chuyển.</li><li><strong>Why 4 (Tại sao kho ngâm đơn lâu vậy?):</strong> Vì nhân viên kho đi nhặt hàng thì phát hiện trên kệ không còn chiếc áo thun nào, phải chờ nhà máy may thêm.</li><li><strong>Why 5 (Tại sao hết hàng mà vẫn chốt đơn?):</strong> 🎯 LỖ HỔNG HỆ THỐNG! Vì bộ phận Livestream vẫn chốt đơn liên tục dựa trên số lượng ảo, do công ty không trang bị phần mềm đồng bộ tồn kho thực tế giữa Kho và Livestream.</li></ul>
+<p>Nguyên nhân gốc rễ (Why 5) đã bóc trần lỗ hổng quản trị của cấp trên, bảo vệ sự trong sạch cho nhân viên cấp dưới. Giải pháp đưa ra không phải là sa thải nhân viên hay trừ lương, mà là tái cấu trúc công nghệ: Ngay lập tức triển khai cài đặt phần mềm Quản lý Kho (WMS) kết nối API trực tiếp với phần mềm chốt đơn Livestream. Từ nay, khi một mã áo thun vừa hết hàng trong kho vật lý, hệ thống sẽ tự động cập nhật trạng thái &quot;Hết hàng&quot; (Sold Out) và tự khóa tính năng chốt đơn trên livestream.</p>
+</div><div class="ssk-outcome-frame"><p>Bằng cách tìm đúng gốc rễ (Root Cause) và &quot;vá&quot; lại lỗ hổng hệ thống bằng công cụ công nghệ thay vì trách móc con người, tỷ lệ bom đơn do giao trễ đã hoàn toàn chấm dứt. Mọi phòng ban từ Marketing, CSKH đến Kho bãi đều được giải phóng khỏi trạng thái quá tải và thoát khỏi văn hóa &quot;đổ lỗi&quot;, tạo ra một cỗ máy vận hành trơn tru và gắn kết.</p></div>
 <h2>3. Lưu ý</h2>
-<p>Trong quá trình áp dụng lý thuyết vào thực tiễn, người phân tích cần đặc biệt chú ý sự khác biệt giữa cách làm theo bản năng và cách làm chuẩn học thuật:</p>
+<p>Trong quá trình áp dụng kỹ thuật 5-Whys vào thực tiễn, chúng ta phải hết sức cẩn trọng để không biến công cụ truy vết hệ thống này thành một phiên tòa đổ lỗi cá nhân:</p>
 <div class="source-visualization not-prose"><div style="display: flex; flex-direction: column; gap: 20px; margin: 20px 0;">
   <!-- Hộp Đỏ cảnh báo rủi ro -->
   <div style="background: linear-gradient(135deg, #fee2e2, #fecaca); border: 1px solid #f87171; border-radius: 12px; padding: 20px; box-shadow: 0 8px 15px rgba(239,68,68,0.15); position: relative; overflow: hidden;">
-    <div style="position: absolute; top: -10px; right: -10px; font-size: 5rem; opacity: 0.1;">❌</div>
     <h4 style="color: #b91c1c; margin-top: 0; font-size: 1.2em; margin-bottom: 15px; display: flex; align-items: center; gap: 8px;">
-      <span style="font-size: 1.3em;">❌</span> Khi áp dụng lý thuyết này, chúng ta rất dễ mắc phải các lỗi phổ biến sau:
+      Khi áp dụng kỹ thuật truy vấn này, chúng ta rất dễ mắc phải các lỗi phổ biến sau:
     </h4>
     <div style="font-size: 0.95em; color: #7f1d1d; line-height: 1.6; margin-bottom: 12px;"><strong>1. Dừng lại ở lớp nguyên nhân vật lý:</strong> Chỉ đổ lỗi cho việc 'server quá tải' hoặc 'trời mưa' khiến sự cố chắc chắn sẽ lặp lại vào lần sau.</div>
     <div style="font-size: 0.95em; color: #7f1d1d; line-height: 1.6;"><strong>2. Truy vết để đổ lỗi cá nhân:</strong> Sa thải một nhân sự gõ sai code thay vì tìm cách vá lỗ hổng của quy trình kiểm duyệt hệ thống.</div>
+
+  
   </div>
   <!-- Hộp Xanh lá định hướng giải pháp -->
   <div style="background: linear-gradient(135deg, #dcfce7, #bbf7d0); border: 1px solid #4ade80; border-radius: 12px; padding: 20px; box-shadow: 0 8px 15px rgba(34,197,94,0.15); position: relative; overflow: hidden;">
-    <div style="position: absolute; top: -10px; right: -10px; font-size: 5rem; opacity: 0.1;">✅</div>
     <h4 style="color: #15803d; margin-top: 0; font-size: 1.2em; margin-bottom: 15px; display: flex; align-items: center; gap: 8px;">
-      <span style="font-size: 1.3em;">✅</span> Để hệ thống phân tích hoạt động trơn tru, hãy ghi nhớ các nguyên tắc cốt lõi:
+      Để hệ thống phân tích hoạt động trơn tru, hãy ghi nhớ các nguyên tắc cốt lõi:
     </h4>
     <div style="font-size: 0.95em; color: #14532d; line-height: 1.6; margin-bottom: 12px;"><strong>1. Đào sâu qua 5 lớp nguyên nhân:</strong> Mỗi câu trả lời phải là tiền đề cho câu hỏi 'Tại sao' tiếp theo cho đến khi chạm tới tận cùng của lỗi quy trình.</div>
     <div style="font-size: 0.95em; color: #14532d; line-height: 1.6;"><strong>2. Tập trung vào hệ thống (System-focus):</strong> Luôn đặt câu hỏi 'Tại sao hệ thống của chúng ta lại cho phép cá nhân đó làm sai và vượt rào?'.</div>
-  </div>
-</div></div>
+
+</div></div></div>
 <h2>4. Tổng kết</h2>
 <div class="source-visualization not-prose ssk-summary-panel-wrapper"><section class="ssk-summary-board">
         <header><span>T&#7893;ng k&#7871;t</span><h3>G&#243;i &#253; ch&#237;nh c&#7911;a b&#224;i</h3></header>
         <div class="ssk-summary-grid"><article class="ssk-summary-card">
           <b>01</b>
-          <h4>Định nghĩa</h4>
-          <p>Kỹ thuật truy vết dọc bằng cách hỏi "Tại sao?" 5 lần liên tiếp để đi xuyên qua Tảng băng trôi (từ Triệu chứng đến Root Cause).</p>
+          <h4>Khai phá Nguyên nhân gốc rễ</h4>
+          <p>Mô hình Tảng băng trôi: Nhận thức rõ ràng sự cố trên bề mặt chỉ là Triệu chứng, nguyên nhân thật sự nằm sâu ở hệ thống. Tư duy Hệ thống: Con người luôn mắc lỗi, do đó phải sửa lỗi quy trình thay vì chỉ chăm chăm trừng phạt cá nhân. Rào chắn an toàn: Dùng một sự cố cục bộ để thiết lập chốt chặn an toàn vĩnh viễn cho toàn bộ tập đoàn.</p>
           
         </article><article class="ssk-summary-card">
           <b>02</b>
-          <h4>Khi nào dùng?</h4>
-          <p>Khi một lỗi sai lặp đi lặp lại nhiều lần dù đã xử lý bề mặt, hoặc khi tổ chức đang sa đà vào đổ lỗi cá nhân.</p>
-          
-        </article><article class="ssk-summary-card">
-          <b>03</b>
-          <h4>Cách dùng</h4>
-          <p>Bắt đầu từ hiện tượng bề mặt, đặt câu hỏi "Tại sao?". Lấy câu trả lời làm tiền đề cho câu hỏi tiếp theo cho đến khi chạm đến lỗ hổng hệ thống.</p>
+          <h4>Quy trình thực thi 5 Whys</h4>
+          <p>Xuất phát: Bắt đầu bằng hiện tượng bề mặt được ghi nhận. Truy vết: Mỗi câu trả lời cho chữ 'Tại sao' trước đó phải trở thành hiện tượng để đào sâu vào 'Tại sao' tiếp theo. Điểm dừng: Dừng lại khi chạm đến Lỗi của Hệ thống Quản trị, không đổ lỗi cho các yếu tố môi trường bất khả kháng.</p>
           
         </article></div>
       </section></div>
 <h2>5. Tài liệu tham khảo</h2>
-<ul><li>Okes, D. (2009). <em>Root Cause Analysis: The Core of Problem Solving and Corrective Action</em>. ASQ Quality Press.</li><li>Imai, M. (1986). <em>Kaizen: The Key To Japan&#039;s Competitive Success</em>. McGraw-Hill.</li></ul></div><div class="mt-10 pt-6 border-t-2 border-gray-200/80 flex flex-col sm:flex-row items-center justify-between gap-4"><button onclick="prevLessonInSession(2, '2')" class="w-full sm:w-auto px-5 py-3 rounded-2xl border-2 border-gray-300 bg-white text-gray-700 hover:bg-gray-100 font-bold text-xs sm:text-sm flex items-center justify-center gap-2.5 transition shadow-2xs group cursor-pointer"><i class="ph-bold ph-arrow-left text-base text-gray-500 group-hover:-translate-x-1 transition"></i><span>Bài trước</span></button><button onclick="nextLessonInSession(2, '2')" class="w-full sm:w-auto px-6 py-3.5 rounded-2xl bg-gradient-to-r from-rikkei-red to-red-600 hover:from-rikkei-darkred hover:to-red-700 text-white font-black text-xs sm:text-sm flex items-center justify-center gap-3 transition shadow-md hover:shadow-xl group cursor-pointer"><span>Bài tiếp theo</span><i class="ph-bold ph-arrow-right text-base text-white group-hover:translate-x-1 transition"></i></button></div></article></div><div id="view-session-3" class="hidden space-y-8 animate-fade"><section class="session-header bg-white p-6 sm:p-8 rounded-3xl border border-gray-200 shadow-xs space-y-4"><div class="flex items-center justify-between flex-wrap gap-3 border-b border-gray-100 pb-4"><span class="bg-rikkei-red text-white font-black text-xs px-3.5 py-1.5 rounded-full uppercase tracking-wider">SESSION 03 • NỘI DUNG CHUYÊN SÂU</span><button onclick="showView('view-overview')" class="px-4 py-2 rounded-xl bg-gray-100 hover:bg-gray-200 text-xs font-bold flex items-center gap-1.5 transition"><i class="ph-bold ph-arrow-left"></i> Quay lại Danh sách Session</button></div><h2 class="font-heading font-black text-xl sm:text-2xl md:text-3xl text-gray-900 leading-tight">Phân tích thông tin, bằng chứng và lập luận</h2><p class="text-xs sm:text-sm text-gray-600 leading-relaxed">Nội dung được lấy trực tiếp từ bài đọc nguồn, giữ các sơ đồ, bảng và khung ứng dụng trong bài.</p><div class="flex items-center gap-2 flex-wrap pt-3 border-t border-gray-100"><button id="btn-s3-l1" onclick="showLessonTab(3, '1', true)" class="tab-btn flex-1 justify-center px-4 py-2.5 rounded-2xl text-xs sm:text-sm flex items-center gap-2 transition cursor-pointer active bg-rikkei-red text-white font-black shadow-md"><i class="ph-bold ph-book-open text-white"></i><span>Lesson 1</span></button><button id="btn-s3-l2" onclick="showLessonTab(3, '2', true)" class="tab-btn flex-1 justify-center px-4 py-2.5 rounded-2xl text-xs sm:text-sm flex items-center gap-2 transition cursor-pointer bg-gray-100 text-gray-700 font-bold"><i class="ph-bold ph-book-open text-rikkei-red"></i><span>Lesson 2</span></button></div></section><article id="panel-s3-l1" data-lesson-meta="Lesson 1 • Session 03" data-lesson-title="Phân biệt Dữ kiện, Ý kiến và Giả định" class="lesson-panel  space-y-8 animate-fade bg-white p-6 sm:p-8 rounded-3xl border border-gray-200 shadow-xs"><div class="prose" data-preserve-source-visuals="true"><h2>1. Đế chế F&amp;B vỡ mộng vì ảo tưởng &quot;Sống ảo&quot;</h2>
+<ul><li>Okes, D. (2009). <em>Root Cause Analysis: The Core of Problem Solving and Corrective Action</em>. ASQ Quality Press.</li><li>Imai, M. (1986). <em>Kaizen: The Key To Japan&#039;s Competitive Success</em>. McGraw-Hill.</li></ul></div><div class="mt-10 pt-6 border-t-2 border-gray-200/80 flex flex-col sm:flex-row items-center justify-between gap-4"><button onclick="prevLessonInSession(2, '2')" class="w-full sm:w-auto px-5 py-3 rounded-2xl border-2 border-gray-300 bg-white text-gray-700 hover:bg-gray-100 font-bold text-xs sm:text-sm flex items-center justify-center gap-2.5 transition shadow-2xs group cursor-pointer"><i class="ph-bold ph-arrow-left text-base text-gray-500 group-hover:-translate-x-1 transition"></i><span>Bài trước</span></button><button onclick="nextLessonInSession(2, '2')" class="w-full sm:w-auto px-6 py-3.5 rounded-2xl bg-gradient-to-r from-rikkei-red to-red-600 hover:from-rikkei-darkred hover:to-red-700 text-white font-black text-xs sm:text-sm flex items-center justify-center gap-3 transition shadow-md hover:shadow-xl group cursor-pointer"><span>Bài tiếp theo</span><i class="ph-bold ph-arrow-right text-base text-white group-hover:translate-x-1 transition"></i></button></div></article></div><div id="view-session-3" class="hidden space-y-8 animate-fade"><section class="session-header bg-white p-6 sm:p-8 rounded-3xl border border-gray-200 shadow-xs space-y-4"><div class="flex items-center justify-between flex-wrap gap-3 border-b border-gray-100 pb-4"><span class="bg-rikkei-red text-white font-black text-xs px-3.5 py-1.5 rounded-full uppercase tracking-wider">SESSION 03 • NỘI DUNG CHUYÊN SÂU</span><button onclick="showView('view-overview')" class="px-4 py-2 rounded-xl bg-gray-100 hover:bg-gray-200 text-xs font-bold flex items-center gap-1.5 transition"><i class="ph-bold ph-arrow-left"></i> Quay lại Danh sách Session</button></div><h2 class="font-heading font-black text-xl sm:text-2xl md:text-3xl text-gray-900 leading-tight">Phân tích thông tin, bằng chứng và lập luận</h2><p class="text-xs sm:text-sm text-gray-600 leading-relaxed">Nội dung được lấy trực tiếp từ bài đọc nguồn, giữ các sơ đồ, bảng và khung ứng dụng trong bài.</p><div class="flex items-center gap-2 flex-wrap pt-3 border-t border-gray-100"><button id="btn-s3-l1" onclick="showLessonTab(3, '1', true)" class="tab-btn flex-1 justify-center px-4 py-2.5 rounded-2xl text-xs sm:text-sm flex items-center gap-2 transition cursor-pointer active bg-rikkei-red text-white font-black shadow-md"><i class="ph-bold ph-book-open text-white"></i><span>Lesson 1</span></button><button id="btn-s3-l2" onclick="showLessonTab(3, '2', true)" class="tab-btn flex-1 justify-center px-4 py-2.5 rounded-2xl text-xs sm:text-sm flex items-center gap-2 transition cursor-pointer bg-gray-100 text-gray-700 font-bold"><i class="ph-bold ph-book-open text-rikkei-red"></i><span>Lesson 2</span></button></div></section><article id="panel-s3-l1" data-lesson-meta="Lesson 1 • Session 03" data-lesson-title="Phân biệt Dữ kiện, Ý kiến và Giả định" class="lesson-panel  space-y-8 animate-fade bg-white p-6 sm:p-8 rounded-3xl border border-gray-200 shadow-xs"><div class="prose" data-preserve-source-visuals="true"><h2>1. Cú sốc Mixue và Bài toán bóc tách Dữ kiện - Giả định</h2>
 <figure class="lesson-company-image-block">
     <button type="button" class="lesson-company-image-button" data-full-image="https://cdn.britannica.com/35/270035-050-9466296C/Mixue-Ice-Cream-and-Tea-is-a-Chinese-franchise-fast-food-restaurant-chain-here-employee-prepares-order-at-counter-in-Bangkok-Thailand-May-2024.jpg" data-full-caption="Mixue • Minh họa tình huống phân tích" data-image-source="cdn.britannica.com" aria-label="Mở ảnh minh họa toàn màn hình">
       <img src="https://cdn.britannica.com/35/270035-050-9466296C/Mixue-Ice-Cream-and-Tea-is-a-Chinese-franchise-fast-food-restaurant-chain-here-employee-prepares-order-at-counter-in-Bangkok-Thailand-May-2024.jpg" alt="Mixue • Minh họa tình huống phân tích" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-company-visual-ready="true">
@@ -4603,36 +4823,21 @@
       </span>
     </button>
   </figure>
-<div class="lesson-problem-block"><p>Trong giai đoạn trước 2023, thị trường F&amp;B Việt Nam ngập tràn các chuỗi trà sữa đầu tư hàng tỷ đồng cho việc thiết kế không gian. Các sếp lớn của các chuỗi này đã vi phạm nguyên tắc cơ bản của Lý thuyết phân tích: Họ để cho <strong>Giả định</strong> kiểm soát chiến lược. Họ mặc định tin vào giả định: &quot;Gen-Z đi uống trà sữa là để check-in sống ảo, nên quán phải to và đẹp&quot;.</p></div>
-<p>Dựa trên giả định cảm tính này, họ đốt tiền thuê mặt bằng góc ngã tư và bán ly nước giá 60k. Tuy nhiên, khi kinh tế bắt đầu thắt chặt năm 2023, Mixue tiến vào và hành động như những học giả mẫu mực về dữ liệu. Họ áp dụng triệt để Tư duy Điều hướng bằng dữ liệu. Khi bóc tách hành vi, Mixue phát hiện ra một <strong>Sự thật khách quan</strong> lạnh lùng: Phần lớn học sinh, sinh viên trên đường đi học về giữa trưa nắng không cần check-in, họ chỉ cần một thứ đồ uống giải khát mát mẻ với giá &quot;tiền lẻ&quot;. Sự thật khách quan là: &quot;Khách hàng sinh viên cực kỳ nhạy cảm với GIÁ, họ sẵn sàng mua mang đi ở một ki-ốt chật hẹp miễn là cây kem chỉ có giá 10k&quot;. Bằng việc loại bỏ &quot;Giả định sống ảo viển vông&quot; để bám rễ vào &quot;Dữ liệu sự thật&quot;, Mixue cắt giảm hoàn toàn chi phí trang trí quán, dồn toàn lực vào chuỗi cung ứng giá rẻ. Kết quả? Việc áp dụng đúng lý thuyết học thuật về phân định Sự thật và Giả định đã giúp Mixue phủ sóng hàng nghìn cửa hàng, tạo ra cơn bão càn quét thị trường F&amp;B năm 2023.</p>
-<h2>2. Mixue phân mảnh Sự thật, Ý kiến và Giả định</h2>
-<div class="source-visualization not-prose ssk-theory-visual-wrapper" data-ssk-theory-visual="true"><section class="ssk-model-board ssk-model-board--filter" aria-label="Trực quan hóa lý thuyết"><header class="ssk-model-header"><h3>Tách dữ kiện, ý kiến và giả định</h3><p>Trước khi lập luận, cần biết đâu là bằng chứng, đâu là diễn giải, đâu là điều đang tạm tin để kiểm chứng sau.</p></header>
-      <div class="ssk-filter-gates">
-        <article class="ssk-model-node is-fact"><span>F</span><strong>Dữ kiện</strong><p>Đo được, quan sát được, có thể kiểm chứng độc lập.</p></article>
-        <i></i>
-        <article class="ssk-model-node is-opinion"><span>O</span><strong>Ý kiến</strong><p>Nhận định chủ quan, cần tách khỏi dữ liệu gốc.</p></article>
-        <i></i>
-        <article class="ssk-model-node is-assumption"><span>A</span><strong>Giả định</strong><p>Điều tạm chấp nhận để đi tiếp, phải ghi lại và kiểm tra.</p></article>
-      </div>
-      <div class="ssk-model-output"><strong>Nguyên tắc</strong><span>Không để ý kiến mặc áo dữ kiện, và không để giả định trốn khỏi bảng kiểm.</span></div></section></div>
-<div class="source-visualization not-prose ssk-definition-callout-wrapper"><div style="display: flex; flex-direction: column; gap: 15px; margin-bottom: 25px;">
-  <!-- Định nghĩa -->
-  <div style="background: linear-gradient(120deg, #f0f9ff 0%, #e0f2fe 100%); border-left: 6px solid #0284c7; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
-    <h4 style="color: #0369a1; margin-top: 0; margin-bottom: 10px; font-size: 1.1em;">🔍 Định nghĩa cốt lõi</h4>
-    <div style="color: #0f172a; line-height: 1.6; font-size: 0.95em;"><strong>Bộ lọc thông tin</strong> là nguyên tắc phân tách rạch ròi 3 cấp độ dữ kiện: <strong>Sự thật/Fact</strong> (dữ liệu đo lường được), <strong>Ý kiến/Opinion</strong> (góc nhìn cá nhân), và <strong>Giả định/Assumption</strong> (niềm tin chưa kiểm chứng).</div>
+<div class="lesson-problem-block"><p>Trong giai đoạn trước 2023, thị trường F&amp;B Việt Nam ngập tràn các chuỗi trà sữa đầu tư hàng tỷ đồng cho việc thiết kế không gian. Các chủ doanh nghiệp đã để cho sự cảm tính định hình chiến lược của mình, mặc định tin vào một suy luận: &quot;Gen-Z đi uống trà sữa là để check-in sống ảo, nên quán phải to và trang trí thật lộng lẫy&quot;.</p></div>
+<p>Dựa trên niềm tin này, họ thi nhau đổ tiền thuê mặt bằng đắt đỏ và bán ra những ly nước với giá 60k-70k.</p>
+<p>Thế nhưng, khi làn sóng kinh tế thắt chặt, các cửa hàng to đẹp rơi vào cảnh đìu hiu. Trái ngược hoàn toàn với sự sụp đổ đó, <strong>Mixue</strong> - một thương hiệu kem và trà sữa với các ki-ốt chật hẹp, không có chỗ ngồi check-in - lại vươn lên như một cơn lốc và mở mới hàng nghìn cửa hàng. Sự tương phản gay gắt này là bài học cốt lõi trong phân tích kinh doanh: Nhóm đầu tiên đã đổ vỡ vì xây dựng toàn bộ mô hình trên một &quot;Giả định&quot; chưa được kiểm chứng, trong khi Mixue vươn lên nhờ ra quyết định dựa trên &quot;Dữ kiện khách quan&quot; về sức mua thực tế của thị trường.</p>
+<h2>2. Phân tách Dữ kiện, Ý kiến và Giả định</h2>
+<div class="source-visualization not-prose ssk-definition-callout-wrapper"><div style="background: linear-gradient(120deg, #f0f9ff 0%, #e0f2fe 100%); border-left: 6px solid #0284c7; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-bottom: 20px;">
+  <div style="color: #0f172a; line-height: 1.6; font-size: 0.95em;">
+    <strong>Bộ lọc thông tin</strong> là nguyên tắc phân tách rạch ròi 3 cấp độ dữ kiện: <strong>Dữ kiện/Fact</strong> (dữ liệu đo lường được), <strong>Ý kiến/Opinion</strong> (góc nhìn cá nhân), và <strong>Giả định/Assumption</strong> (niềm tin chưa kiểm chứng). Bộ lọc này cần được thiết lập chặt chẽ khi các thành viên trong phòng họp tranh cãi nảy lửa dựa trên cái tôi và linh cảm cá nhân. Nó ép buộc mọi phát ngôn phải đi kèm với số liệu chứng minh, đồng thời yêu cầu thiết lập các Thử nghiệm đối chứng (A/B Testing - phương pháp chia nhỏ đối tượng để thử nghiệm đồng thời hai phiên bản nhằm tìm ra phương án tối ưu) thực tế để biến các Giả định mơ hồ thành Dữ kiện khách quan.
   </div>
-  
-  <!-- Cách dùng -->
-  <div style="background: linear-gradient(120deg, #f8fafc 0%, #f1f5f9 100%); border-left: 6px solid #64748b; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
-    <h4 style="color: #475569; margin-top: 0; margin-bottom: 10px; font-size: 1.1em;">⚙️ Khi nào dùng & Cách dùng</h4>
-    <div style="color: #334155; line-height: 1.6; font-size: 0.95em;"><strong>Khi nào dùng:</strong> Khi các thành viên trong phòng họp tranh cãi nảy lửa dựa trên cái tôi và linh cảm cá nhân, gây ra hội chứng 'Thiên kiến xác nhận'.<br><br><strong>Cách dùng:</strong> Ép buộc mọi phát ngôn phải có số liệu chứng minh. Đối với các Giả định bắt buộc phải có, hãy thiết lập các Thử nghiệm đối chứng (A/B Testing) thực tế để xác thực xem nó là Sự thật hay Ảo tưởng.</div>
-  </div>
+
 </div></div>
-<ul><li><strong>Sự thật khách quan:</strong> Là những thông tin Có thể đo lường, Có thể kiểm chứng độc lập và không thể tranh cãi. (Ví dụ: &quot;Lưu lượng sinh viên đi qua con đường này là 5000 người/ngày&quot;). Đây là viên gạch duy nhất được phép dùng để xây nền móng lập luận.</li><li><strong>Ý kiến chủ quan:</strong> Là những nhận định mang tính diễn giải từ dữ kiện, bị bóp méo bởi hệ quy chiếu cá nhân. (Ví dụ: &quot;Sinh viên có vẻ rất thích uống đồ ngọt&quot;). Ý kiến là lớp sơn bề mặt, có thể đúng hoặc sai, tuyệt đối không dùng làm cột trụ.</li><li><strong>Giả định:</strong> Là những yếu tố được &quot;mặc định coi là đúng&quot; trong đầu bạn nhưng chưa có bằng chứng thực tế chứng minh. (Ví dụ: &quot;Chắc chắn học sinh nào cũng cần không gian đẹp để làm bài tập&quot;).</li></ul>
-<p>Việc nhầm lẫn Giả định thành Sự thật khách quan chính là nụ hôn thần chết khiến các dự án bốc hơi.</p>
+<ul><li><strong>Dữ kiện khách quan:</strong> Là những thông tin Có thể đo lường, Có thể kiểm chứng độc lập và không thể tranh cãi. (Ví dụ: &quot;Lưu lượng sinh viên đi qua con đường này là 5000 người/ngày&quot;). Đây là viên gạch duy nhất được phép dùng để xây nền móng lập luận.</li><li><strong>Ý kiến chủ quan:</strong> Là những nhận định mang tính diễn giải từ dữ kiện, bị bóp méo bởi hệ quy chiếu cá nhân. (Ví dụ: &quot;Sinh viên có vẻ rất thích uống đồ ngọt&quot;). Ý kiến là lớp sơn bề mặt, có thể đúng hoặc sai, tuyệt đối không dùng làm cột trụ.</li><li><strong>Giả định:</strong> Là những yếu tố được &quot;mặc định coi là đúng&quot; trong đầu bạn nhưng chưa có bằng chứng thực tế chứng minh. (Ví dụ: &quot;Chắc chắn học sinh nào cũng cần không gian đẹp để làm bài tập&quot;).</li></ul>
+<p>Việc nhầm lẫn Giả định thành Dữ kiện khách quan chính là nụ hôn thần chết khiến các dự án bốc hơi.</p>
 <div class="mermaid">mindmap
-  root((Phân mảnh Học thuật))
-    Sự thật khách quan
+  root((Phân rã Thông tin))
+    Dữ kiện khách quan
       Khách quan 100%
       Có thể đo lường (Data, A/B Test)
       Là Đấng sáng tạo của Lập luận
@@ -4644,52 +4849,47 @@
       Mặc định coi là đúng
       Dùng lấp liếm chỗ thiếu Dữ liệu
       Quả bom nổ chậm của Startup</div>
-<div class="ssk-practice-frame"><p>Trong môi trường học thuật và các công ty Gen-Z, mọi cuộc họp Động não bay bổng đều bị chặn lại bằng một nhát chém duy nhất của Tư duy phân tích: <strong>&quot;Đâu là Dữ liệu chứng minh điều đó?&quot;</strong>. Bạn không thể bưng một bảng trình bày lên cho Giám đốc và nói: &quot;Em nghĩ gen Z bây giờ thích màu hồng neon&quot;. Theo lý thuyết, đó là một Ý kiến vô giá trị. Các công ty áp dụng công cụ Thử nghiệm đối chứng (A/B Test) liên tục để biến Giả định thành Sự thật khách quan. Khi tranh cãi nên để nút &quot;Mua ngay&quot; màu Cam hay màu Đỏ, họ không cãi nhau bằng miệng. Họ chia 1 triệu người dùng ra làm 2 nhóm trong 1 ngày. Hệ thống trả về báo cáo: Nhóm nút Cam có tỷ lệ nhấp cao hơn 1.2%. Cuộc tranh luận chấm dứt. Sự tuân thủ kỷ luật sắt đá: &quot;Chỉ nói chuyện bằng Dữ liệu thực chứng&quot; là lằn ranh sinh tử.</p>
-</div><div class="ssk-outcome-frame"><p>Nhờ tuyệt đối tuân thủ Sự thật khách quan từ dữ liệu A/B Testing và loại bỏ các giả định cảm tính, tỷ lệ chuyển đổi trên ứng dụng đã tăng vọt, mang lại hàng triệu đơn hàng mới mà không tốn kém thêm chi phí phỏng đoán.</p></div>
+<div class="ssk-practice-frame"><p>Quay trở lại bài toán F&amp;B ở trên, các chuỗi trà sữa lớn đã thất bại vì họ ra quyết định dựa trên <strong>Ý kiến chủ quan</strong> (&quot;Tôi thấy quán đẹp thì sẽ đông khách&quot;) và <strong>Giả định</strong> (&quot;Chắc chắn Gen-Z nào cũng thích check-in&quot;). Họ rót vốn khổng lồ mà không hề đi thu thập dữ liệu thực tế. Ngược lại, Mixue đã áp dụng Bộ lọc Thông tin một cách triệt để. Thay vì ngồi phòng máy lạnh phỏng đoán, đội ngũ phân tích của họ xách vali đi khảo sát và thu thập <strong>Dữ kiện khách quan (Fact)</strong>: Thu nhập trung bình của học sinh sinh viên đang giảm, và tỷ lệ khách mua mang đi (take-away) chiếm tới 80% tổng doanh thu F&amp;B đường phố. Từ Dữ kiện đanh thép này, Mixue đập bỏ hoàn toàn Giả định &quot;phải làm quán to&quot;. Họ tối ưu diện tích cửa hàng xuống mức siêu nhỏ (chỉ 15-20m2), cắt giảm 100% chi phí bàn ghế và không gian sống ảo để ép giá bán xuống mức 10.000đ/ly kem.</p>
+</div><div class="ssk-outcome-frame"><p>Bằng cách gạt bỏ cái tôi và những Giả định phù phiếm để hành động dựa trên Dữ kiện khách quan, Mixue đã lật đổ các đối thủ thích &quot;sống ảo&quot;. Họ nhân bản hàng chục nghìn ki-ốt với tỷ suất lợi nhuận khổng lồ, chứng minh chân lý: Trong kinh doanh, người nắm giữ Dữ kiện là người nắm giữ ngai vàng.</p></div>
 <h2>3. Lưu ý</h2>
-<p>Trong quá trình áp dụng lý thuyết vào thực tiễn, người phân tích cần đặc biệt chú ý sự khác biệt giữa cách làm theo bản năng và cách làm chuẩn học thuật:</p>
+<p>Trong quá trình áp dụng nguyên tắc này vào thực tiễn, sự nhầm lẫn tai hại giữa một dữ kiện khách quan và một niềm tin chủ quan có thể đẩy toàn bộ dự án vào bờ vực thẳm:</p>
 <div class="source-visualization not-prose"><div style="display: flex; flex-direction: column; gap: 20px; margin: 20px 0;">
   <!-- Hộp Đỏ cảnh báo rủi ro -->
   <div style="background: linear-gradient(135deg, #fee2e2, #fecaca); border: 1px solid #f87171; border-radius: 12px; padding: 20px; box-shadow: 0 8px 15px rgba(239,68,68,0.15); position: relative; overflow: hidden;">
-    <div style="position: absolute; top: -10px; right: -10px; font-size: 5rem; opacity: 0.1;">❌</div>
     <h4 style="color: #b91c1c; margin-top: 0; font-size: 1.2em; margin-bottom: 15px; display: flex; align-items: center; gap: 8px;">
-      <span style="font-size: 1.3em;">❌</span> Khi áp dụng lý thuyết này, chúng ta rất dễ mắc phải các lỗi phổ biến sau:
+      Khi thiết lập bộ lọc thông tin này, chúng ta rất dễ mắc phải các lỗi phổ biến sau:
     </h4>
     <div style="font-size: 0.95em; color: #7f1d1d; line-height: 1.6; margin-bottom: 12px;"><strong>1. Rơi vào Thiên kiến xác nhận:</strong> Chỉ chăm chăm đi tìm các dữ kiện ủng hộ cho Giả định cá nhân của mình và phớt lờ hoàn toàn các số liệu trái chiều.</div>
-    <div style="font-size: 0.95em; color: #7f1d1d; line-height: 1.6;"><strong>2. Đánh đồng Ý kiến với Sự thật:</strong> Lấy một vài bình luận khen ngợi trên mạng xã hội làm bằng chứng khẳng định chất lượng sản phẩm đang rất hoàn hảo.</div>
+    <div style="font-size: 0.95em; color: #7f1d1d; line-height: 1.6;"><strong>2. Đánh đồng Ý kiến với Dữ kiện:</strong> Lấy một vài bình luận khen ngợi trên mạng xã hội làm bằng chứng khẳng định chất lượng sản phẩm đang rất hoàn hảo.</div>
+
+  
   </div>
   <!-- Hộp Xanh lá định hướng giải pháp -->
   <div style="background: linear-gradient(135deg, #dcfce7, #bbf7d0); border: 1px solid #4ade80; border-radius: 12px; padding: 20px; box-shadow: 0 8px 15px rgba(34,197,94,0.15); position: relative; overflow: hidden;">
-    <div style="position: absolute; top: -10px; right: -10px; font-size: 5rem; opacity: 0.1;">✅</div>
     <h4 style="color: #15803d; margin-top: 0; font-size: 1.2em; margin-bottom: 15px; display: flex; align-items: center; gap: 8px;">
-      <span style="font-size: 1.3em;">✅</span> Để hệ thống phân tích hoạt động trơn tru, hãy ghi nhớ các nguyên tắc cốt lõi:
+      Để hệ thống phân tích hoạt động trơn tru, hãy ghi nhớ các nguyên tắc cốt lõi:
     </h4>
     <div style="font-size: 0.95em; color: #14532d; line-height: 1.6; margin-bottom: 12px;"><strong>1. Thiết lập lưới lọc khắt khe:</strong> Ép buộc mọi phát ngôn mang tính chủ quan trong phòng họp phải đi kèm với số liệu đo lường cụ thể.</div>
-    <div style="font-size: 0.95em; color: #14532d; line-height: 1.6;"><strong>2. Chứng minh bằng Thực nghiệm:</strong> Nếu bắt buộc phải dùng Giả định, hãy chạy các phép thử đối chứng (A/B Testing) để đưa nó về dạng Sự thật khách quan.</div>
-  </div>
-</div></div>
+    <div style="font-size: 0.95em; color: #14532d; line-height: 1.6;"><strong>2. Chứng minh bằng Thực nghiệm:</strong> Nếu bắt buộc phải dùng Giả định, hãy chạy các phép thử đối chứng (A/B Testing) để đưa nó về dạng Dữ kiện khách quan.</div>
+
+</div></div></div>
 <h2>4. Tổng kết</h2>
 <div class="source-visualization not-prose ssk-summary-panel-wrapper"><section class="ssk-summary-board">
         <header><span>T&#7893;ng k&#7871;t</span><h3>G&#243;i &#253; ch&#237;nh c&#7911;a b&#224;i</h3></header>
         <div class="ssk-summary-grid"><article class="ssk-summary-card">
           <b>01</b>
-          <h4>Định nghĩa</h4>
-          <p>Bộ lọc phân loại rạch ròi 3 luồng thông tin: Sự thật (Số liệu đo lường được), Ý kiến (Góc nhìn cá nhân), và Giả định (Niềm tin chưa kiểm chứng).</p>
+          <h4>3 Cấp độ Thông tin cốt lõi</h4>
+          <p>Dữ kiện (Fact): Dữ kiện khách quan, đo lường được và được công nhận rộng rãi (Báo cáo, Số liệu). Ý kiến (Opinion): Quan điểm, góc nhìn chủ quan mang nặng yếu tố cảm xúc cá nhân. Giả định (Assumption): Một niềm tin hoặc dự đoán chưa được kiểm chứng trong môi trường thực tế.</p>
           
         </article><article class="ssk-summary-card">
           <b>02</b>
-          <h4>Khi nào dùng?</h4>
-          <p>Khi có sự bất đồng quan điểm trong phòng họp, hoặc khi chuẩn bị ra một quyết định đầu tư tốn kém dựa trên trực giác.</p>
-          
-        </article><article class="ssk-summary-card">
-          <b>03</b>
-          <h4>Cách dùng</h4>
-          <p>Gạt bỏ Thiên kiến xác nhận. Đặt câu hỏi "Đâu là bằng chứng thực tế?". Bắt buộc dùng Thử nghiệm (A/B Testing) để chứng minh Giả định.</p>
+          <h4>Kỷ luật Phòng họp</h4>
+          <p>Chống Thiên kiến: Ngăn chặn 'Thiên kiến xác nhận' - việc chỉ đi tìm số liệu để bảo vệ cái tôi cá nhân. Lưới lọc khắt khe: Ép buộc mọi Ý kiến chủ quan phải được chứng minh bằng Số liệu thực tế. Kiểm chứng Giả định: Bắt buộc sử dụng Thử nghiệm đối chứng (A/B Testing) để ép Giả định trở thành Dữ kiện khách quan.</p>
           
         </article></div>
       </section></div>
 <h2>5. Tài liệu tham khảo</h2>
-<ul><li>Tetlock, P. E., &amp; Gardner, D. (2015). <em>Superforecasting: The Art and Science of Prediction</em>. Crown.</li><li>McRaney, D. (2011). <em>You Are Not So Smart</em>. Gotham Books.</li></ul></div><div class="mt-10 pt-6 border-t-2 border-gray-200/80 flex flex-col sm:flex-row items-center justify-between gap-4"><button onclick="prevLessonInSession(3, '1')" class="w-full sm:w-auto px-5 py-3 rounded-2xl border-2 border-gray-300 bg-white text-gray-700 hover:bg-gray-100 font-bold text-xs sm:text-sm flex items-center justify-center gap-2.5 transition shadow-2xs group cursor-pointer"><i class="ph-bold ph-arrow-left text-base text-gray-500 group-hover:-translate-x-1 transition"></i><span>Bài trước</span></button><button onclick="nextLessonInSession(3, '1')" class="w-full sm:w-auto px-6 py-3.5 rounded-2xl bg-gradient-to-r from-rikkei-red to-red-600 hover:from-rikkei-darkred hover:to-red-700 text-white font-black text-xs sm:text-sm flex items-center justify-center gap-3 transition shadow-md hover:shadow-xl group cursor-pointer"><span>Bài tiếp theo</span><i class="ph-bold ph-arrow-right text-base text-white group-hover:translate-x-1 transition"></i></button></div></article><article id="panel-s3-l2" data-lesson-meta="Lesson 2 • Session 03" data-lesson-title="Đánh giá bằng chứng và Xây dựng Sơ đồ lập luận" class="lesson-panel hidden space-y-8 animate-fade bg-white p-6 sm:p-8 rounded-3xl border border-gray-200 shadow-xs"><div class="prose" data-preserve-source-visuals="true"><h2>1. Giải mã pháo đài kem 10k của Mixue</h2>
+<ul><li>Tetlock, P. E., &amp; Gardner, D. (2015). <em>Superforecasting: The Art and Science of Prediction</em>. Crown.</li><li>McRaney, D. (2011). <em>You Are Not So Smart</em>. Gotham Books.</li></ul></div><div class="mt-10 pt-6 border-t-2 border-gray-200/80 flex flex-col sm:flex-row items-center justify-between gap-4"><button onclick="prevLessonInSession(3, '1')" class="w-full sm:w-auto px-5 py-3 rounded-2xl border-2 border-gray-300 bg-white text-gray-700 hover:bg-gray-100 font-bold text-xs sm:text-sm flex items-center justify-center gap-2.5 transition shadow-2xs group cursor-pointer"><i class="ph-bold ph-arrow-left text-base text-gray-500 group-hover:-translate-x-1 transition"></i><span>Bài trước</span></button><button onclick="nextLessonInSession(3, '1')" class="w-full sm:w-auto px-6 py-3.5 rounded-2xl bg-gradient-to-r from-rikkei-red to-red-600 hover:from-rikkei-darkred hover:to-red-700 text-white font-black text-xs sm:text-sm flex items-center justify-center gap-3 transition shadow-md hover:shadow-xl group cursor-pointer"><span>Bài tiếp theo</span><i class="ph-bold ph-arrow-right text-base text-white group-hover:translate-x-1 transition"></i></button></div></article><article id="panel-s3-l2" data-lesson-meta="Lesson 2 • Session 03" data-lesson-title="Đánh giá bằng chứng và Xây dựng Sơ đồ lập luận" class="lesson-panel hidden space-y-8 animate-fade bg-white p-6 sm:p-8 rounded-3xl border border-gray-200 shadow-xs"><div class="prose" data-preserve-source-visuals="true"><h2>1. Giải mã chiến lược kem 10k của Mixue</h2>
 <figure class="lesson-company-image-block">
     <button type="button" class="lesson-company-image-button" data-full-image="https://images.prestigeonline.com/wp-content/uploads/sites/8/2025/03/20133740/Mixue-.png" data-full-caption="Mixue • Minh họa tình huống phân tích" data-image-source="images.prestigeonline.com" aria-label="Mở ảnh minh họa toàn màn hình">
       <img src="https://images.prestigeonline.com/wp-content/uploads/sites/8/2025/03/20133740/Mixue-.png" alt="Mixue • Minh họa tình huống phân tích" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-company-visual-ready="true">
@@ -4700,37 +4900,17 @@
       </span>
     </button>
   </figure>
-<div class="lesson-problem-block"><p>Khi giới F&amp;B truyền thống chế giễu Mixue vì bán kem với giá &quot;rẻ mạt&quot; 10k, họ không nhận ra đằng sau đó là một <strong>Sơ đồ lập luận</strong> được xây dựng lạnh lùng như một pháo đài. Trong các bài phân tích chiến lược, những câu khẩu hiệu cảm tính như &quot;Đồ uống giá rẻ sẽ thống trị&quot; đều vô giá trị.</p></div>
-<p>Để bành trướng thần tốc năm 2023, Mixue đã sử dụng cấu trúc lập luận khắt khe. Kết luận trung tâm của họ cực kỳ táo bạo: &quot;Kẻ thù không phải là các quán trà sữa khác, mà là các tiệm tạp hóa; lợi nhuận không đến từ bán nước, mà đến từ bán nguyên liệu cho đại lý nhượng quyền&quot;. Họ đỡ kết luận này bằng các Tiền đề được bọc thép:</p>
-<ul><li>Tiền đề 1: Khách hàng ở phân khúc bình dân không cần trải nghiệm không gian, họ cần sự tiện lợi mua mang đi. (Được bọc bằng Bằng chứng đo lường từ lưu lượng vỉa hè).</li><li>Tiền đề 2: Kẻ sở hữu chuỗi cung ứng tự chủ (từ trồng trà, vắt sữa đến kho bãi) sẽ có quyền định giá rẻ mức hủy diệt mà vẫn có lãi (Được bọc bằng Bằng chứng báo cáo tài chính về biên lợi nhuận nguyên liệu).</li></ul>
-<p>Sự liên kết hoàn hảo, tuân thủ đúng định luật lý thuyết từ Dữ liệu thực chứng -&gt; Tiền đề logic -&gt; Kết luận chiến lược, đã giúp Mixue thuyết phục hàng ngàn nhà đầu tư mở điểm nhượng quyền trên toàn quốc. Sức mạnh của Lý thuyết lập luận logic đã tạo ra một đế chế.</p>
+<div class="lesson-problem-block"><p>Khi thị trường F&amp;B chứng kiến sự trỗi dậy của các chuỗi bán kem và đồ uống giá siêu rẻ (chỉ từ 10k-25k), giới kinh doanh truyền thống tỏ ra hoang mang. Trong các cuộc họp chiến lược của đối thủ, người ta thường đưa ra những nhận định đầy cảm xúc: &quot;Họ bán rẻ thế này thì chắc chắn dùng nguyên liệu bẩn&quot; hoặc &quot;Sớm muộn gì họ cũng phá sản vì bán không có lãi&quot;. Những nhận định này được tung ra dễ dàng nhưng hoàn toàn thiếu vắng các bằng chứng tài chính hoặc số liệu xác đáng. Các doanh nghiệp đang lãng phí thời gian vào những cuộc tranh cãi mang nặng tính chất &quot;bóc phốt&quot; thay vì xây dựng một lập luận chiến lược đủ sắc bén để chống lại làn sóng cạnh tranh mới.</p></div>
 <h2>2. Thiết lập Sơ đồ lập luận bảo vệ dòng tiền</h2>
-<div class="source-visualization not-prose ssk-theory-visual-wrapper" data-ssk-theory-visual="true"><section class="ssk-model-board ssk-model-board--bridge" aria-label="Trực quan hóa lý thuyết"><header class="ssk-model-header"><h3>Kết luận phải có trụ đỡ logic</h3><p>Mẫu bridge làm lộ ngay kết luận nào thiếu bằng chứng, tiền đề nào yếu, hoặc bước suy luận nào nhảy quá xa.</p></header>
-      <div class="ssk-argument-bridge">
-        <div class="ssk-bridge-claim">Kết luận</div>
-        <div class="ssk-bridge-road"></div>
-        <div class="ssk-bridge-pillars">
-          <article class="ssk-model-node "><span>A</span><strong>Tiền đề</strong><p>Lý do chính làm kết luận có cơ sở.</p></article>
-          <article class="ssk-model-node "><span>B</span><strong>Bằng chứng</strong><p>Dữ liệu hoặc quan sát kiểm chứng được.</p></article>
-          <article class="ssk-model-node "><span>C</span><strong>Liên kết</strong><p>Cách tiền đề dẫn đến kết luận.</p></article>
-        </div>
-      </div></section></div>
-<div class="source-visualization not-prose ssk-definition-callout-wrapper"><div style="display: flex; flex-direction: column; gap: 15px; margin-bottom: 25px;">
-  <!-- Định nghĩa -->
-  <div style="background: linear-gradient(120deg, #f0f9ff 0%, #e0f2fe 100%); border-left: 6px solid #0284c7; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
-    <h4 style="color: #0369a1; margin-top: 0; margin-bottom: 10px; font-size: 1.1em;">🔍 Định nghĩa cốt lõi</h4>
-    <div style="color: #0f172a; line-height: 1.6; font-size: 0.95em;">Một <strong>Cấu trúc Lập luận</strong> vững chắc là sự kết hợp chặt chẽ mà ở đó <strong>Kết luận</strong> được chống đỡ bởi hệ thống các <strong>Tiền đề</strong> logic, và được bảo chứng thông qua hệ thống <strong>Bằng chứng</strong> có độ tin cậy cao.</div>
+<div class="source-visualization not-prose ssk-definition-callout-wrapper"><div style="background: linear-gradient(120deg, #f0f9ff 0%, #e0f2fe 100%); border-left: 6px solid #0284c7; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-bottom: 20px;">
+  <div style="color: #0f172a; line-height: 1.6; font-size: 0.95em;">
+    Một <strong>Cấu trúc Lập luận</strong> vững chắc là sự kết hợp chặt chẽ mà ở đó <strong>Kết luận</strong> được chống đỡ bởi hệ thống các <strong>Tiền đề</strong> logic, và được bảo chứng thông qua hệ thống <strong>Bằng chứng</strong> có độ tin cậy cao. Cấu trúc này là vũ khí không thể thiếu khi cần thuyết trình chiến lược, kêu gọi vốn đầu tư, hoặc phản biện lại các nhận định ngụy biện. Để áp dụng, người nói phải vạch rõ các Tiền đề và khóa chặt tính logic bằng các bằng chứng thực chứng (như số liệu thực nghiệm diện rộng, báo cáo tài chính đã kiểm toán), tuyệt đối tránh xa các lập luận truyền miệng hoặc cảm tính.
   </div>
-  
-  <!-- Cách dùng -->
-  <div style="background: linear-gradient(120deg, #f8fafc 0%, #f1f5f9 100%); border-left: 6px solid #64748b; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
-    <h4 style="color: #475569; margin-top: 0; margin-bottom: 10px; font-size: 1.1em;">⚙️ Khi nào dùng & Cách dùng</h4>
-    <div style="color: #334155; line-height: 1.6; font-size: 0.95em;"><strong>Khi nào dùng:</strong> Khi cần thuyết trình chiến lược, kêu gọi vốn đầu tư, hoặc phản biện lại các nhận định cảm tính/ngụy biện từ đối thủ hoặc thị trường.<br><br><strong>Cách dùng:</strong> Vạch rõ Tiền đề 1 và Tiền đề 2. Tránh xa các Bằng chứng cấp độ Yếu (Truyền miệng/Cảm tính), bắt buộc phải sử dụng Bằng chứng cấp độ Vàng (Thực nghiệm đối chứng/Dữ liệu chuỗi) để khóa chặt tính logic.</div>
-  </div>
+
 </div></div>
-<p>Sức mạnh của một lập luận phụ thuộc khắt khe vào hai định luật:</p>
+<p>Sức mạnh của một lập luận phụ thuộc khắt khe vào hai yếu tố:</p>
 <ol><li><strong>Tính xác thực:</strong> Các tiền đề và bằng chứng đưa ra có thực sự ĐÚNG hay không?</li><li><strong>Tính hợp lý:</strong> Mối liên kết logic giữa bằng chứng và kết luận có CHẶT CHẼ không? (Lưu ý: Kể cả khi số liệu của bạn đúng 100%, nhưng nếu luồng logic bị đứt gãy, lập luận đó vẫn bị coi là Ngụy biện).</li></ol>
-<p>Để kiểm tra độ cứng cáp của cấu trúc này, chuyên gia bắt buộc phải sử dụng <strong>Sơ đồ lập luận</strong>. Đây là công cụ chụp X-quang trực quan dạng cây, phơi bày trần trụi &quot;bộ xương logic&quot; của một bài luận. Nhìn vào Sơ đồ lập luận, bạn sẽ lập tức nhận ra bằng chứng nào (cái chân bàn) đang bị mọt rỗng, có thể khiến toàn bộ Kết luận (cái mặt bàn) sụp đổ.</p>
+<p>Để kiểm tra độ cứng cáp của cấu trúc này, chuyên gia bắt buộc phải sử dụng <strong>Sơ đồ lập luận</strong>. Đây là công cụ phân tích trực quan dạng cây, giúp bóc tách rõ ràng cấu trúc logic cốt lõi của một bài luận. Nhìn vào Sơ đồ lập luận, bạn sẽ lập tức nhận ra bằng chứng nào (cái chân bàn) đang bị mọt rỗng, có thể khiến toàn bộ Kết luận (cái mặt bàn) sụp đổ.</p>
 <div class="mermaid">graph TD
     A[KẾT LUẬN: Công ty nên cắt giảm&lt;br&gt;10 tỷ tiền mở mặt bằng mới]
     
@@ -4748,53 +4928,50 @@
     style D fill:#f59e0b,color:#fff
     style E fill:#f59e0b,color:#fff
     style F fill:#f59e0b,color:#fff</div>
-<div class="ssk-practice-frame"><p>Để một Sơ đồ lập luận thực sự có trọng lượng, bạn không thể nhặt một comment dạo trên Tiktok làm Bằng chứng. Doanh nghiệp áp dụng <strong>Ma trận Bằng chứng</strong> để phân cấp tính sát thương. - <strong>Bằng chứng truyền miệng (Cấp độ Yếu):</strong> Lời kể của 1-2 khách hàng cá biệt, nhận định của Người có sức ảnh hưởng (KOL), hoặc &quot;linh cảm&quot;. Trong hội đồng quản trị nghiêm túc, loại bằng chứng này bị gạch bỏ lập tức.</p>
-<ul><li><strong>Dữ liệu tương quan (Cấp độ Khá):</strong> Dữ liệu thống kê cho thấy sự Tương quan. Đây là manh mối có giá trị nhưng chưa đủ sức nặng định đoạt.</li><li><strong>Bằng chứng Nhân-Quả (Cấp độ Vàng):</strong> Bằng chứng chứng minh quan hệ Nhân-Quả rõ rệt thông qua Thử nghiệm đối chứng. (Ví dụ: Chạy thử nghiệm, ẩn mã giảm giá của nhóm 500 khách thì doanh thu nhóm này lập tức giảm 40%). Đây là Bằng chứng Vàng không thể bị lật đổ. Sơ đồ lập luận xây dựng bằng Bằng chứng Vàng là vũ khí tối thượng của khoa học dữ liệu.</li></ul>
-</div><div class="ssk-outcome-frame"><p>Dựa trên Sơ đồ lập luận vững chắc với Bằng chứng Vàng, Mixue đã thuyết phục thành công hàng ngàn nhà đầu tư mở chuỗi nhượng quyền, tạo ra một đế chế F&amp;B bùng nổ trên toàn cầu bất chấp những hoài nghi ban đầu.</p></div>
+<div class="ssk-practice-frame"><p>Để một Sơ đồ lập luận thực sự có trọng lượng, bạn không thể dùng các nhận xét cảm tính làm Bằng chứng. Doanh nghiệp áp dụng <strong>Ma trận Bằng chứng</strong> để phân cấp tính sát thương:</p>
+<ul><li><strong>Bằng chứng truyền miệng (Cấp độ Yếu):</strong> Lời kể của một vài khách hàng cá biệt, nhận định của Người có sức ảnh hưởng, hoặc &quot;linh cảm&quot;. Trong hội đồng quản trị, loại bằng chứng này bị gạch bỏ lập tức.</li><li><strong>Dữ liệu tương quan (Cấp độ Khá):</strong> Dữ liệu thống kê cho thấy sự Tương quan. Đây là manh mối có giá trị nhưng chưa đủ sức nặng định đoạt.</li><li><strong>Bằng chứng Nhân-Quả (Thực chứng):</strong> Là cấp độ bằng chứng cao nhất, chứng minh mối liên hệ nguyên nhân - kết quả thông qua thử nghiệm đối chứng khắt khe. Đây là nền tảng dữ liệu định lượng, đóng vai trò then chốt bảo vệ tính đúng đắn của sơ đồ lập luận.</li></ul>
+<p><strong>🔍 Ví dụ thực chiến của Mixue khi gọi vốn nhượng quyền:</strong> Khi thuyết phục các nhà đầu tư nhỏ lẻ rót vốn mở ki-ốt trong hẻm (thay vì mặt tiền đường lớn), Mixue đã vạch ra một cấu trúc lập luận chặt chẽ:</p>
+<ul><li><strong>Kết luận:</strong> Mở ki-ốt nhỏ mang lại tỷ suất lợi nhuận (ROI) cao hơn quán mặt tiền 30%.</li><li><strong>Tiền đề logic:</strong> (1) Khách hàng mục tiêu sinh viên quan tâm giá rẻ chứ không cần chỗ ngồi check-in; (2) Tiết kiệm chi phí mặt bằng giúp ép giá bán và gia tăng biên lợi nhuận.</li><li><strong>Bằng chứng Thực chứng:</strong> Mixue trình bày báo cáo tài chính đã kiểm toán của 100 cửa hàng thử nghiệm (A/B testing) suốt 1 năm. Nhóm ki-ốt nhỏ có doanh thu bằng 85% nhóm mặt tiền, nhưng chi phí vận hành chỉ bằng 30%, dẫn đến lợi nhuận ròng vượt trội hoàn toàn.</li></ul>
+</div><div class="ssk-outcome-frame"><p>Đứng trước Sơ đồ lập luận khóa chặt bằng Bằng chứng Thực chứng này, mọi sự hoài nghi của nhà đầu tư bị đập tan. Mixue đã thuyết phục thành công hàng chục nghìn cá nhân tham gia nhượng quyền, tạo ra một đế chế F&amp;B bùng nổ toàn cầu.</p></div>
 <h2>3. Lưu ý</h2>
-<p>Trong quá trình áp dụng lý thuyết vào thực tiễn, người phân tích cần đặc biệt chú ý sự khác biệt giữa cách làm theo bản năng và cách làm chuẩn học thuật:</p>
+<p>Trong quá trình áp dụng công cụ này vào thực tiễn, người thuyết trình cần nhận diện rõ những lỗ hổng ngụy biện có thể làm sụp đổ toàn bộ chuỗi bằng chứng bảo vệ luận điểm của mình:</p>
 <div class="source-visualization not-prose"><div style="display: flex; flex-direction: column; gap: 20px; margin: 20px 0;">
   <!-- Hộp Đỏ cảnh báo rủi ro -->
   <div style="background: linear-gradient(135deg, #fee2e2, #fecaca); border: 1px solid #f87171; border-radius: 12px; padding: 20px; box-shadow: 0 8px 15px rgba(239,68,68,0.15); position: relative; overflow: hidden;">
-    <div style="position: absolute; top: -10px; right: -10px; font-size: 5rem; opacity: 0.1;">❌</div>
     <h4 style="color: #b91c1c; margin-top: 0; font-size: 1.2em; margin-bottom: 15px; display: flex; align-items: center; gap: 8px;">
-      <span style="font-size: 1.3em;">❌</span> Khi áp dụng lý thuyết này, chúng ta rất dễ mắc phải các lỗi phổ biến sau:
+      Khi xây dựng cấu trúc lập luận này, chúng ta rất dễ mắc phải các lỗi phổ biến sau:
     </h4>
     <div style="font-size: 0.95em; color: #7f1d1d; line-height: 1.6; margin-bottom: 12px;"><strong>1. Sử dụng ngụy biện cảm xúc:</strong> Thuyết phục đối tác bằng lời lẽ khoa trương, đao to búa lớn nhưng thiếu vắng cấu trúc logic cốt lõi bên trong.</div>
     <div style="font-size: 0.95em; color: #7f1d1d; line-height: 1.6;"><strong>2. Căn cứ vào Bằng chứng yếu:</strong> Đưa ra các kết luận chiến lược trị giá hàng tỷ đồng nhưng dựa trên tin đồn truyền miệng hoặc quan sát chủ quan cá nhân.</div>
+
+  
   </div>
   <!-- Hộp Xanh lá định hướng giải pháp -->
   <div style="background: linear-gradient(135deg, #dcfce7, #bbf7d0); border: 1px solid #4ade80; border-radius: 12px; padding: 20px; box-shadow: 0 8px 15px rgba(34,197,94,0.15); position: relative; overflow: hidden;">
-    <div style="position: absolute; top: -10px; right: -10px; font-size: 5rem; opacity: 0.1;">✅</div>
     <h4 style="color: #15803d; margin-top: 0; font-size: 1.2em; margin-bottom: 15px; display: flex; align-items: center; gap: 8px;">
-      <span style="font-size: 1.3em;">✅</span> Để hệ thống phân tích hoạt động trơn tru, hãy ghi nhớ các nguyên tắc cốt lõi:
+      Để hệ thống phân tích hoạt động trơn tru, hãy ghi nhớ các nguyên tắc cốt lõi:
     </h4>
     <div style="font-size: 0.95em; color: #14532d; line-height: 1.6; margin-bottom: 12px;"><strong>1. Xây dựng Kiến trúc phân tầng:</strong> Một Kết luận vững chắc luôn phải được chống đỡ bởi các Tiền đề rõ ràng, tuân thủ chặt chẽ luật Nhân-Quả.</div>
-    <div style="font-size: 0.95em; color: #14532d; line-height: 1.6;"><strong>2. Sử dụng 'Bằng chứng Vàng':</strong> Khóa chặt lập luận bằng các số liệu thực nghiệm diện rộng, tài liệu khoa học hoặc báo cáo tài chính đã được kiểm toán.</div>
-  </div>
-</div></div>
+    <div style="font-size: 0.95em; color: #14532d; line-height: 1.6;"><strong>2. Sử dụng 'Bằng chứng Thực chứng':</strong> Khóa chặt lập luận bằng các số liệu thực nghiệm diện rộng, tài liệu khoa học hoặc báo cáo tài chính đã được kiểm toán.</div>
+
+</div></div></div>
 <h2>4. Tổng kết</h2>
 <div class="source-visualization not-prose ssk-summary-panel-wrapper"><section class="ssk-summary-board">
         <header><span>T&#7893;ng k&#7871;t</span><h3>G&#243;i &#253; ch&#237;nh c&#7911;a b&#224;i</h3></header>
         <div class="ssk-summary-grid"><article class="ssk-summary-card">
           <b>01</b>
-          <h4>Định nghĩa</h4>
-          <p>Là kiến trúc tư duy trong đó một Kết luận được chống đỡ bằng hệ thống Tiền đề hợp logic và các Bằng chứng có tính thực nghiệm cao.</p>
+          <h4>Kiến trúc Lập luận Kinh doanh</h4>
+          <p>Nền móng Tiền đề: Một Kết luận vững chắc luôn phải được chống đỡ bởi hệ thống Tiền đề tuân thủ chặt chẽ luật Nhân-Quả. Chống Ngụy biện: Gạt bỏ mọi lời lẽ đao to búa lớn, khoa trương cảm xúc nhưng trống rỗng về cấu trúc logic cốt lõi. Phản biện đúng tâm: Khi tranh biện, người giỏi sẽ tấn công vào tính logic của Tiền đề thay vì chỉ chăm chăm phủ nhận Kết luận.</p>
           
         </article><article class="ssk-summary-card">
           <b>02</b>
-          <h4>Khi nào dùng?</h4>
-          <p>Khi cần thuyết phục đối tác/nhà đầu tư, hoặc khi cần phản biện lại một báo cáo kinh doanh thiếu căn cứ.</p>
-          
-        </article><article class="ssk-summary-card">
-          <b>03</b>
-          <h4>Cách dùng</h4>
-          <p>Vẽ sơ đồ nhánh logic. Kiểm tra xem Tiền đề có dẫn đến Kết luận theo luật Nhân-Quả hay không, và Bằng chứng có nằm ở "Cấp Vàng" không.</p>
+          <h4>Thang đo Độ tin cậy Bằng chứng</h4>
+          <p>Bằng chứng Yếu: Lời đồn đại truyền miệng, quan sát chủ quan đơn lẻ của cá nhân. Bằng chứng Trung bình: Khảo sát quy mô nhỏ, ý kiến của chuyên gia trong ngành. Bằng chứng Thực chứng: Dữ liệu thực nghiệm diện rộng, tài liệu khoa học, báo cáo tài chính đã qua kiểm toán.</p>
           
         </article></div>
       </section></div>
 <h2>5. Tài liệu tham khảo</h2>
-<ul><li>Weston, A. (2017). <em>A Rulebook for Arguments</em>. Hackett Publishing Company.</li><li>Pearl, J., &amp; Mackenzie, D. (2018). <em>The Book of Why: The New Science of Cause and Effect</em>. Basic Books.</li></ul></div><div class="mt-10 pt-6 border-t-2 border-gray-200/80 flex flex-col sm:flex-row items-center justify-between gap-4"><button onclick="prevLessonInSession(3, '2')" class="w-full sm:w-auto px-5 py-3 rounded-2xl border-2 border-gray-300 bg-white text-gray-700 hover:bg-gray-100 font-bold text-xs sm:text-sm flex items-center justify-center gap-2.5 transition shadow-2xs group cursor-pointer"><i class="ph-bold ph-arrow-left text-base text-gray-500 group-hover:-translate-x-1 transition"></i><span>Bài trước</span></button><button onclick="nextLessonInSession(3, '2')" class="w-full sm:w-auto px-6 py-3.5 rounded-2xl bg-gradient-to-r from-rikkei-red to-red-600 hover:from-rikkei-darkred hover:to-red-700 text-white font-black text-xs sm:text-sm flex items-center justify-center gap-3 transition shadow-md hover:shadow-xl group cursor-pointer"><span>Bài tiếp theo</span><i class="ph-bold ph-arrow-right text-base text-white group-hover:translate-x-1 transition"></i></button></div></article></div><div id="view-session-4" class="hidden space-y-8 animate-fade"><section class="session-header bg-white p-6 sm:p-8 rounded-3xl border border-gray-200 shadow-xs space-y-4"><div class="flex items-center justify-between flex-wrap gap-3 border-b border-gray-100 pb-4"><span class="bg-rikkei-red text-white font-black text-xs px-3.5 py-1.5 rounded-full uppercase tracking-wider">SESSION 04 • NỘI DUNG CHUYÊN SÂU</span><button onclick="showView('view-overview')" class="px-4 py-2 rounded-xl bg-gray-100 hover:bg-gray-200 text-xs font-bold flex items-center gap-1.5 transition"><i class="ph-bold ph-arrow-left"></i> Quay lại Danh sách Session</button></div><h2 class="font-heading font-black text-xl sm:text-2xl md:text-3xl text-gray-900 leading-tight">Từ phân tích đến giải quyết vấn đề và ra quyết định</h2><p class="text-xs sm:text-sm text-gray-600 leading-relaxed">Nội dung được lấy trực tiếp từ bài đọc nguồn, giữ các sơ đồ, bảng và khung ứng dụng trong bài.</p><div class="flex items-center gap-2 flex-wrap pt-3 border-t border-gray-100"><button id="btn-s4-l1" onclick="showLessonTab(4, '1', true)" class="tab-btn flex-1 justify-center px-4 py-2.5 rounded-2xl text-xs sm:text-sm flex items-center gap-2 transition cursor-pointer active bg-rikkei-red text-white font-black shadow-md"><i class="ph-bold ph-book-open text-white"></i><span>Lesson 1</span></button><button id="btn-s4-l2" onclick="showLessonTab(4, '2', true)" class="tab-btn flex-1 justify-center px-4 py-2.5 rounded-2xl text-xs sm:text-sm flex items-center gap-2 transition cursor-pointer bg-gray-100 text-gray-700 font-bold"><i class="ph-bold ph-book-open text-rikkei-red"></i><span>Lesson 2</span></button></div></section><article id="panel-s4-l1" data-lesson-meta="Lesson 1 • Session 04" data-lesson-title="Đúc kết phân tích và Xây dựng phương án" class="lesson-panel  space-y-8 animate-fade bg-white p-6 sm:p-8 rounded-3xl border border-gray-200 shadow-xs"><div class="prose" data-preserve-source-visuals="true"><h2>1. Local Brand đối mặt cơn bão trả mặt bằng 2024</h2>
+<ul><li>Weston, A. (2017). <em>A Rulebook for Arguments</em>. Hackett Publishing Company.</li><li>Pearl, J., &amp; Mackenzie, D. (2018). <em>The Book of Why: The New Science of Cause and Effect</em>. Basic Books.</li></ul></div><div class="mt-10 pt-6 border-t-2 border-gray-200/80 flex flex-col sm:flex-row items-center justify-between gap-4"><button onclick="prevLessonInSession(3, '2')" class="w-full sm:w-auto px-5 py-3 rounded-2xl border-2 border-gray-300 bg-white text-gray-700 hover:bg-gray-100 font-bold text-xs sm:text-sm flex items-center justify-center gap-2.5 transition shadow-2xs group cursor-pointer"><i class="ph-bold ph-arrow-left text-base text-gray-500 group-hover:-translate-x-1 transition"></i><span>Bài trước</span></button><button onclick="nextLessonInSession(3, '2')" class="w-full sm:w-auto px-6 py-3.5 rounded-2xl bg-gradient-to-r from-rikkei-red to-red-600 hover:from-rikkei-darkred hover:to-red-700 text-white font-black text-xs sm:text-sm flex items-center justify-center gap-3 transition shadow-md hover:shadow-xl group cursor-pointer"><span>Bài tiếp theo</span><i class="ph-bold ph-arrow-right text-base text-white group-hover:translate-x-1 transition"></i></button></div></article></div><div id="view-session-4" class="hidden space-y-8 animate-fade"><section class="session-header bg-white p-6 sm:p-8 rounded-3xl border border-gray-200 shadow-xs space-y-4"><div class="flex items-center justify-between flex-wrap gap-3 border-b border-gray-100 pb-4"><span class="bg-rikkei-red text-white font-black text-xs px-3.5 py-1.5 rounded-full uppercase tracking-wider">SESSION 04 • NỘI DUNG CHUYÊN SÂU</span><button onclick="showView('view-overview')" class="px-4 py-2 rounded-xl bg-gray-100 hover:bg-gray-200 text-xs font-bold flex items-center gap-1.5 transition"><i class="ph-bold ph-arrow-left"></i> Quay lại Danh sách Session</button></div><h2 class="font-heading font-black text-xl sm:text-2xl md:text-3xl text-gray-900 leading-tight">Tổng hợp kết quả phân tích và ra quyết định</h2><p class="text-xs sm:text-sm text-gray-600 leading-relaxed">Nội dung được lấy trực tiếp từ bài đọc nguồn, giữ các sơ đồ, bảng và khung ứng dụng trong bài.</p><div class="flex items-center gap-2 flex-wrap pt-3 border-t border-gray-100"><button id="btn-s4-l1" onclick="showLessonTab(4, '1', true)" class="tab-btn flex-1 justify-center px-4 py-2.5 rounded-2xl text-xs sm:text-sm flex items-center gap-2 transition cursor-pointer active bg-rikkei-red text-white font-black shadow-md"><i class="ph-bold ph-book-open text-white"></i><span>Lesson 1</span></button><button id="btn-s4-l2" onclick="showLessonTab(4, '2', true)" class="tab-btn flex-1 justify-center px-4 py-2.5 rounded-2xl text-xs sm:text-sm flex items-center gap-2 transition cursor-pointer bg-gray-100 text-gray-700 font-bold"><i class="ph-bold ph-book-open text-rikkei-red"></i><span>Lesson 2</span></button></div></section><article id="panel-s4-l1" data-lesson-meta="Lesson 1 • Session 04" data-lesson-title="Đúc kết phân tích và Xây dựng phương án" class="lesson-panel  space-y-8 animate-fade bg-white p-6 sm:p-8 rounded-3xl border border-gray-200 shadow-xs"><div class="prose" data-preserve-source-visuals="true"><h2>1. Local Brand đối mặt cơn bão trả mặt bằng 2024</h2>
 <figure class="lesson-company-image-block">
     <button type="button" class="lesson-company-image-button" data-full-image="https://cdn.techinasia.com/cloudinary/transformations/wp-content/uploads/2025/08/1754881853_29d9714ff3c41bc8ca40a00b56a2baac_v1754881852_xlarge.jpg" data-full-caption="Local Brand • Minh họa tình huống phân tích" data-image-source="cdn.techinasia.com" aria-label="Mở ảnh minh họa toàn màn hình">
       <img src="https://cdn.techinasia.com/cloudinary/transformations/wp-content/uploads/2025/08/1754881853_29d9714ff3c41bc8ca40a00b56a2baac_v1754881852_xlarge.jpg" alt="Local Brand • Minh họa tình huống phân tích" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-company-visual-ready="true">
@@ -4805,88 +4982,128 @@
       </span>
     </button>
   </figure>
-<div class="lesson-problem-block"><p>Đầu năm 2024, cơn bão suy thoái và sự thay đổi hành vi tiêu dùng đã quét qua các con phố mua sắm sầm uất. Các nhãn hàng thời trang nội địa (Local Brand) đứng trước một bối cảnh ngổn ngang: Giá thuê mặt bằng ngã tư tăng phi mã; Lượng khách bước vào cửa hàng vật lý (Foot traffic) giảm 50%; trong khi đó, doanh thu từ các phiên Livestream với KOC trên TikTok Shop lại bùng nổ dữ dội. Nhiều chủ doanh nghiệp rơi vào căn bệnh học thuật nghiêm trọng: <strong>Bệnh &#039;ngộp&#039; dữ liệu</strong>. Họ bị ngập ngụa trong các báo cáo lỗ lãi từng cửa hàng mà không thể đưa ra lối thoát.</p></div>
-<p>Tuy nhiên, những chiến lược gia sắc sảo đã kích hoạt công cụ đỉnh cao nhất: <strong>Kỹ năng đúc kết</strong>. Việc áp dụng đúng lý thuyết đúc kết giúp họ &quot;khâu&quot; các con số rời rạc lại thành một Bức tranh toàn cảnh: Duy trì cửa hàng vật lý giờ đây chỉ mang ý nghĩa &quot;làm hình ảnh&quot;, trong khi tiền mặt thực sự nằm ở Online. Từ đúc kết này, họ vẽ ra các phương án thay thế trên một <strong>Lưu đồ</strong>: Hoặc gồng lỗ giữ mặt bằng để bảo vệ danh tiếng, hoặc dũng cảm tháo chạy, đóng cửa toàn bộ chuỗi cửa hàng vật lý để dồn ngân sách thuê KOC Livestream. Khâu đúc kết tuân thủ định luật logic này là tiền đề cho làn sóng chuyển đổi mô hình kinh doanh sống còn của năm 2024.</p>
+<div class="lesson-problem-block"><p>Đầu năm 2024, cơn bão suy thoái và sự thay đổi hành vi tiêu dùng đã quét qua các con phố mua sắm sầm uất. Các nhãn hàng thời trang nội địa (Local Brand) đứng trước một bối cảnh ngổn ngang: Giá thuê mặt bằng ngã tư tăng phi mã; Lượng khách bước vào cửa hàng vật lý (Foot traffic) giảm 50%; trong khi đó, doanh thu từ các phiên Livestream với KOC trên TikTok Shop lại bùng nổ dữ dội. Nhiều chủ doanh nghiệp rơi vào căn bệnh &quot;ngộp&quot; dữ liệu. Họ bị vùi lấp trong hàng tá báo cáo lỗ lãi của từng chi nhánh, những số liệu vận hành rời rạc và các biến động thị trường hàng ngày mà không thể tìm ra một hướng đi rõ ràng. Toàn bộ tổ chức rơi vào trạng thái &quot;Tê liệt phân tích&quot;, không biết phải bắt đầu cắt giảm hay mở rộng từ đâu.</p></div>
 <h2>2. Kỹ năng Đúc kết và vẽ Lưu đồ sinh tồn</h2>
-<div class="source-visualization not-prose ssk-theory-visual-wrapper" data-ssk-theory-visual="true"><section class="ssk-model-board ssk-model-board--process" aria-label="Trực quan hóa lý thuyết"><header class="ssk-model-header"><h3>Đưa phân tích ra khỏi trang giấy</h3><p>Mẫu flow cho thấy điểm bắt đầu, điểm chọn, nhánh rẽ và hành động cuối để người học không dừng ở việc hiểu vấn đề.</p></header>
-      <div class="ssk-process-track">
-        <article class=""><span>01</span><strong>Tổng hợp</strong><p>Gom phát hiện chính</p></article><b></b><article class=""><span>02</span><strong>Rẽ nhánh</strong><p>Tạo phương án</p></article><b></b><article class="is-decision"><span>03</span><strong>Kiểm duyệt</strong><p>Soi rủi ro</p></article><b></b><article class=""><span>04</span><strong>Hành động</strong><p>Gắn người, hạn, chỉ số</p></article>
-      </div></section></div>
-<div class="source-visualization not-prose ssk-definition-callout-wrapper"><div style="display: flex; flex-direction: column; gap: 15px; margin-bottom: 25px;">
-  <!-- Định nghĩa -->
-  <div style="background: linear-gradient(120deg, #f0f9ff 0%, #e0f2fe 100%); border-left: 6px solid #0284c7; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
-    <h4 style="color: #0369a1; margin-top: 0; margin-bottom: 10px; font-size: 1.1em;">🔍 Định nghĩa cốt lõi</h4>
-    <div style="color: #0f172a; line-height: 1.6; font-size: 0.95em;"><strong>Lưu đồ (Flowchart)</strong> là công cụ trực quan hóa hệ thống, biến hàng nghìn điểm dữ liệu phân mảnh thành một luồng hành động (Flow) có tính định hướng và thứ tự ưu tiên rõ ràng.</div>
-  </div>
-  
-  <!-- Cách dùng -->
-  <div style="background: linear-gradient(120deg, #f8fafc 0%, #f1f5f9 100%); border-left: 6px solid #64748b; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
-    <h4 style="color: #475569; margin-top: 0; margin-bottom: 10px; font-size: 1.1em;">⚙️ Khi nào dùng & Cách dùng</h4>
-    <div style="color: #334155; line-height: 1.6; font-size: 0.95em;"><strong>Khi nào dùng:</strong> Khi tổ chức rơi vào trạng thái 'Tê liệt phân tích' (Analysis Paralysis) - có quá nhiều báo cáo số liệu nhưng không ai biết phải bước đi đầu tiên như thế nào.<br><br><strong>Cách dùng:</strong> Quy hoạch lại đống số liệu thành 4 nút: Điểm xuất phát, Nút thắt kiểm duyệt (điều kiện Có/Không), Nhánh quyết định thực thi, và Phương án dự phòng. Ép toàn bộ tổ chức tuân thủ tính tuyến tính này.</div>
-  </div>
-</div></div>
-<p>Tuy nhiên, lý thuyết chỉ ra rằng: Nếu bạn chỉ mãi miết chẻ nhỏ các con số, bạn sẽ trở thành một kẻ bị &quot;ngộp&quot; dữ liệu. Quá trình đúc kết là việc ghép nối các bánh răng đã được lau sạch lại thành một cỗ máy hoàn chỉnh chạy được. Để trực quan hóa lý thuyết này, công cụ <strong>Lưu đồ</strong> là tiêu chuẩn học thuật số một. Lưu đồ có sức mạnh biến một mớ bòng bong hàng trăm báo cáo thành một dòng chảy logic hành động. Nhìn vào Lưu đồ, bạn tuân thủ các logic nguyên nhân - kết quả: Điểm khởi đầu ở đâu? Đâu là các nút thắt kiểm duyệt (Hộp kim cương Có/Không)? Đâu là các phương án rẽ nhánh? Việc ép não bộ phải vẽ Lưu đồ đảm bảo rằng giải pháp của bạn không có sự đứt gãy logic, và không có bước nào rơi vào ngõ cụt.</p>
-<div class="mermaid">graph TD
-    A([Bắt đầu: Cứu vãn doanh thu 2024]) --&gt; B{Phân tích Nguồn lực (Đúc kết)}
-    B --&gt;|Gồng lỗ giữ Mặt bằng| C[Phương án 1: Giữ uy tín, cạn kiệt tiền mặt]
-    B --&gt;|Thu hẹp 50% cửa hàng| D[Phương án 2: Nửa vời, mất lợi thế quy mô]
-    B --&gt;|Đóng cửa toàn bộ, All-in Livestream| E[Phương án 3: Sốc thương hiệu, nhưng dòng tiền dương]
+<div class="source-visualization not-prose ssk-definition-callout-wrapper"><div style="background: linear-gradient(120deg, #f0f9ff 0%, #e0f2fe 100%); border-left: 6px solid #0284c7; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-bottom: 20px;">
+  <div style="color: #0f172a; line-height: 1.6; font-size: 0.95em;">
+    <strong>Lưu đồ (Flowchart)</strong> đóng vai trò như một "bản đồ dẫn đường" cho doanh nghiệp. Khi công ty có quá nhiều báo cáo số liệu nhưng không ai biết phải làm gì trước, làm gì sau (tình trạng "Tê liệt phân tích"), Lưu đồ sẽ gỡ rối bằng cách chia nhỏ quá trình ra quyết định thành các bước cực kỳ đơn giản:
+<br><br>
+- <strong>Nút Bắt đầu:</strong> Xác định điểm xuất phát của vấn đề.
+- <strong>Nút Điều kiện (Có/Không):</strong> Đặt ra câu hỏi để rẽ nhánh (Ví dụ: "Công ty có đủ tiền mặt không?" - Nếu Có đi đường A, Nếu Không đi đường B).
+- <strong>Nút Hành động:</strong> Chỉ định chính xác công việc phải làm tiếp theo.
+</div></div></div>
+<div class="mermaid">flowchart LR
+    A([Nút Bắt đầu]) --&gt; B{Nút Điều kiện}
+    B --&gt;|Nếu CÓ| C[Nút Hành động A]
+    B --&gt;|Nếu KHÔNG| D[Nút Hành động B]
     
-    C --&gt; F{Vào Bảng đánh giá Rủi ro}
-    D --&gt; F
-    E --&gt; F
+    style A fill:#1e3a8a,color:#fff,stroke-width:0px
+    style B fill:#f59e0b,color:#fff,stroke-width:0px
+    style C fill:#059669,color:#fff,stroke-width:0px
+    style D fill:#dc2626,color:#fff,stroke-width:0px</div>
+<p>Nhờ việc quy hoạch rõ ràng này, Lưu đồ dẹp bỏ mọi tranh cãi lan man, ép cả đội ngũ phải tuân theo một con đường thực thi thống nhất và không bị bế tắc.</p>
+<p>Tuy nhiên, thực tế chỉ ra rằng: Nếu bạn chỉ mải miết chẻ nhỏ các con số mà không biết tổng hợp lại, bạn sẽ bị &quot;ngộp&quot; dữ liệu. Quá trình đúc kết chính là bước gom tất cả những thông tin rời rạc đó lại thành một phương án hành động duy nhất, rõ ràng và có thể thực thi ngay lập tức. Để trực quan hóa phương pháp đúc kết này, <strong>Lưu đồ</strong> là công cụ tiêu chuẩn. Nó giúp chuyển hóa khối lượng lớn các báo cáo rời rạc thành một chuỗi hành động có tính logic cao. Thông qua Lưu đồ, toàn bộ quá trình ra quyết định được minh bạch hóa: Đâu là điểm xuất phát? Đâu là các điều kiện kiểm duyệt (Nút Có/Không)? Và đâu là các phương án rẽ nhánh tương ứng? Việc xây dựng sơ đồ này giúp đội ngũ phân tích phát hiện sớm các lỗ hổng, đảm bảo lộ trình triển khai diễn ra liền mạch và không rơi vào bế tắc.</p>
+<div class="mermaid">flowchart TD
+    %% Định nghĩa Style
+    classDef phase fill:#f8fafc,stroke:#cbd5e1,stroke-width:2px,stroke-dasharray: 5 5
+    classDef start fill:#1e3a8a,color:#fff,stroke-width:0px
+    classDef decision fill:#f59e0b,color:#fff,stroke-width:0px
+    classDef action fill:#0284c7,color:#fff,stroke-width:0px
+    classDef risk fill:#dc2626,color:#fff,stroke-width:0px
+    classDef success fill:#16a34a,color:#fff,stroke-width:0px
+
+    subgraph Phase1 [BƯỚC 1: XÁC ĐỊNH DỮ KIỆN ĐẦU VÀO]
+        direction TB
+        A([Vấn đề: Cứu vãn doanh thu Local Brand 2024]):::start --&gt; D1[Dữ kiện 1: Khách bộ hành giảm 50%]:::action
+        A --&gt; D2[Dữ kiện 2: Chi phí mặt bằng tăng 30%]:::action
+    end
+
+    subgraph Phase2 [BƯỚC 2: THIẾT LẬP NÚT THẮT KIỂM DUYỆT]
+        direction TB
+        D1 --&gt; B{Kiểm tra Nguồn lực:&lt;br&gt;Tiền mặt còn đủ gồng lỗ 6 tháng?}:::decision
+        D2 --&gt; B{Kiểm tra Nguồn lực:&lt;br&gt;Tiền mặt còn đủ gồng lỗ 6 tháng?}:::decision
+        B --&gt;|CÓ| C{Đánh giá Hiệu quả:&lt;br&gt;Cửa hàng vật lý có mang lại&lt;br&gt;Tỷ lệ chuyển đổi &gt; 5%?}:::decision
+        B --&gt;|KHÔNG| G[Quyết định Cắt lỗ:&lt;br&gt;Trả mặt bằng ngay lập tức]:::risk
+    end
+
+    subgraph Phase3 [BƯỚC 3: PHÁT TRIỂN PHƯƠNG ÁN RẼ NHÁNH]
+        direction TB
+        C --&gt;|ĐẠT| E[Chiến lược A:&lt;br&gt;Tối ưu chi phí tại điểm bán &amp; Giữ mặt bằng]:::success
+        C --&gt;|KHÔNG ĐẠT| F[Chiến lược B:&lt;br&gt;Thu hẹp 50% diện tích &amp; Chạy Livestream]:::action
+        G --&gt; H{Kiểm tra Tài sản số:&lt;br&gt;Thương hiệu đã có kênh Online mạnh?}:::decision
+        H --&gt;|ĐÃ CÓ| I[Chiến lược C:&lt;br&gt;All-in ngân sách vào KOC Livestream]:::success
+        H --&gt;|CHƯA CÓ| J[Chiến lược D:&lt;br&gt;Xả hàng tồn kho thu hồi vốn &amp; Xây kênh lại]:::risk
+    end
+
+    subgraph Phase4 [BƯỚC 4: HÀNH ĐỘNG &amp; ĐO LƯỜNG]
+        direction TB
+        E --&gt; K([Triển khai A/B Testing &amp;&lt;br&gt;Đo lường ROI sau 30 ngày]):::start
+        F --&gt; K([Triển khai A/B Testing &amp;&lt;br&gt;Đo lường ROI sau 30 ngày]):::start
+        I --&gt; K([Triển khai A/B Testing &amp;&lt;br&gt;Đo lường ROI sau 30 ngày]):::start
+        J --&gt; K([Triển khai A/B Testing &amp;&lt;br&gt;Đo lường ROI sau 30 ngày]):::start
+        K --&gt; L{ROI có dương không?}:::decision
+        L --&gt;|CÓ| M[Mở rộng quy mô]:::success
+        L --&gt;|KHÔNG| N[Quay lại Bước 2]:::risk
+    end
+
+    Phase1 --&gt; Phase2
+    Phase2 --&gt; Phase3
+    Phase3 --&gt; Phase4
+    </div>
+<div class="ssk-practice-frame"><p>Thay vì sa đà vào các cuộc họp cãi vã không hồi kết, ban giám đốc của Local Brand đã in Lưu đồ 4 bước (như sơ đồ trên) ra một tấm bảng lớn và bắt đầu thực thi:</p>
+<ol><li><strong>Đối mặt với Nút thắt đầu tiên:</strong> Kế toán trưởng báo cáo lượng tiền mặt chỉ còn đủ duy trì 2 tháng. Lập tức, theo đúng logic của Lưu đồ, nhánh &quot;CÓ&quot; bị loại bỏ. Toàn bộ công ty buộc phải rẽ sang nhánh &quot;KHÔNG&quot;: <strong>Quyết định trả mặt bằng ngay lập tức</strong>. Mọi sự tiếc nuối về &quot;vị trí cửa hàng đẹp&quot; đều bị dập tắt bởi tính khách quan của hệ thống.</li><li><strong>Xử lý rủi ro ở các nhánh tiếp theo:</strong> Khi đi theo nhánh &quot;Trả mặt bằng&quot;, họ đối diện với rủi ro khách hàng quen phàn nàn vì không được thử đồ. Đi tiếp theo sơ đồ đến nút &quot;Tài sản số&quot;, họ lập tức chốt phương án: Chuyển toàn bộ tiền cọc mặt bằng sang đầu tư cho các phiên Mega-Livestream, kèm chính sách &quot;Đổi trả miễn phí 14 ngày tận nhà&quot; để bù đắp trải nghiệm.</li></ol>
+<p><strong>Sơ đồ trích xuất con đường thoát hiểm của Local Brand:</strong></p>
+<div class="mermaid">flowchart TD
+    A([Vấn đề: Cạn kiệt dòng tiền]) --&gt; B{Tiền mặt đủ gồng lỗ 2 tháng?}
+    B -.-&gt;|CÓ| C[Tiếp tục duy trì cửa hàng]:::discarded
+    B --&gt;|KHÔNG| G[Quyết định: Trả mặt bằng]
     
-    F --&gt;|Chọn Phương án Đột phá| G[Thanh lý mặt bằng, thiết lập Studio Livestream]
-    F --&gt;|Bắt tay với Mạng lưới KOC| H[Chuyển đổi toàn bộ ngân sách Marketing sang Online]
+    G --&gt; H{Thương hiệu đã có kênh Online?}
+    H -.-&gt;|ĐÃ CÓ| I[All-in ngân sách Livestream nội bộ]:::discarded
+    H --&gt;|CHƯA CÓ| J[Chiến lược: Dùng tiền cọc thuê KOC Mega-Livestream&lt;br&gt;&amp; Đổi trả 14 ngày]
     
-    G --&gt; I([Chuyển sang bước Ra Quyết Định])
-    H --&gt; I
-    
-    style A fill:#1e3a8a,color:#fff,shape:pill
-    style B fill:#ca8a04,color:#fff,shape:diamond
-    style E fill:#059669,color:#fff
-    style I fill:#1e3a8a,color:#fff,shape:pill</div>
-<div class="ssk-practice-frame"><p>Để chứng minh phương án &quot;Trả mặt bằng&quot; không phải là ý định điên rồ, các công ty ứng dụng một công cụ khắt khe: <strong>Khung giải quyết vấn đề</strong>. Bảng kế hoạch này buộc đội ngũ chiến lược phải phơi bày toàn bộ sự thật trên một trang giấy: Mục tiêu cốt lõi, Nguồn lực thực tế, Lộ trình, và các Rủi ro trí mạng. Trong case của các Local Brand, khi điền phương án &quot;Đóng cửa hàng&quot; vào bảng, ô Rủi ro hiện lên màu đỏ rực: Khách hàng quen sẽ phàn nàn vì không được thử đồ trực tiếp; Đối thủ sẽ đồn thổi &quot;Thương hiệu X sắp phá sản&quot;. Bằng sức mạnh dự phóng, họ buộc phải nghĩ ra Giải pháp phòng ngừa ghi ngay bên cạnh: Áp dụng chính sách &quot;Đổi trả miễn phí 14 ngày tận nhà&quot; để bù đắp việc không được thử đồ; đồng thời book ngay các Mega-Livestream với KOC nổi tiếng để chứng minh tiềm lực tài chính. Việc hiển thị hệ thống phòng ngự minh bạch là bằng chứng của việc áp dụng triệt để lý thuyết học thuật vào thực chiến doanh nghiệp.</p>
-</div><div class="ssk-outcome-frame"><p>Thông qua Khung giải quyết vấn đề và Lưu đồ chi tiết, các Local Brand đã thực hiện cú chuyển mình lịch sử từ Offline sang Online một cách trơn tru, cắt giảm 60% chi phí vận hành mà vẫn giữ chân được phần lớn khách hàng trung thành.</p></div>
+    style A fill:#1e3a8a,color:#fff,stroke-width:0px
+    style B fill:#f59e0b,color:#fff,stroke-width:0px
+    style G fill:#dc2626,color:#fff,stroke-width:0px
+    style H fill:#f59e0b,color:#fff,stroke-width:0px
+    style J fill:#059669,color:#fff,stroke-width:0px
+    classDef discarded fill:#f1f5f9,color:#94a3b8,stroke:#cbd5e1,stroke-dasharray: 3 3</div>
+<p>Việc tuân thủ nghiêm ngặt con đường rẽ nhánh này trên Lưu đồ giúp doanh nghiệp đưa ra quyết định dứt khoát, loại bỏ yếu tố cảm tính và lách qua được khe cửa hẹp của sự phá sản.</p>
+</div><div class="ssk-outcome-frame"><p>Dựa vào lộ trình rõ ràng từ Lưu đồ, Local Brand đã thực hiện cú chuyển mình lịch sử từ Offline sang Online chỉ trong 30 ngày. Họ cắt giảm 60% chi phí vận hành mà vẫn giữ chân được khách hàng, lật ngược thế cờ trong bối cảnh khó khăn.</p></div>
 <h2>3. Lưu ý</h2>
-<p>Trong quá trình áp dụng lý thuyết vào thực tiễn, người phân tích cần đặc biệt chú ý sự khác biệt giữa cách làm theo bản năng và cách làm chuẩn học thuật:</p>
+<p>Trong quá trình áp dụng công cụ này vào thực tiễn, việc phác thảo hệ thống rất dễ biến thành một ma trận rắc rối nếu chúng ta đánh mất đi tư duy tối giản và tính định hướng hành động:</p>
 <div class="source-visualization not-prose"><div style="display: flex; flex-direction: column; gap: 20px; margin: 20px 0;">
   <!-- Hộp Đỏ cảnh báo rủi ro -->
   <div style="background: linear-gradient(135deg, #fee2e2, #fecaca); border: 1px solid #f87171; border-radius: 12px; padding: 20px; box-shadow: 0 8px 15px rgba(239,68,68,0.15); position: relative; overflow: hidden;">
-    <div style="position: absolute; top: -10px; right: -10px; font-size: 5rem; opacity: 0.1;">❌</div>
     <h4 style="color: #b91c1c; margin-top: 0; font-size: 1.2em; margin-bottom: 15px; display: flex; align-items: center; gap: 8px;">
-      <span style="font-size: 1.3em;">❌</span> Khi áp dụng lý thuyết này, chúng ta rất dễ mắc phải các lỗi phổ biến sau:
+      Khi vẽ lưu đồ, chúng ta rất dễ mắc phải các lỗi phổ biến sau:
     </h4>
     <div style="font-size: 0.95em; color: #7f1d1d; line-height: 1.6; margin-bottom: 12px;"><strong>1. Hội chứng Tê liệt Phân tích:</strong> Mải mê bóc tách số liệu rời rạc, tạo ra hàng ngàn slide báo cáo nhưng không thể đúc kết ra một luồng hành động cụ thể.</div>
     <div style="font-size: 0.95em; color: #7f1d1d; line-height: 1.6;"><strong>2. Thiếu Phương án dự phòng:</strong> Không thiết kế các nhánh rẽ phụ, khiến hệ thống đóng băng và hoảng loạn ngay khi gặp một ngoại lệ nhỏ trên thực tế.</div>
+
+  
   </div>
   <!-- Hộp Xanh lá định hướng giải pháp -->
   <div style="background: linear-gradient(135deg, #dcfce7, #bbf7d0); border: 1px solid #4ade80; border-radius: 12px; padding: 20px; box-shadow: 0 8px 15px rgba(34,197,94,0.15); position: relative; overflow: hidden;">
-    <div style="position: absolute; top: -10px; right: -10px; font-size: 5rem; opacity: 0.1;">✅</div>
     <h4 style="color: #15803d; margin-top: 0; font-size: 1.2em; margin-bottom: 15px; display: flex; align-items: center; gap: 8px;">
-      <span style="font-size: 1.3em;">✅</span> Để hệ thống phân tích hoạt động trơn tru, hãy ghi nhớ các nguyên tắc cốt lõi:
+      Để hệ thống phân tích hoạt động trơn tru, hãy ghi nhớ các nguyên tắc cốt lõi:
     </h4>
     <div style="font-size: 0.95em; color: #14532d; line-height: 1.6; margin-bottom: 12px;"><strong>1. Quy hoạch tuyến tính trực quan:</strong> Biến mọi dữ kiện phân mảnh thành một luồng Flowchart có Điểm khởi đầu, các Nhánh rẽ và Điểm kết thúc rõ ràng.</div>
     <div style="font-size: 0.95em; color: #14532d; line-height: 1.6;"><strong>2. Thiết lập Nút thắt kiểm duyệt:</strong> Đặt các câu hỏi Có/Không (Yes/No) tại các điểm giao cắt để ép tổ chức ra quyết định dứt khoát trước khi đi tiếp.</div>
-  </div>
-</div></div>
+
+</div></div></div>
 <h2>4. Tổng kết</h2>
 <div class="source-visualization not-prose ssk-summary-panel-wrapper"><section class="ssk-summary-board">
         <header><span>T&#7893;ng k&#7871;t</span><h3>G&#243;i &#253; ch&#237;nh c&#7911;a b&#224;i</h3></header>
         <div class="ssk-summary-grid"><article class="ssk-summary-card">
           <b>01</b>
-          <h4>Định nghĩa</h4>
-          <p>Công cụ đúc kết giúp hệ thống hóa hàng nghìn dữ kiện phân mảnh thành một luồng hành động tuyến tính rõ ràng và có định hướng.</p>
+          <h4>Sức mạnh của Lưu đồ</h4>
+          <p>Bản chất: Công cụ đúc kết, biến hàng nghìn số liệu phân mảnh thành một luồng hành động tuyến tính. Giải tỏa Tê liệt: Phá vỡ trạng thái 'Tê liệt phân tích' khi tổ chức có quá nhiều dữ liệu nhưng không biết phải bắt đầu từ đâu. Thống nhất tư duy: Ép toàn bộ các phòng ban phải tuân thủ nghiêm ngặt một lộ trình thực thi vạch sẵn.</p>
           
         </article><article class="ssk-summary-card">
           <b>02</b>
-          <h4>Khi nào dùng?</h4>
-          <p>Khi tổ chức bị "Tê liệt phân tích", có quá nhiều dữ liệu nhưng không biết bước tiếp theo phải làm gì, hoặc quy trình đang rối rắm.</p>
-          
-        </article><article class="ssk-summary-card">
-          <b>03</b>
-          <h4>Cách dùng</h4>
-          <p>Dùng ký hiệu hình khối để quy hoạch: Hình oval (Bắt đầu/Kết thúc), Hình thoi (Nút thắt Có/Không), và Hình chữ nhật (Hành động).</p>
+          <h4>Thành phần Cốt lõi</h4>
+          <p>Khởi đầu & Kết thúc: Định vị rõ ràng điểm xuất phát và mục tiêu cuối cùng. Nút thắt kiểm duyệt: Các điểm giao cắt Có/Không (Yes/No) ép tổ chức phải ra quyết định dứt khoát trước khi đi tiếp. Nhánh dự phòng (Fallback): Kịch bản cứu hộ khẩn cấp giúp hệ thống không bị đóng băng khi gặp rủi ro.</p>
           
         </article></div>
       </section></div>
@@ -4902,32 +5119,15 @@
       </span>
     </button>
   </figure>
-<div class="lesson-problem-block"><p>Tiếp nối làn sóng tháo chạy khỏi mặt bằng năm 2024, khi một thương hiệu thời trang lớn tuyên bố ngừng hoàn toàn việc thuê cửa hàng để All-in lên Livestream. Các ý kiến bên ngoài cho rằng đây là sự &quot;bế tắc&quot; và thất bại.</p></div>
-<p>Tuy nhiên, dưới lăng kính của Tư duy phân tích, đây là kết quả của việc áp dụng cực đoan <strong>Lý thuyết Ma trận Quyết định</strong> trong phòng họp kín. Theo lý thuyết, để đưa ra quyết định mang tính sinh tử, ban lãnh đạo không bao giờ tranh luận bằng lời nói suông. Họ đưa 3 con đường lên bàn cân lượng hóa: Phương án A (Cố giữ mặt bằng cửa hàng); Phương án B (Làm cả Cửa hàng lẫn Livestream); Phương án C (Khai tử cửa hàng, All-in Livestream). Nếu để một quản lý theo lối mòn quyết định dựa trên sĩ diện thương hiệu, Phương án C sẽ bị loại ngay vì nó giống như một bước lùi đớn đau. Nhưng bằng việc áp dụng sức mạnh học thuật của Ma trận Quyết định, các kỹ sư chiến lược đã ép buộc toàn bộ hội đồng phải gán <strong>Trọng số (điểm số)</strong> cho mục tiêu sống còn là &quot;Dòng tiền dương&quot;. Khi con số logic chạy xong, Phương án C lại là phương án duy nhất đạt điểm số đủ cao để cứu sống công ty. Việc biến sự can trường thành các biến số đo lường được đã minh chứng cho quyền lực tuyệt đối của lý thuyết ra quyết định.</p>
+<div class="lesson-problem-block"><p>Tiếp nối làn sóng khủng hoảng mặt bằng năm 2024, ban lãnh đạo của một thương hiệu thời trang lớn phải đối mặt với một quyết định mang tính sống còn. Họ bị giằng xé giữa 3 con đường: Cố gắng gồng lỗ để giữ lại chuỗi cửa hàng vật lý nhằm bảo vệ &quot;sĩ diện&quot; thương hiệu; hoặc Cắt giảm một nửa số lượng cửa hàng; hoặc Đóng cửa toàn bộ cửa hàng để chuyển dịch 100% nguồn lực lên Livestream. Các cuộc họp hội đồng quản trị trở thành chiến trường của những màn tranh cãi cảm xúc. Phía Marketing muốn giữ cửa hàng vì hình ảnh, phía Tài chính muốn cắt hết vì dòng tiền. Tổ chức đang mắc kẹt trong sự bế tắc vì không thể tìm ra một cách thức đánh giá khách quan nào để đưa ra quyết định mà mọi người đều &quot;tâm phục khẩu phục&quot;.</p></div>
 <h2>2. Áp dụng Ma trận Quyết định gạt bỏ sĩ diện</h2>
-<div class="source-visualization not-prose ssk-theory-visual-wrapper" data-ssk-theory-visual="true"><section class="ssk-model-board ssk-model-board--matrix" aria-label="Trực quan hóa lý thuyết"><header class="ssk-model-header"><h3>Chọn bằng tiêu chí, không chọn bằng cảm tính</h3><p>Các phương án được đặt chung một hệ tiêu chí để so sánh rõ tác động, chi phí, rủi ro và tốc độ triển khai.</p></header>
-      <div class="ssk-matrix-field">
-        <div class="ssk-axis-y">Tác động cao</div>
-        <div class="ssk-axis-x">Dễ triển khai</div>
-        <article class="q1"><span>Ưu tiên</span><strong>Làm ngay</strong><p>Tác động cao, dễ thực thi.</p></article>
-        <article class="q2"><span>Đầu tư</span><strong>Lập kế hoạch</strong><p>Tác động cao nhưng cần nguồn lực.</p></article>
-        <article class="q3"><span>Thử nghiệm</span><strong>Làm nhỏ</strong><p>Dễ làm nhưng tác động vừa phải.</p></article>
-        <article class="q4"><span>Loại bỏ</span><strong>Để sau</strong><p>Tác động thấp, triển khai khó.</p></article>
-      </div></section></div>
-<div class="source-visualization not-prose ssk-definition-callout-wrapper"><div style="display: flex; flex-direction: column; gap: 15px; margin-bottom: 25px;">
-  <!-- Định nghĩa -->
-  <div style="background: linear-gradient(120deg, #f0f9ff 0%, #e0f2fe 100%); border-left: 6px solid #0284c7; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
-    <h4 style="color: #0369a1; margin-top: 0; margin-bottom: 10px; font-size: 1.1em;">🔍 Định nghĩa cốt lõi</h4>
-    <div style="color: #0f172a; line-height: 1.6; font-size: 0.95em;"><strong>Ma trận quyết định (Decision Matrix)</strong> là khung lượng hóa khách quan giúp triệt tiêu cảm tính. Nó đánh giá các phương án giải quyết vấn đề dựa trên một hệ thống Điểm số và Trọng số toán học.</div>
+<div class="source-visualization not-prose ssk-definition-callout-wrapper"><div style="background: linear-gradient(120deg, #f0f9ff 0%, #e0f2fe 100%); border-left: 6px solid #0284c7; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-bottom: 20px;">
+  <div style="color: #0f172a; line-height: 1.6; font-size: 0.95em;">
+    <strong>Ma trận quyết định (Decision Matrix)</strong> là khung lượng hóa khách quan giúp triệt tiêu cảm tính. Nó đánh giá các phương án giải quyết vấn đề dựa trên một hệ thống Điểm số và Trọng số toán học. Khung lượng hóa này được sử dụng khi có nhiều giải pháp tiềm năng nhưng mỗi giải pháp lại kéo theo những sự đánh đổi (Trade-off - việc bắt buộc phải hy sinh một lợi ích này để đạt được một lợi ích khác quan trọng hơn) khác nhau gây xung đột lợi ích. Bằng cách đặt các phương án lên bàn cân, gán điểm số khách quan và nhân với Trọng số ưu tiên của tổ chức (như Tối ưu dòng tiền hay Phát triển thương hiệu), Ma trận sẽ chỉ ra lựa chọn sinh tồn tối ưu nhất bằng toán học lạnh lùng.
   </div>
-  
-  <!-- Cách dùng -->
-  <div style="background: linear-gradient(120deg, #f8fafc 0%, #f1f5f9 100%); border-left: 6px solid #64748b; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
-    <h4 style="color: #475569; margin-top: 0; margin-bottom: 10px; font-size: 1.1em;">⚙️ Khi nào dùng & Cách dùng</h4>
-    <div style="color: #334155; line-height: 1.6; font-size: 0.95em;"><strong>Khi nào dùng:</strong> Khi có nhiều giải pháp tiềm năng nhưng mỗi giải pháp lại đại diện cho một 'Sự đánh đổi' (Trade-off) khác nhau gây xung đột lợi ích giữa các phòng ban.<br><br><strong>Cách dùng:</strong> Đặt các phương án lên bảng. Gán Trọng số (hệ số nhân) dựa trên Triết lý ưu tiên của tổ chức lúc bấy giờ (VD: Tối ưu dòng tiền x5, Hình ảnh thương hiệu x2). Phương án có Tổng điểm cao nhất sẽ được chọn khách quan.</div>
-  </div>
+
 </div></div>
-<p>Quy luật thực tế chỉ ra rằng: Bạn không bao giờ tìm được một giải pháp &quot;Chi phí thấp, Lợi nhuận cao mà lại Không có rủi ro&quot;. Để triệt tiêu những Thiên kiến nhận thức trong phòng họp (ví dụ kiểu &quot;Sếp to nói thì nghe theo&quot;), giới học thuật thiết kế ra công cụ <strong>Ma trận Quyết định</strong>. Thay vì dùng lý lẽ hùng biện, công cụ này lượng hóa mọi sự lựa chọn. Các chuyên gia sẽ gán <strong>Trọng số</strong> cho các tiêu chí lõi (Chi phí, Thời gian, Dòng tiền). Bằng cách nhân Điểm số của từng phương án với Trọng số, bức tranh logic sẽ hiện ra một cách lạnh lùng. Mọi phương án sẽ bị lột trần và quy đổi thành một con số tổng cộng cuối cùng (Điểm số sau trọng số), ép tổ chức phải đi theo con đường tối ưu nhất về mặt toán học.</p>
+<p>Quy luật thực tế chỉ ra rằng: Bạn không bao giờ tìm được một giải pháp &quot;Chi phí thấp, Lợi nhuận cao mà lại Không có rủi ro&quot;. Để triệt tiêu những Thiên kiến nhận thức trong phòng họp (ví dụ kiểu &quot;Sếp to nói thì nghe theo&quot;), các chuyên gia quản trị thiết kế ra công cụ <strong>Ma trận Quyết định</strong>. Thay vì dùng lý lẽ hùng biện, công cụ này lượng hóa mọi sự lựa chọn. Các chuyên gia sẽ gán <strong>Trọng số</strong> cho các tiêu chí lõi (Chi phí, Thời gian, Dòng tiền). Bằng cách nhân Điểm số của từng phương án với Trọng số, bức tranh logic sẽ hiện ra một cách lạnh lùng. Mọi phương án sẽ bị lột trần và quy đổi thành một con số tổng cộng cuối cùng (Điểm số sau trọng số), ép tổ chức phải đi theo con đường tối ưu nhất về mặt toán học.</p>
 <div class="source-visualization not-prose"><div style="overflow-x: auto; margin: 20px 0;">
   <table style="width: 100%; border-collapse: collapse; text-align: center; border: 1px solid #e2e8f0;">
     <thead>
@@ -4966,48 +5166,118 @@
     </tbody>
   </table>
 </div></div>
-<p><em>(Bản nháp mô phỏng ứng dụng lý thuyết Ma trận Quyết định vào cuộc họp chiến lược năm 2024)</em></p>
-<div class="ssk-practice-frame"><p>Sức mạnh cốt lõi của Ma trận Quyết định không nằm ở điểm số, mà nằm ở <strong>Trọng số</strong> - thứ phản chiếu hệ giá trị cốt lõi của tổ chức. Nếu một doanh nghiệp có Tầm nhìn &quot;Giữ thể diện thương hiệu bằng mọi giá&quot;, họ sẽ cài đặt trọng số cho &quot;Thương hiệu Sang trọng&quot; lên mức x5, và giảm &quot;Tối ưu chi phí&quot; xuống mức x1. Theo luồng logic, Phương án 1 (Giữ cửa hàng) sẽ thắng tuyệt đối, và họ chấp nhận rủi ro phá sản. Nhưng hệ quy chiếu của thương hiệu trong bài toán 2024 được ghim chặt vào &quot;Sinh tồn và Dòng tiền&quot;. Do đó, họ áp dụng nguyên tắc lý thuyết: Cấp trọng số x5 cho Tối ưu chi phí, chấp nhận đánh tụt trọng số của sự bóng bẩy bên ngoài. Bài học đắt giá ở đây là: Dữ liệu chỉ giúp bạn điền con số khách quan, nhưng việc quy định Trọng số là thứ tái khẳng định bạn là ai. Việc ra quyết định xuất chúng luôn là sự giao thoa hoàn hảo giữa lý thuyết phân tích lạnh lùng và triết lý kinh doanh thực tế.</p>
+<p><em>(Bản nháp mô phỏng ứng dụng công cụ Ma trận Quyết định vào cuộc họp chiến lược năm 2024)</em></p>
+<div class="source-visualization not-prose"><div style="background: #fffbeb; border-left: 6px solid #f59e0b; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin: 30px 0;">
+  <h4 style="color: #b45309; margin-top: 0; font-size: 1.1em; margin-bottom: 15px;">🧰 Template Ma trận Quyết định (Bản chuẩn)</h4>
+  <p style="font-size: 0.95em; color: #451a03; line-height: 1.6; margin-bottom: 15px;">Bạn có thể sao chép trực tiếp bảng mẫu dưới đây để lượng hóa mọi quyết định chiến lược trong phòng ban:</p>
+  
+  <div style="overflow-x: auto;">
+    <table style="width: 100%; border-collapse: collapse; text-align: center; border: 1px solid #fcd34d; background: white;">
+      <thead>
+        <tr style="background-color: #fef3c7;">
+          <th style="padding: 12px; border: 1px solid #fcd34d; color: #92400e; text-align: left;">Tiêu chí cốt lõi (Criteria)</th>
+          <th style="padding: 12px; border: 1px solid #fcd34d; color: #92400e;">Trọng số (Weight)<br>*(Thang 1-5)*</th>
+          <th style="padding: 12px; border: 1px solid #fcd34d; color: #92400e;">Phương án A<br>*(Điểm 1-10)*</th>
+          <th style="padding: 12px; border: 1px solid #fcd34d; color: #92400e;">Phương án B<br>*(Điểm 1-10)*</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="padding: 12px; border: 1px solid #fcd34d; text-align: left;">Tiêu chí 1 (VD: Chi phí)</td>
+          <td style="padding: 12px; border: 1px solid #fcd34d; font-weight: bold;">x...</td>
+          <td style="padding: 12px; border: 1px solid #fcd34d;">...</td>
+          <td style="padding: 12px; border: 1px solid #fcd34d;">...</td>
+        </tr>
+        <tr style="background-color: #fef8e7;">
+          <td style="padding: 12px; border: 1px solid #fcd34d; text-align: left;">Tiêu chí 2 (VD: Tốc độ)</td>
+          <td style="padding: 12px; border: 1px solid #fcd34d; font-weight: bold;">x...</td>
+          <td style="padding: 12px; border: 1px solid #fcd34d;">...</td>
+          <td style="padding: 12px; border: 1px solid #fcd34d;">...</td>
+        </tr>
+        <tr>
+          <td style="padding: 12px; border: 1px solid #fcd34d; text-align: left;">Tiêu chí 3 (VD: Rủi ro)</td>
+          <td style="padding: 12px; border: 1px solid #fcd34d; font-weight: bold;">x...</td>
+          <td style="padding: 12px; border: 1px solid #fcd34d;">...</td>
+          <td style="padding: 12px; border: 1px solid #fcd34d;">...</td>
+        </tr>
+        <tr style="background-color: #fef3c7; font-weight: bold;">
+          <td style="padding: 12px; border: 1px solid #fcd34d; text-align: right; color: #b45309;" colspan="2">TỔNG ĐIỂM (Sau Trọng số):</td>
+          <td style="padding: 12px; border: 1px solid #fcd34d; color: #b45309;">...</td>
+          <td style="padding: 12px; border: 1px solid #fcd34d; color: #b45309;">...</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size: 0.85em; color: #78350f; font-style: italic; margin-top: 15px;">*Công thức: Tổng điểm = ∑ (Điểm của Phương án × Trọng số tương ứng)</p>
+</div></div>
+<div class="ssk-practice-frame"><p>Sức mạnh cốt lõi của Ma trận Quyết định không nằm ở điểm số, mà nằm ở <strong>Trọng số</strong> - thứ phản chiếu hệ giá trị cốt lõi của tổ chức. Tùy thuộc vào Triết lý sinh tồn mà bức tranh kết quả sẽ đảo chiều hoàn toàn:</p>
+<div class="source-visualization not-prose"><div style="display: flex; flex-wrap: wrap; gap: 20px; margin: 25px 0;">
+  <!-- Kịch bản 1 -->
+  <div style="flex: 1; min-width: 300px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+    <div style="background: #3b82f6; color: white; padding: 15px; text-align: center; font-weight: bold;">
+      Kịch bản 1: "Sĩ diện" lên ngôi
+    </div>
+    <div style="padding: 20px; text-align: center;">
+      <p style="margin-top: 0; color: #475569; font-size: 0.95em;">Trọng số "Thương hiệu": <strong>x5</strong></p>
+      <p style="color: #475569; font-size: 0.95em; margin-bottom: 25px;">Trọng số "Chi phí": x1</p>
+      <div style="font-size: 1.3em; font-weight: bold; color: #1d4ed8; margin-bottom: 15px;">
+        🏆 Giữ cửa hàng vật lý thắng
+      </div>
+      <span style="background: #fee2e2; color: #b91c1c; padding: 6px 12px; border-radius: 20px; font-size: 0.85em; font-weight: 500;">Đánh đổi: Rủi ro phá sản</span>
+    </div>
+  </div>
+
+  <!-- Kịch bản 2 -->
+  <div style="flex: 1; min-width: 300px; background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+    <div style="background: #16a34a; color: white; padding: 15px; text-align: center; font-weight: bold;">
+      Kịch bản 2: Sinh tồn Dòng tiền (Thực tế)
+    </div>
+    <div style="padding: 20px; text-align: center;">
+      <p style="margin-top: 0; color: #475569; font-size: 0.95em;">Trọng số "Chi phí": <strong>x5</strong></p>
+      <p style="color: #475569; font-size: 0.95em; margin-bottom: 25px;">Trọng số "Thương hiệu": x2</p>
+      <div style="font-size: 1.3em; font-weight: bold; color: #15803d; margin-bottom: 15px;">
+        🏆 All-in Livestream thắng
+      </div>
+      <span style="background: #dcfce7; color: #166534; padding: 6px 12px; border-radius: 20px; font-size: 0.85em; font-weight: 500;">Đánh đổi: Hình thức bóng bẩy</span>
+    </div>
+  </div>
+</div></div>
+<p>Trong bài toán 2024, Local Brand ghim chặt chiến lược vào &quot;Kịch bản 2&quot;. Bài học đắt giá ở đây là: Dữ liệu giúp bạn điền con số khách quan, nhưng <strong>việc quy định Trọng số tái khẳng định bạn là ai</strong>. Việc ra quyết định xuất chúng luôn là sự giao thoa hoàn hảo giữa kỹ năng phân tích lạnh lùng và triết lý kinh doanh thực dụng.</p>
 </div><div class="ssk-outcome-frame"><p>Ma trận Quyết định đã giúp ban lãnh đạo dẹp bỏ sự do dự, đưa ra quyết định sinh tử chính xác. Doanh nghiệp không những sống sót qua cơn bão suy thoái mà còn tái cấu trúc thành công dòng tiền để tập trung toàn lực vào mảng Thương mại điện tử.</p></div>
 <h2>3. Lưu ý</h2>
-<p>Trong quá trình áp dụng lý thuyết vào thực tiễn, người phân tích cần đặc biệt chú ý sự khác biệt giữa cách làm theo bản năng và cách làm chuẩn học thuật:</p>
+<p>Trong quá trình áp dụng khung lượng hóa này vào thực tiễn, những con số toán học lạnh lùng hoàn toàn có thể bị bóp méo nếu chúng ta cố tình can thiệp cảm xúc cá nhân vào việc thiết lập trọng số:</p>
 <div class="source-visualization not-prose"><div style="display: flex; flex-direction: column; gap: 20px; margin: 20px 0;">
   <!-- Hộp Đỏ cảnh báo rủi ro -->
   <div style="background: linear-gradient(135deg, #fee2e2, #fecaca); border: 1px solid #f87171; border-radius: 12px; padding: 20px; box-shadow: 0 8px 15px rgba(239,68,68,0.15); position: relative; overflow: hidden;">
-    <div style="position: absolute; top: -10px; right: -10px; font-size: 5rem; opacity: 0.1;">❌</div>
     <h4 style="color: #b91c1c; margin-top: 0; font-size: 1.2em; margin-bottom: 15px; display: flex; align-items: center; gap: 8px;">
-      <span style="font-size: 1.3em;">❌</span> Khi áp dụng lý thuyết này, chúng ta rất dễ mắc phải các lỗi phổ biến sau:
+      Khi thiết lập ma trận này, chúng ta rất dễ mắc phải các lỗi phổ biến sau:
     </h4>
     <div style="font-size: 0.95em; color: #7f1d1d; line-height: 1.6; margin-bottom: 12px;"><strong>1. Trì hoãn vì đi tìm sự hoàn hảo:</strong> Ảo tưởng rằng luôn tồn tại một phương án 'Chi phí bằng 0 - Lợi nhuận tối đa' và liên tục không chịu ra quyết định.</div>
     <div style="font-size: 0.95em; color: #7f1d1d; line-height: 1.6;"><strong>2. Cài đặt sai Trọng số ưu tiên:</strong> Doanh nghiệp cạn dòng tiền nhưng lại đặt Trọng số x5 cho 'Danh tiếng', dẫn đến Ma trận chỉ ra một quyết định sai lệch đẩy công ty xuống vực.</div>
+
+  
   </div>
   <!-- Hộp Xanh lá định hướng giải pháp -->
   <div style="background: linear-gradient(135deg, #dcfce7, #bbf7d0); border: 1px solid #4ade80; border-radius: 12px; padding: 20px; box-shadow: 0 8px 15px rgba(34,197,94,0.15); position: relative; overflow: hidden;">
-    <div style="position: absolute; top: -10px; right: -10px; font-size: 5rem; opacity: 0.1;">✅</div>
     <h4 style="color: #15803d; margin-top: 0; font-size: 1.2em; margin-bottom: 15px; display: flex; align-items: center; gap: 8px;">
-      <span style="font-size: 1.3em;">✅</span> Để hệ thống phân tích hoạt động trơn tru, hãy ghi nhớ các nguyên tắc cốt lõi:
+      Để hệ thống phân tích hoạt động trơn tru, hãy ghi nhớ các nguyên tắc cốt lõi:
     </h4>
     <div style="font-size: 0.95em; color: #14532d; line-height: 1.6; margin-bottom: 12px;"><strong>1. Chấp nhận sự Đánh đổi (Trade-off):</strong> Hiểu rõ không có phương án hoàn hảo tuyệt đối, chỉ có phương án tối ưu nhất dựa trên sự đánh đổi nguồn lực.</div>
     <div style="font-size: 0.95em; color: #14532d; line-height: 1.6;"><strong>2. Căn chỉnh Trọng số theo Triết lý:</strong> Hệ số nhân (Trọng số) luôn phải phản ánh đúng Triết lý sinh tồn hiện tại của tổ chức (Ví dụ: Đặt ưu tiên Tối ưu dòng tiền lên cao nhất).</div>
-  </div>
-</div></div>
+
+</div></div></div>
 <h2>4. Tổng kết</h2>
 <div class="source-visualization not-prose ssk-summary-panel-wrapper"><section class="ssk-summary-board">
         <header><span>T&#7893;ng k&#7871;t</span><h3>G&#243;i &#253; ch&#237;nh c&#7911;a b&#224;i</h3></header>
         <div class="ssk-summary-grid"><article class="ssk-summary-card">
           <b>01</b>
-          <h4>Định nghĩa</h4>
-          <p>Bảng lượng hóa điểm số khách quan giúp triệt tiêu cảm tính khi đứng trước các phương án đòi hỏi sự đánh đổi (Trade-off).</p>
+          <h4>Triết lý Đánh đổi (Trade-off)</h4>
+          <p>Sự hoàn hảo không tồn tại: Mọi phương án đều đòi hỏi sự 'Đánh đổi'. Không có lựa chọn Chi phí 0đ - Lợi nhuận tối đa. Lượng hóa khách quan: Triệt tiêu hoàn toàn sự cảm tính trong phòng họp bằng cách quy đổi mọi phương án ra Điểm số. Chấp nhận rủi ro: Lựa chọn phương án mang lại lợi ích tối ưu nhất nằm trong ngưỡng rủi ro tổ chức chịu đựng được.</p>
           
         </article><article class="ssk-summary-card">
           <b>02</b>
-          <h4>Khi nào dùng?</h4>
-          <p>Khi có sự xung đột lợi ích giữa nhiều lựa chọn, và không có phương án nào là hoàn hảo tuyệt đối.</p>
-          
-        </article><article class="ssk-summary-card">
-          <b>03</b>
-          <h4>Cách dùng</h4>
-          <p>Gán Điểm số khách quan cho từng phương án. Nhân với Trọng số (phản ánh Triết lý ưu tiên) để tìm ra phương án có Tổng điểm cao nhất.</p>
+          <h4>Cơ chế Vận hành Toán học</h4>
+          <p>Thiết lập Tiêu chí: Lựa chọn các tiêu chí đánh giá sống còn (VD: Dòng tiền, Thương hiệu, Thời gian...). Cài đặt Trọng số: Trọng số (Hệ số nhân) phải phản ánh đúng Triết lý sinh tồn hiện tại của tổ chức. Chấm điểm: Phương án chiến thắng = Tổng của (Điểm số khách quan × Trọng số ưu tiên).</p>
           
         </article></div>
       </section></div>
@@ -5112,6 +5382,8 @@
       if (!sessionView) return;
       var allPanels = document.querySelectorAll('.lesson-panel');
       for (var i = 0; i < allPanels.length; i++) {
+        allPanels[i].classList.add('hidden');
+        allPanels[i].classList.remove('is-active-lesson');
         allPanels[i].setAttribute('style', 'display: none !important;');
       }
       var allBtns = sessionView.querySelectorAll('.tab-btn');
@@ -5121,6 +5393,8 @@
       
       var panel = document.getElementById('panel-s' + sNum + '-l' + lId);
       if (panel) { 
+        panel.classList.remove('hidden');
+        panel.classList.add('is-active-lesson');
         panel.setAttribute('style', 'display: block !important;'); 
         enhanceCompanyVisuals(panel);
         enhanceLessonCallouts(panel);
@@ -5463,23 +5737,23 @@
     function renderMermaidGraphs(root) {
       if (!window.mermaid) return;
       var scope = root || document;
-      removeIntroFlowcharts(scope);
       prepareMermaidGraphs(scope);
-      var graphs = scope.querySelectorAll('.mermaid:not([data-processed="true"])');
+      var graphs = Array.prototype.slice.call(scope.querySelectorAll('.mermaid:not([data-processed="true"])'));
       if (!graphs.length) {
         enhanceMermaidGraphs(scope);
         return;
       }
 
-      try {
-        Promise.resolve(mermaid.run({ nodes: graphs })).catch(function(error) {
-          console.error('Mermaid render failed:', error);
-        }).then(function() {
-          enhanceMermaidGraphs(scope);
+      var jobs = graphs.map(function(graph) {
+        return Promise.resolve(mermaid.run({ nodes: [graph] })).catch(function(error) {
+          console.error('Mermaid render failed:', error, graph.textContent);
+          graph.dataset.renderFailed = 'true';
         });
-      } catch (error) {
-        console.error('Mermaid render failed:', error);
-      }
+      });
+
+      Promise.all(jobs).then(function() {
+        enhanceMermaidGraphs(scope);
+      });
     }
 
     function removeIntroFlowcharts(root) {
@@ -5519,7 +5793,6 @@
         var toolbar = document.createElement('div');
         toolbar.className = 'mermaid-toolbar';
         toolbar.innerHTML =
-          '<div class="mermaid-toolbar-title"><i class="ph-bold ph-flow-arrow"></i><span>Flowchart tương tác</span></div>' +
           '<div class="mermaid-toolbar-actions">' +
           '<button type="button" data-mermaid-action="zoom-out" aria-label="Thu nhỏ flowchart">−</button>' +
           '<button type="button" data-mermaid-action="reset" aria-label="Đặt lại flowchart">Reset</button>' +
@@ -6566,10 +6839,104 @@
       window.setTimeout(restoreReadingState, 80);
     }
 
+    function enhanceS4L2DecisionTables(root) {
+      var scope = root || document;
+      var panel = scope.querySelector ? scope.querySelector('#panel-s4-l2') : document.getElementById('panel-s4-l2');
+      if (!panel) return;
+      var tables = Array.prototype.slice.call(panel.querySelectorAll('.source-visualization table:not(.ssk-decision-table)'));
+
+      function createTitle(index) {
+        var title = document.createElement('div');
+        title.className = 'ssk-decision-table-title';
+        title.innerHTML = index === 0
+          ? '<span><i class="ph-bold ph-chart-line-up"></i>Bảng lượng hóa phương án</span><small>Ma trận điểm số</small>'
+          : '<span><i class="ph-bold ph-table"></i>Template ma trận</span><small>Khung áp dụng</small>';
+        return title;
+      }
+
+      function clearColumn(table) {
+        var highlighted = table.querySelectorAll('.is-col-hover');
+        for (var i = 0; i < highlighted.length; i++) highlighted[i].classList.remove('is-col-hover');
+      }
+
+      function highlightColumn(table, columnIndex) {
+        if (columnIndex < 0 || table.dataset.activeColumn === String(columnIndex)) return;
+        table.dataset.activeColumn = String(columnIndex);
+        window.requestAnimationFrame(function() {
+          clearColumn(table);
+          var rows = table.rows || [];
+          for (var rowIndex = 0; rowIndex < rows.length; rowIndex++) {
+            if (rows[rowIndex].cells[columnIndex]) rows[rowIndex].cells[columnIndex].classList.add('is-col-hover');
+          }
+        });
+      }
+
+      tables.forEach(function(table, index) {
+        table.classList.add('ssk-decision-table');
+        table.dataset.activeColumn = '';
+
+        var scroll = table.parentElement;
+        if (scroll) scroll.classList.add('ssk-decision-table-scroll');
+
+        var sourceVisual = table.closest('.source-visualization');
+        var shell = table.closest('.source-viz-content') || scroll;
+        if (sourceVisual && shell === scroll) {
+          var wrapper = document.createElement('div');
+          wrapper.className = 'source-viz-content ssk-decision-table-shell';
+          sourceVisual.insertBefore(wrapper, scroll);
+          wrapper.appendChild(createTitle(index));
+          wrapper.appendChild(scroll);
+          scroll.classList.remove('source-viz-content');
+          shell = wrapper;
+        } else if (shell) {
+          shell.classList.add('ssk-decision-table-shell');
+          if (!shell.querySelector('.ssk-decision-table-title') && !shell.querySelector('h4')) {
+            shell.insertBefore(createTitle(index), shell.firstChild);
+          }
+        }
+
+        if (index === 1 && shell) shell.classList.add('is-template');
+
+        var rows = Array.prototype.slice.call(table.rows || []);
+        rows.forEach(function(row) {
+          var firstCell = row.cells[0];
+          if (firstCell && /tổng điểm/i.test(firstCell.textContent)) row.classList.add('is-total-row');
+          Array.prototype.slice.call(row.cells).forEach(function(cell) {
+            var style = cell.getAttribute('style') || '';
+            if (/#16a34a/i.test(style) && !/tổng điểm/i.test(row.textContent)) {
+              cell.classList.add('is-best-cell');
+            }
+            if (/chốt lựa chọn|\b47\b/i.test(cell.textContent)) cell.classList.add('is-winning-cell');
+            cell.setAttribute('tabindex', '0');
+            cell.addEventListener('pointerenter', function() {
+              highlightColumn(table, cell.cellIndex);
+            });
+            cell.addEventListener('focus', function() {
+              highlightColumn(table, cell.cellIndex);
+            });
+          });
+        });
+
+        table.addEventListener('pointerleave', function() {
+          table.dataset.activeColumn = '';
+          clearColumn(table);
+        });
+        table.addEventListener('focusout', function(event) {
+          if (!table.contains(event.relatedTarget)) {
+            table.dataset.activeColumn = '';
+            clearColumn(table);
+          }
+        });
+      });
+
+      if (window.PhosphorIcons && window.PhosphorIcons.replace) window.PhosphorIcons.replace();
+    }
+
     document.addEventListener('DOMContentLoaded', function() {
       enhanceLessonSectionCards();
       enhanceOutcomeImportanceBlocks();
       enhanceSourceVisualizationsModern();
+      enhanceS4L2DecisionTables();
       setupCompanyImageLightbox();
       setupCurrentLessonIndicator();
       setupReadingMemory();
