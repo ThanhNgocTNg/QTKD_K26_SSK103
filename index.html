@@ -10,7 +10,6 @@
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
   <script>
     tailwind.config = {
       darkMode: 'class',
@@ -172,7 +171,7 @@
       touch-action: none;
     }
     .mermaid-viewport.is-dragging { cursor: grabbing; }
-    .mermaid {
+    .ssk-diagram-source {
       transform-origin: 0 0;
       transition: transform 0.2s ease;
       will-change: transform;
@@ -3256,8 +3255,8 @@
     padding-right: 1.25rem !important;
   }
   main {
-    width: 1338px !important;
-    max-width: 1338px !important;
+    width: min(1760px, calc(100vw - 1.5rem)) !important;
+    max-width: min(1760px, calc(100vw - 1.5rem)) !important;
     margin-left: auto !important;
     margin-right: auto !important;
     padding-left: 14.75rem !important;
@@ -3326,7 +3325,7 @@
       transform: translateY(-2px);
     }
   }
-  @media (max-width: 1179px) {
+  @media (max-width: 1439px) {
     body {
       min-width: 0;
     }
@@ -4384,6 +4383,915 @@
     }
   }
   </style>
+<style id="ssk103-native-diagram-css">
+  .ssk-diagram-source {
+    display: none !important;
+  }
+  .mermaid-flowchart-shell {
+    display: contents !important;
+  }
+  .ssk-native-diagram {
+    --ink: #172033;
+    --muted: #64748b;
+    --line: #cbd5e1;
+    --red: #dc2626;
+    --blue: #2563eb;
+    --green: #16a34a;
+    --amber: #d97706;
+    position: relative;
+    margin: 24px 0;
+    padding: clamp(18px, 2.6vw, 28px);
+    border: 1px solid rgba(148, 163, 184, 0.24);
+    border-radius: 22px;
+    background:
+      linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(248, 250, 252, 0.94)),
+      radial-gradient(circle at 14% 0%, rgba(220, 38, 38, 0.08), transparent 30%),
+      radial-gradient(circle at 94% 18%, rgba(37, 99, 235, 0.08), transparent 32%);
+    box-shadow: 0 18px 46px rgba(15, 23, 42, 0.08);
+    overflow: hidden;
+  }
+  .ssk-native-diagram::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+      linear-gradient(rgba(148, 163, 184, 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(148, 163, 184, 0.08) 1px, transparent 1px);
+    background-size: 28px 28px;
+    mask-image: linear-gradient(180deg, black, transparent 78%);
+  }
+  .ssk-native-diagram > * {
+    position: relative;
+    z-index: 1;
+  }
+  .ssk-native-diagram-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 18px;
+  }
+  .ssk-native-diagram-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--ink);
+    font-weight: 950;
+    line-height: 1.2;
+  }
+  .ssk-native-diagram-title i {
+    display: inline-grid;
+    width: 34px;
+    height: 34px;
+    place-items: center;
+    border-radius: 12px;
+    background: #fee2e2;
+    color: #b91c1c;
+    font-size: 18px;
+  }
+  .ssk-native-diagram-kicker {
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 850;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .ssk-native-flow-canvas {
+    position: relative;
+    height: var(--canvas-height, 620px);
+    min-height: 360px;
+    border-radius: 18px;
+    border: 1px solid rgba(203, 213, 225, 0.72);
+    background-color: #f8fafc;
+    background-image:
+      linear-gradient(to right, rgba(203, 213, 225, 0.58) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(203, 213, 225, 0.58) 1px, transparent 1px),
+      radial-gradient(circle, rgba(148, 163, 184, 0.32) 1px, transparent 1px);
+    background-size: 28px 28px, 28px 28px, 140px 140px;
+    overflow: hidden;
+    cursor: grab;
+  }
+  .ssk-native-flow-diagram:fullscreen,
+  .ssk-native-flow-diagram.is-fullscreen-active {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    width: 100vw;
+    height: 100vh;
+    min-height: 100vh;
+    max-width: none;
+    margin: 0;
+    padding: 18px;
+    border: 0;
+    border-radius: 0;
+    background: #f8fafc;
+    box-shadow: none;
+    overflow: hidden;
+  }
+  .ssk-native-flow-diagram:fullscreen::before,
+  .ssk-native-flow-diagram.is-fullscreen-active::before {
+    content: none;
+  }
+  .ssk-native-flow-diagram:fullscreen .ssk-native-diagram-header,
+  .ssk-native-flow-diagram.is-fullscreen-active .ssk-native-diagram-header {
+    display: none;
+  }
+  .ssk-native-flow-diagram:fullscreen .ssk-native-flow-canvas,
+  .ssk-native-flow-diagram.is-fullscreen-active .ssk-native-flow-canvas {
+    height: calc(100vh - 36px);
+    max-height: none;
+    min-height: 0;
+    border-radius: 20px;
+  }
+  .ssk-native-flow-diagram.is-reference-layout {
+    width: 100%;
+    max-width: none;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+  .ssk-native-flow-diagram.is-reference-layout::before {
+    content: none;
+  }
+  .ssk-native-flow-diagram.is-reference-layout .ssk-native-diagram-header {
+    display: none;
+  }
+  .ssk-native-flow-diagram.is-reference-layout .ssk-native-flow-canvas {
+    height: min(76vh, 760px);
+    min-height: 620px;
+    border-radius: 28px;
+    border-color: #cbd5e1;
+    background-color: #f8fafc;
+    box-shadow: inset 0 0 0 1px rgba(203, 213, 225, 0.35);
+  }
+  .ssk-native-flow-canvas.is-dragging {
+    cursor: grabbing;
+  }
+  .ssk-native-flow-controls {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    z-index: 7;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.92);
+    box-shadow: 0 14px 30px rgba(15, 23, 42, 0.12);
+    backdrop-filter: blur(10px);
+  }
+  .ssk-native-flow-controls button {
+    min-width: 32px;
+    height: 32px;
+    display: inline-grid;
+    place-items: center;
+    padding: 0 10px;
+    border: 1px solid #fecdd3;
+    border-radius: 9px;
+    background: #ffffff;
+    color: #b91c1c;
+    font-size: 12px;
+    font-weight: 950;
+    transition: transform 160ms ease, background 160ms ease, box-shadow 160ms ease;
+  }
+  .ssk-native-flow-controls button:hover {
+    background: #fff1f2;
+    box-shadow: 0 8px 18px rgba(190, 18, 60, 0.12);
+  }
+  .ssk-native-flow-controls button:active {
+    transform: scale(0.94);
+  }
+  .ssk-native-flow-zoom {
+    min-width: 48px;
+    padding: 0 4px;
+    color: #334155;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    font-size: 12px;
+    font-weight: 900;
+    text-align: center;
+  }
+  .ssk-native-viewport-layer {
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform-origin: 0 0;
+    will-change: transform;
+  }
+  .ssk-native-flow-stage {
+    position: relative;
+    min-height: var(--stage-height, 420px);
+    width: var(--stage-width, 100%);
+    min-width: var(--stage-width, 100%);
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.54);
+    overflow: hidden;
+  }
+  .ssk-native-flow-scroll {
+    overflow-x: auto;
+    padding: 2px 2px 10px;
+    scrollbar-color: #cbd5e1 transparent;
+  }
+  .ssk-native-group-box {
+    position: absolute;
+    left: var(--gx);
+    top: var(--gy);
+    width: var(--gw);
+    height: var(--gh);
+    border: 1px dashed rgba(148, 163, 184, 0.68);
+    border-radius: 18px;
+    background: rgba(248, 250, 252, 0.48);
+    pointer-events: none;
+    z-index: 1;
+  }
+  .ssk-native-flow-diagram.is-reference-layout .ssk-native-group-box {
+    border: 2px dashed rgba(148, 163, 184, 0.5);
+    border-radius: 28px;
+    background: rgba(248, 250, 252, 0.34);
+  }
+  .ssk-native-group-box strong {
+    position: absolute;
+    left: 14px;
+    top: 10px;
+    max-width: calc(100% - 28px);
+    color: #475569;
+    font-size: 11px;
+    font-weight: 950;
+    letter-spacing: 0.06em;
+    line-height: 1.25;
+    text-transform: uppercase;
+  }
+  .ssk-native-flow-diagram.is-reference-layout .ssk-native-group-box strong {
+    left: 34px;
+    top: 32px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: #64748b;
+    font-size: 13px;
+  }
+  .ssk-native-group-index {
+    display: inline-grid;
+    width: 26px;
+    height: 26px;
+    place-items: center;
+    border-radius: 999px;
+    background: #e2e8f0;
+    color: #64748b;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    font-size: 12px;
+    font-weight: 950;
+  }
+  .ssk-native-group-tag {
+    position: absolute;
+    right: 34px;
+    top: 32px;
+    padding: 7px 12px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.78);
+    color: #94a3b8;
+    font-size: 11px;
+    font-weight: 850;
+  }
+  .ssk-native-flow-lines {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .wire-path,
+  .ssk-native-flow-line {
+    fill: none;
+    stroke: var(--line);
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: stroke 0.3s ease, stroke-width 0.3s ease, filter 0.3s ease, opacity 0.3s ease;
+  }
+  .wire-path.active,
+  .wire-path.active-success,
+  .wire-path.active-danger {
+    stroke-width: 3.5;
+    stroke-dasharray: 8 6;
+    animation: sskFlowDash 0.8s linear infinite;
+  }
+  .wire-path.active {
+    stroke: #2563eb;
+    filter: drop-shadow(0 0 6px rgba(37, 99, 235, 0.45));
+  }
+  .wire-path.active-success {
+    stroke: #16a34a;
+    filter: drop-shadow(0 0 6px rgba(22, 163, 74, 0.45));
+  }
+  .wire-path.active-danger {
+    stroke: #e11d48;
+    filter: drop-shadow(0 0 6px rgba(225, 29, 72, 0.45));
+  }
+  .wire-path.dimmed {
+    stroke: #cbd5e1;
+    stroke-width: 1.5;
+    opacity: 0.35;
+  }
+  .ssk-native-flow-line.is-success {
+    stroke: #16a34a;
+  }
+  .ssk-native-flow-line.is-danger {
+    stroke: #dc2626;
+  }
+  .ssk-native-flow-line.is-decision {
+    stroke: #2563eb;
+  }
+  .ssk-native-flow-label {
+    fill: #475569;
+    font-size: 22px;
+    font-weight: 950;
+    letter-spacing: 0;
+    paint-order: stroke;
+    stroke: rgba(255, 255, 255, 0.96);
+    stroke-width: 5px;
+    stroke-linejoin: round;
+  }
+  .ssk-native-flow-label.is-success {
+    fill: #15803d;
+  }
+  .ssk-native-flow-label.is-danger {
+    fill: #b91c1c;
+  }
+  .ssk-native-flow-label.is-decision {
+    fill: #1d4ed8;
+  }
+  .ssk-native-flow-label.is-dimmed {
+    fill: #94a3b8;
+    opacity: 0.22;
+  }
+  .ssk-native-flow-diagram.is-fivewoneh-layout .ssk-native-flow-label {
+    font-size: 22px;
+    font-weight: 950;
+    letter-spacing: 0;
+  }
+  .ssk-native-diagram.has-selection .ssk-native-flow-line,
+  .ssk-native-diagram.has-selection .ssk-native-flow-label {
+    opacity: 0.18;
+  }
+  .ssk-native-flow-line.is-active {
+    stroke-width: 4;
+    stroke-dasharray: 9 7;
+    animation: sskFlowDash 0.9s linear infinite;
+    filter: drop-shadow(0 0 6px rgba(37, 99, 235, 0.34));
+    opacity: 1;
+  }
+  .ssk-native-flow-label.is-active {
+    opacity: 1 !important;
+  }
+  .ssk-native-flow-line.is-active.is-success {
+    filter: drop-shadow(0 0 6px rgba(22, 163, 74, 0.38));
+  }
+  .ssk-native-flow-line.is-active.is-danger {
+    filter: drop-shadow(0 0 6px rgba(220, 38, 38, 0.36));
+  }
+  @keyframes sskFlowDash {
+    to {
+      stroke-dashoffset: -32;
+    }
+  }
+  .interactive-node,
+  .ssk-native-node {
+    position: absolute;
+    left: var(--x);
+    top: var(--y);
+    width: var(--node-width, 190px);
+    min-height: 72px;
+    display: grid;
+    align-content: center;
+    gap: 8px;
+    padding: 16px 18px;
+    border: 1px solid #dbeafe;
+    border-top: 5px solid var(--node-color, #2563eb);
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.96);
+    box-shadow: 0 12px 28px rgba(15, 23, 42, 0.10);
+    color: var(--ink);
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+    z-index: 3;
+    transition:
+      transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1),
+      box-shadow 0.2s ease,
+      opacity 0.3s ease,
+      border-color 0.3s ease,
+      background 0.3s ease,
+      filter 0.3s ease;
+  }
+  .ssk-native-flow-diagram.is-reference-layout .ssk-native-node {
+    padding: 20px 22px;
+    border-width: 2px;
+    border-top-width: 0;
+    border-radius: 18px;
+    background: #ffffff;
+    box-shadow: 0 14px 26px -10px rgba(15, 23, 42, 0.2);
+  }
+  .ssk-native-flow-diagram.is-reference-layout .ssk-native-node small {
+    color: #0284c7;
+  }
+  .ssk-native-flow-diagram.is-reference-layout .ssk-native-node strong {
+    font-size: 24px;
+    font-weight: 950;
+    line-height: 1.22;
+  }
+  .ssk-native-flow-diagram.is-reference-layout .ssk-native-node.is-core {
+    border: 1px solid #312e81;
+    border-radius: 16px;
+    background: #211b56;
+    color: #ffffff;
+    box-shadow: 0 18px 34px rgba(30, 27, 75, 0.28);
+  }
+  .ssk-native-flow-diagram.is-reference-layout .ssk-native-node.is-decision {
+    border-color: #f59e0b;
+    background: linear-gradient(135deg, #f59e0b, #ea580c);
+    color: #ffffff;
+    box-shadow: 0 18px 34px rgba(217, 119, 6, 0.25);
+  }
+  .ssk-native-flow-diagram.is-reference-layout .ssk-native-node.is-success {
+    border-color: #22c55e;
+    background: #f0fdf4;
+  }
+  .ssk-native-flow-diagram.is-reference-layout .ssk-native-node.is-risk {
+    border-color: #fb7185;
+    background: #e11d48;
+    color: #ffffff;
+  }
+  .ssk-native-flow-diagram.is-reference-layout .ssk-native-node.is-muted-risk {
+    border-color: #fb7185;
+    background: #e11d48;
+    color: #ffffff;
+  }
+  .ssk-native-flow-diagram.is-reference-layout .ssk-native-node small,
+  .ssk-native-flow-diagram.is-reference-layout .ssk-native-node strong {
+    position: relative;
+    z-index: 1;
+  }
+  .ssk-node-row {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+  }
+  .ssk-node-icon {
+    flex: 0 0 auto;
+    display: grid;
+    width: 48px;
+    height: 48px;
+    place-items: center;
+    border-radius: 14px;
+    background: #e0f2fe;
+    color: #0284c7;
+    font-size: 22px;
+  }
+  .ssk-node-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 8px;
+    padding: 4px 9px;
+    border-radius: 999px;
+    background: rgba(15, 23, 42, 0.12);
+    color: inherit;
+    font-size: 15px;
+    font-weight: 950;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+  .ssk-node-detail {
+    margin: 7px 0 0;
+    color: #64748b;
+    font-size: 18px;
+    font-weight: 650;
+    line-height: 1.45;
+  }
+  .ssk-native-node.is-core .ssk-node-detail,
+  .ssk-native-node.is-decision .ssk-node-detail,
+  .ssk-native-node.is-risk .ssk-node-detail,
+  .ssk-native-node.is-muted-risk .ssk-node-detail {
+    color: rgba(255, 255, 255, 0.78);
+  }
+  .ssk-node-kpi {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 14px;
+    padding: 11px 12px;
+    border-radius: 12px;
+    background: rgba(15, 23, 42, 0.14);
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 18px;
+    font-weight: 800;
+  }
+  .ssk-native-node::before,
+  .ssk-native-node::after {
+    content: none;
+  }
+  .ssk-native-port {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #ffffff;
+    border-radius: 999px;
+    background: var(--port-color, var(--node-color, #2563eb));
+    box-shadow: 0 4px 10px rgba(15, 23, 42, 0.18);
+    pointer-events: none;
+  }
+  .ssk-native-port[data-port="in"] {
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .ssk-native-port[data-port="out"] {
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .ssk-native-port[data-port="out-yes"] {
+    bottom: -10px;
+    left: 26%;
+    transform: translateX(-50%);
+    --port-color: #16a34a;
+  }
+  .ssk-native-port[data-port="out-no"] {
+    right: 26%;
+    bottom: -10px;
+    transform: translateX(50%);
+    --port-color: #e11d48;
+  }
+  .ssk-native-flow-diagram.is-horizontal-layout .ssk-native-port[data-port="in"] {
+    top: 50%;
+    left: -10px;
+    transform: translateY(-50%);
+  }
+  .ssk-native-flow-diagram.is-horizontal-layout .ssk-native-port[data-port="out"] {
+    top: 50%;
+    right: -10px;
+    bottom: auto;
+    left: auto;
+    transform: translateY(-50%);
+  }
+  .ssk-native-flow-diagram.is-horizontal-layout .ssk-native-port[data-port="out-yes"] {
+    top: 35%;
+    right: -10px;
+    bottom: auto;
+    left: auto;
+    transform: translateY(-50%);
+  }
+  .ssk-native-flow-diagram.is-horizontal-layout .ssk-native-port[data-port="out-no"] {
+    top: 65%;
+    right: -10px;
+    bottom: auto;
+    transform: translateY(-50%);
+  }
+  .ssk-native-node:hover,
+  .ssk-native-node:focus-visible,
+  .ssk-native-node.is-active {
+    transform: translateY(-3px) scale(1.015);
+    border-color: color-mix(in srgb, var(--node-color, #2563eb) 55%, #ffffff);
+    background: #ffffff;
+    box-shadow: 0 18px 38px rgba(15, 23, 42, 0.15);
+    outline: none;
+  }
+  .ssk-native-node.active-highlight {
+    box-shadow: 0 0 0 3px #3b82f6, 0 20px 30px -10px rgba(59, 130, 246, 0.35);
+  }
+  .ssk-native-flow-diagram.is-horizontal-layout .ssk-native-node.active-highlight {
+    box-shadow: 0 12px 28px rgba(15, 23, 42, 0.10);
+  }
+  .ssk-native-flow-diagram.is-reference-layout .ssk-native-node.active-highlight {
+    box-shadow: 0 14px 26px -10px rgba(15, 23, 42, 0.2);
+  }
+  .ssk-native-node.dimmed {
+    opacity: 0.35;
+    filter: grayscale(40%);
+  }
+  .ssk-native-diagram.has-selection .ssk-native-node {
+    opacity: 0.34;
+  }
+  .ssk-native-diagram.has-selection .ssk-native-node.is-active,
+  .ssk-native-diagram.has-selection .ssk-native-node.is-connected {
+    opacity: 1;
+  }
+  .ssk-native-node.is-core {
+    width: var(--node-width, 190px);
+    min-height: 96px;
+    place-items: center;
+    border: 0;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #ef4444, #fb7185);
+    color: #ffffff;
+    text-align: center;
+    box-shadow: 0 22px 42px rgba(220, 38, 38, 0.22);
+  }
+  .ssk-native-node.is-decision {
+    border-top-color: #f59e0b;
+    background: #fffbeb;
+  }
+  .ssk-native-node.is-success {
+    border-top-color: #16a34a;
+    background: #f0fdf4;
+  }
+  .ssk-native-node.is-risk {
+    border-top-color: #dc2626;
+    background: #fff1f2;
+  }
+  .ssk-native-node small {
+    color: var(--muted);
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .ssk-native-node strong {
+    display: block;
+    font-size: clamp(22px, 2vw, 24px);
+    font-weight: 850;
+    line-height: 1.34;
+  }
+  .ssk-native-flow-diagram:not(.is-reference-layout) .ssk-native-node {
+    align-content: center;
+    justify-items: center;
+    text-align: center;
+  }
+  .ssk-native-flow-diagram:not(.is-reference-layout) .ssk-native-node strong {
+    max-width: 100%;
+    text-align: center;
+  }
+  .ssk-native-flow-diagram.is-fivewoneh-layout .ssk-native-node {
+    align-content: center;
+    justify-items: center;
+    text-align: center;
+  }
+  .ssk-native-flow-diagram.is-fivewoneh-layout .ssk-native-node strong {
+    max-width: 100%;
+    text-align: center;
+  }
+  .ssk-native-choice-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-top: 6px;
+    padding-top: 9px;
+    border-top: 1px solid rgba(148, 163, 184, 0.28);
+  }
+  .ssk-native-choice-row button {
+    flex: 1 1 72px;
+    min-height: 28px;
+    padding: 6px 8px;
+    border: 1px solid rgba(255, 255, 255, 0.42);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    color: inherit;
+    font-size: 11px;
+    font-weight: 950;
+    line-height: 1.15;
+    transition: transform 160ms ease, background 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+  }
+  .ssk-native-choice-row button:hover {
+    background: rgba(255, 255, 255, 0.34);
+  }
+  .ssk-native-choice-row button.is-selected {
+    border-color: #86efac;
+    background: #16a34a;
+    color: #ffffff;
+    box-shadow: 0 8px 16px rgba(22, 163, 74, 0.2);
+    transform: scale(1.03);
+  }
+  .ssk-native-choice-row button.is-danger-choice.is-selected {
+    border-color: #fecdd3;
+    background: #e11d48;
+  }
+  .ssk-native-node.is-core small,
+  .ssk-native-node.is-core strong {
+    color: #ffffff;
+  }
+  .ssk-native-mindmap-stage {
+    display: grid;
+    grid-template-columns: minmax(180px, 0.72fr) minmax(0, 1.8fr);
+    gap: 18px;
+    align-items: stretch;
+  }
+  .ssk-native-mindmap-core {
+    display: grid;
+    place-items: center;
+    min-height: 260px;
+    padding: 24px;
+    border-radius: 22px;
+    background:
+      radial-gradient(circle at 50% 40%, rgba(255, 255, 255, 0.22), transparent 34%),
+      linear-gradient(135deg, #dc2626, #f97316);
+    color: #ffffff;
+    text-align: center;
+    box-shadow: 0 20px 44px rgba(220, 38, 38, 0.24);
+  }
+  .ssk-native-mindmap-core strong {
+    max-width: 190px;
+    font-size: clamp(22px, 3vw, 34px);
+    font-weight: 950;
+    line-height: 1.08;
+  }
+  .ssk-native-mindmap-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+  .ssk-native-branch {
+    padding: 16px;
+    border: 1px solid #e2e8f0;
+    border-top: 5px solid var(--branch-color, #2563eb);
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
+    transition: transform 180ms ease, box-shadow 180ms ease;
+  }
+  .ssk-native-branch:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 18px 36px rgba(15, 23, 42, 0.12);
+  }
+  .ssk-native-branch h4 {
+    margin: 0 0 10px;
+    color: var(--ink);
+    font-size: 15px;
+    font-weight: 950;
+  }
+  .ssk-native-branch ul {
+    display: grid;
+    gap: 7px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .ssk-native-branch li {
+    padding: 8px 10px;
+    border-radius: 12px;
+    background: #f8fafc;
+    color: #475569;
+    font-size: 13px;
+    line-height: 1.35;
+  }
+  .ssk-native-board {
+    display: grid;
+    gap: 16px;
+  }
+  .ssk-native-board.is-horizontal {
+    grid-template-columns: 1fr;
+  }
+  .ssk-native-layer {
+    position: relative;
+    display: grid;
+    gap: 14px;
+    padding: 18px;
+    border: 1px solid #e2e8f0;
+    border-left: 5px solid var(--layer-color, #2563eb);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.92);
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+  }
+  .ssk-native-board.is-horizontal .ssk-native-layer:not(:last-child)::after {
+    content: none;
+    position: absolute;
+  }
+  .ssk-native-layer-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e2e8f0;
+  }
+  .ssk-native-layer-header strong {
+    color: #0f172a;
+    font-size: 14px;
+    font-weight: 950;
+    line-height: 1.25;
+  }
+  .ssk-native-layer-header span {
+    flex: 0 0 auto;
+    padding: 5px 8px;
+    border-radius: 999px;
+    background: #f1f5f9;
+    color: #64748b;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .ssk-native-layer-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px;
+  }
+  .ssk-native-board.is-horizontal .ssk-native-layer-cards {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+  .ssk-native-board-card {
+    width: 100%;
+    min-height: 0;
+    display: grid;
+    align-content: start;
+    gap: 7px;
+    padding: 14px 15px;
+    border: 1px solid #dbeafe;
+    border-top: 4px solid var(--node-color, #2563eb);
+    border-radius: 12px;
+    background: #ffffff;
+    color: #172033;
+    text-align: left;
+    box-shadow: 0 8px 18px rgba(15, 23, 42, 0.06);
+    cursor: pointer;
+    font: inherit;
+    transition: transform 160ms ease, box-shadow 160ms ease, opacity 160ms ease, border-color 160ms ease;
+  }
+  .ssk-native-board-card:hover,
+  .ssk-native-board-card:focus-visible,
+  .ssk-native-board-card.is-active {
+    transform: translateY(-2px);
+    border-color: color-mix(in srgb, var(--node-color, #2563eb) 48%, #ffffff);
+    box-shadow: 0 16px 32px rgba(15, 23, 42, 0.12);
+    outline: none;
+  }
+  .ssk-native-board-card small {
+    color: #64748b;
+    font-size: 11px;
+    font-weight: 950;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .ssk-native-board-card strong {
+    color: #172033;
+    font-size: 14px;
+    font-weight: 850;
+    line-height: 1.38;
+  }
+  .ssk-native-board-card.is-core {
+    border-top-color: #dc2626;
+    background: #fff7f7;
+  }
+  .ssk-native-board-card.is-decision {
+    border-top-color: #f59e0b;
+    background: #fffbeb;
+  }
+  .ssk-native-board-card.is-success {
+    border-top-color: #16a34a;
+    background: #f0fdf4;
+  }
+  .ssk-native-board-card.is-risk {
+    border-top-color: #dc2626;
+    background: #fff1f2;
+  }
+  .ssk-native-diagram.has-selection .ssk-native-board-card {
+    opacity: 0.36;
+  }
+  .ssk-native-diagram.has-selection .ssk-native-board-card.is-active,
+  .ssk-native-diagram.has-selection .ssk-native-board-card.is-connected {
+    opacity: 1;
+  }
+  @media (max-width: 920px) {
+    .ssk-native-flow-stage {
+      min-height: var(--stage-height, 420px);
+    }
+    .ssk-native-flow-lines {
+      display: block;
+    }
+    .ssk-native-node {
+      width: var(--node-width, 190px);
+    }
+    .ssk-native-node:hover,
+    .ssk-native-node:focus-visible,
+    .ssk-native-node.is-active {
+      transform: translate(-50%, -50%) translateY(-1px);
+    }
+    .ssk-native-mindmap-stage {
+      grid-template-columns: 1fr;
+    }
+    .ssk-native-mindmap-core {
+      min-height: 150px;
+    }
+    .ssk-native-mindmap-grid {
+      grid-template-columns: 1fr;
+    }
+    .ssk-native-board.is-horizontal {
+      grid-template-columns: 1fr;
+    }
+    .ssk-native-board.is-horizontal .ssk-native-layer:not(:last-child)::after {
+      display: none;
+    }
+  }
+</style>
 </head>
 <body class="bg-gray-50 text-gray-800 transition-colors duration-300 flex flex-col min-h-screen"><header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-gray-200 px-4 md:px-8 py-3.5 flex items-center justify-between shadow-xs"><div class="flex items-center gap-3"><button id="session-menu-trigger" type="button" onclick="toggleSessionMenu()" onmouseenter="openSessionMenu()" onmouseleave="scheduleSessionMenuClose()" onfocus="openSessionMenu()" aria-controls="sidebar" aria-expanded="false"><i class="ph-bold ph-list text-lg text-rikkei-red"></i><span>Danh sách Session</span><i class="ph-bold ph-caret-down text-xs"></i></button><div class="flex items-center gap-3 cursor-pointer" onclick="showView('view-overview')"><img src="https://rikkei.edu.vn/wp-content/uploads/2025/09/Logo.png" alt="Rikkei Logo" class="h-8 md:h-10 object-contain"><span class="hidden sm:inline-flex px-3 py-1 rounded-full bg-rikkei-light text-rikkei-darkred font-black text-sm border border-rikkei-border">SSK103</span></div></div><div id="current-lesson-indicator" class="current-lesson-indicator" aria-live="polite"><span data-current-lesson-meta>SSK103</span><strong data-current-lesson-title>Chọn bài học</strong></div><div class="flex items-center gap-2 sm:gap-3"><button onclick="showView('view-overview')" class="px-3.5 py-2 rounded-xl bg-gray-100 hover:bg-gray-200 text-xs font-bold flex items-center gap-1.5 transition"><i class="ph-bold ph-house text-base text-rikkei-red"></i><span class="hidden sm:inline">Tổng quan</span></button></div></header><div class="flex flex-1"><aside id="sidebar" onmouseenter="openSessionMenu()" onmouseleave="scheduleSessionMenuClose()"><div class="space-y-1"><div class="text-[11px] font-black uppercase tracking-widest text-gray-400 px-3">CHƯƠNG TRÌNH HỌC</div><button onclick="showView('view-overview')" class="w-full text-left p-3 rounded-2xl hover:bg-gray-100 font-bold text-xs flex items-center gap-2.5 text-gray-700 transition"><i class="ph-bold ph-squares-four text-lg text-rikkei-red"></i><span>Khung Tổng Quan Môn Học</span></button></div><div class="space-y-1.5"><div class="text-[11px] font-black uppercase tracking-widest text-gray-400 px-3 pb-1 border-b border-gray-100">DANH SÁCH SESSION (4)</div>
     <button onclick="showSession(1)" class="sidebar-sec-btn w-full text-left p-3 rounded-2xl hover:bg-rikkei-red/10 hover:text-rikkei-red font-bold text-xs flex items-start gap-3 text-gray-700 transition group">
@@ -4453,7 +5361,7 @@
 
 </div></div>
 <p>Nhiều sinh viên thường nhầm lẫn giữa Tư duy phân tích và Tư duy sáng tạo. Trong khi tư duy sáng tạo nhằm mở rộng các giới hạn để bay bổng với ý tưởng, thì Tư duy phân tích lại là quá trình chắt lọc, sử dụng lý trí để loại bỏ những cảm tính, thiên kiến nhằm tìm ra một sự thật cốt lõi. Khả năng này đòi hỏi sự hoài nghi mang tính xây dựng: Không chấp nhận thông tin ở bề mặt kiểu &quot;Nhiều người đi xe hãng A thì hãng A tốt&quot;, mà phải tự hỏi &quot;Tại sao họ đi?&quot; và &quot;Họ phàn nàn gì trên mạng xã hội?&quot;. Trong môi trường làm việc số, năng lực phân tích dữ liệu và tình huống là kỹ năng sinh tồn bắt buộc trước khi đưa ra bất kỳ chiến dịch hay sản phẩm nào.</p>
-<div class="mermaid">mindmap
+<div class="ssk-diagram-source">mindmap
   root((Tư duy Phân tích))
     Thu thập
       Dữ liệu Hành vi (App)
@@ -4537,7 +5445,7 @@
     <li><strong>📈 How (Như thế nào):</strong> Mức độ thiệt hại hoặc sức ảnh hưởng có thể đo lường được bằng số liệu?</li>
   </ul>
 </div></div>
-<div class="mermaid">graph TD
+<div class="ssk-diagram-source">graph TD
     A[Nhận diện Sự kiện/Triệu chứng] --&gt; B{Công cụ 5W1H}
     B --&gt; |What| C[Bản chất sự việc là gì?]
     B --&gt; |Who| D[Nhóm Gen Z hay Gen Y bị ảnh hưởng?]
@@ -4632,7 +5540,7 @@
   </div>
 </div></div>
 <p><strong>Sự kết hợp giữa Cây vấn đề và MECE:</strong> Cây vấn đề đóng vai trò là &quot;bộ khung xương&quot; giúp phân rã sự cố lớn từ trên xuống dưới, trong khi MECE đóng vai trò là &quot;bộ lọc&quot; kiểm duyệt ngang ở từng tầng để đảm bảo các nhánh không bị trùng lặp hay thiếu sót. Bằng cách chẻ nhánh đầu tiên thành các mảng độc lập (ví dụ: Khách hàng, Vận hành, Vận chuyển), chúng ta đảm bảo bao quát 100% rủi ro.</p>
-<div class="mermaid">graph TD
+<div class="ssk-diagram-source">graph TD
     A[Vấn đề: Tỷ lệ Hoàn đơn vọt lên 30%] --&gt; B[1. Nhánh Khách hàng]
     A --&gt; C[2. Nhánh Vận hành Nội bộ]
     A --&gt; D[3. Nhánh Vận chuyển (3rd Party)]
@@ -4661,7 +5569,7 @@
 <div class="ssk-practice-frame"><p>Dựa trên Cây vấn đề 3 cấp độ đạt chuẩn MECE, ban lãnh đạo không đoán mò mà lập tức gán tỷ trọng phần trăm (%) dựa trên dữ liệu CRM thực tế cho từng nhánh phụ. Kết quả trả về một bức tranh hoàn toàn bất ngờ:</p>
 <ul><li>Nhánh <strong>2.1.a (Kho quá tải không đóng kịp)</strong> chiếm tới <strong>45%</strong> nguyên nhân hoàn đơn.</li><li>Nhánh <strong>1.1.a (Khách mua do FOMO nhất thời)</strong> chiếm <strong>35%</strong>.</li></ul>
 <p>Sự phân rã chi tiết này đã bóc trần một sự thật phũ phàng: Nguyên nhân không nằm ở chất lượng sản phẩm hay shipper, mà nằm ở sự lệch pha trầm trọng giữa phòng Marketing và phòng Vận hành kho. Từ đó, họ triển khai giải pháp &quot;bẻ gãy&quot; đúng 2 nút thắt cốt lõi:</p>
-<div class="mermaid">graph TD
+<div class="ssk-diagram-source">graph TD
     A[Mũi khoan Giải quyết Vấn đề] --&gt; B[Nút thắt Vận hành: Xử lý 45% lỗi]
     A --&gt; C[Nút thắt Khách hàng: Xử lý 35% lỗi]
     
@@ -4758,7 +5666,7 @@
     </li>
   </ul>
 </div></div>
-<div class="mermaid">graph TD
+<div class="ssk-diagram-source">graph TD
     A((SỰ CỐ:&lt;br&gt;Khách hàng bom&lt;br&gt;đơn áo thun)) --&gt;|Why 1?| B[Khách đòi hủy nhưng shop không cho hủy]
     B --&gt;|Why 2?| C[Nhân viên CSKH không đọc được tin nhắn]
     C --&gt;|Why 3?| D[Hộp thư quá tải vì khách hối giao hàng]
@@ -4831,7 +5739,7 @@
 </div></div>
 <ul><li><strong>Dữ kiện khách quan:</strong> Là những thông tin Có thể đo lường, Có thể kiểm chứng độc lập và không thể tranh cãi. (Ví dụ: &quot;Lưu lượng sinh viên đi qua con đường này là 5000 người/ngày&quot;). Đây là viên gạch duy nhất được phép dùng để xây nền móng lập luận.</li><li><strong>Ý kiến chủ quan:</strong> Là những nhận định mang tính diễn giải từ dữ kiện, bị bóp méo bởi hệ quy chiếu cá nhân. (Ví dụ: &quot;Sinh viên có vẻ rất thích uống đồ ngọt&quot;). Ý kiến là lớp sơn bề mặt, có thể đúng hoặc sai, tuyệt đối không dùng làm cột trụ.</li><li><strong>Giả định:</strong> Là những yếu tố được &quot;mặc định coi là đúng&quot; trong đầu bạn nhưng chưa có bằng chứng thực tế chứng minh. (Ví dụ: &quot;Chắc chắn học sinh nào cũng cần không gian đẹp để làm bài tập&quot;).</li></ul>
 <p>Việc nhầm lẫn Giả định thành Dữ kiện khách quan chính là nụ hôn thần chết khiến các dự án bốc hơi.</p>
-<div class="mermaid">mindmap
+<div class="ssk-diagram-source">mindmap
   root((Phân rã Thông tin))
     Dữ kiện khách quan
       Khách quan 100%
@@ -4906,7 +5814,7 @@
 <p>Sức mạnh của một lập luận phụ thuộc khắt khe vào hai yếu tố:</p>
 <ol><li><strong>Tính xác thực:</strong> Các tiền đề và bằng chứng đưa ra có thực sự ĐÚNG hay không?</li><li><strong>Tính hợp lý:</strong> Mối liên kết logic giữa bằng chứng và kết luận có CHẶT CHẼ không? (Lưu ý: Kể cả khi số liệu của bạn đúng 100%, nhưng nếu luồng logic bị đứt gãy, lập luận đó vẫn bị coi là Ngụy biện).</li></ol>
 <p>Để kiểm tra độ cứng cáp của cấu trúc này, chuyên gia bắt buộc phải sử dụng <strong>Sơ đồ lập luận</strong>. Đây là công cụ phân tích trực quan dạng cây, giúp bóc tách rõ ràng cấu trúc logic cốt lõi của một bài luận. Nhìn vào Sơ đồ lập luận, bạn sẽ lập tức nhận ra bằng chứng nào (cái chân bàn) đang bị mọt rỗng, có thể khiến toàn bộ Kết luận (cái mặt bàn) sụp đổ.</p>
-<div class="mermaid">graph TD
+<div class="ssk-diagram-source">graph TD
     A[KẾT LUẬN: Công ty nên cắt giảm&lt;br&gt;10 tỷ tiền mở mặt bằng mới]
     
     A --- B(TIỀN ĐỀ HỖ TRỢ 1:&lt;br&gt;Khách hàng trẻ đang chuyển dịch 100% sang mua Online)
@@ -4986,7 +5894,7 @@
 - <strong>Nút Điều kiện (Có/Không):</strong> Đặt ra câu hỏi để rẽ nhánh (Ví dụ: "Công ty có đủ tiền mặt không?" - Nếu Có đi đường A, Nếu Không đi đường B).
 - <strong>Nút Hành động:</strong> Chỉ định chính xác công việc phải làm tiếp theo.
 </div></div></div>
-<div class="mermaid">flowchart LR
+<div class="ssk-diagram-source">flowchart TD
     A([Nút Bắt đầu]) --&gt; B{Nút Điều kiện}
     B --&gt;|Nếu CÓ| C[Nút Hành động A]
     B --&gt;|Nếu KHÔNG| D[Nút Hành động B]
@@ -4997,7 +5905,7 @@
     style D fill:#dc2626,color:#fff,stroke-width:0px</div>
 <p>Nhờ việc quy hoạch rõ ràng này, Lưu đồ dẹp bỏ mọi tranh cãi lan man, ép cả đội ngũ phải tuân theo một con đường thực thi thống nhất và không bị bế tắc.</p>
 <p>Tuy nhiên, thực tế chỉ ra rằng: Nếu bạn chỉ mải miết chẻ nhỏ các con số mà không biết tổng hợp lại, bạn sẽ bị &quot;ngộp&quot; dữ liệu. Quá trình đúc kết chính là bước gom tất cả những thông tin rời rạc đó lại thành một phương án hành động duy nhất, rõ ràng và có thể thực thi ngay lập tức. Để trực quan hóa phương pháp đúc kết này, <strong>Lưu đồ</strong> là công cụ tiêu chuẩn. Nó giúp chuyển hóa khối lượng lớn các báo cáo rời rạc thành một chuỗi hành động có tính logic cao. Thông qua Lưu đồ, toàn bộ quá trình ra quyết định được minh bạch hóa: Đâu là điểm xuất phát? Đâu là các điều kiện kiểm duyệt (Nút Có/Không)? Và đâu là các phương án rẽ nhánh tương ứng? Việc xây dựng sơ đồ này giúp đội ngũ phân tích phát hiện sớm các lỗ hổng, đảm bảo lộ trình triển khai diễn ra liền mạch và không rơi vào bế tắc.</p>
-<div class="mermaid">flowchart TD
+<div class="ssk-diagram-source">flowchart TD
     %% Định nghĩa Style
     classDef phase fill:#f8fafc,stroke:#cbd5e1,stroke-width:2px,stroke-dasharray: 5 5
     classDef start fill:#1e3a8a,color:#fff,stroke-width:0px
@@ -5047,7 +5955,7 @@
 <div class="ssk-practice-frame"><p>Thay vì sa đà vào các cuộc họp cãi vã không hồi kết, ban giám đốc của Local Brand đã in Lưu đồ 4 bước (như sơ đồ trên) ra một tấm bảng lớn và bắt đầu thực thi:</p>
 <ol><li><strong>Đối mặt với Nút thắt đầu tiên:</strong> Kế toán trưởng báo cáo lượng tiền mặt chỉ còn đủ duy trì 2 tháng. Lập tức, theo đúng logic của Lưu đồ, nhánh &quot;CÓ&quot; bị loại bỏ. Toàn bộ công ty buộc phải rẽ sang nhánh &quot;KHÔNG&quot;: <strong>Quyết định trả mặt bằng ngay lập tức</strong>. Mọi sự tiếc nuối về &quot;vị trí cửa hàng đẹp&quot; đều bị dập tắt bởi tính khách quan của hệ thống.</li><li><strong>Xử lý rủi ro ở các nhánh tiếp theo:</strong> Khi đi theo nhánh &quot;Trả mặt bằng&quot;, họ đối diện với rủi ro khách hàng quen phàn nàn vì không được thử đồ. Đi tiếp theo sơ đồ đến nút &quot;Tài sản số&quot;, họ lập tức chốt phương án: Chuyển toàn bộ tiền cọc mặt bằng sang đầu tư cho các phiên Mega-Livestream, kèm chính sách &quot;Đổi trả miễn phí 14 ngày tận nhà&quot; để bù đắp trải nghiệm.</li></ol>
 <p><strong>Sơ đồ trích xuất con đường thoát hiểm của Local Brand:</strong></p>
-<div class="mermaid">flowchart TD
+<div class="ssk-diagram-source">flowchart LR
     A([Vấn đề: Cạn kiệt dòng tiền]) --&gt; B{Tiền mặt đủ gồng lỗ 2 tháng?}
     B -.-&gt;|CÓ| C[Tiếp tục duy trì cửa hàng]:::discarded
     B --&gt;|KHÔNG| G[Quyết định: Trả mặt bằng]
@@ -6934,4 +7842,978 @@
       setupReadingMemory();
     });
     /* MAN101_MODERN_ENHANCEMENTS_END */
+</script>
+<script id="ssk103-native-diagram-js">
+  (function() {
+    var COLORS = ['#dc2626', '#2563eb', '#16a34a', '#d97706', '#7c3aed', '#0891b2'];
+
+    function cleanLabel(value) {
+      return String(value || '')
+        .replace(/&lt;br\s*\/?&gt;/gi, ' ')
+        .replace(/<br\s*\/?>/gi, ' ')
+        .replace(/&amp;/g, '&')
+        .replace(/&quot;/g, '"')
+        .replace(/&#039;/g, "'")
+        .replace(/:::([A-Za-z][\w-]*)/g, '')
+        .replace(/\s+/g, ' ')
+        .trim();
+    }
+
+    function nodeKind(label, shape) {
+      var text = cleanLabel(label).toLowerCase();
+      if (shape === 'circle' || /tư duy phân tích|sự cố|kết luận|vấn đề:/.test(text)) return 'core';
+      if (shape === 'decision' || /\?$|kiểm tra|đủ|thương lượng/.test(text)) return 'decision';
+      if (/rủi ro|hủy|không|lỗi|cạn kiệt|discarded/.test(text)) return 'risk';
+      if (/thắng|chốt|quyết định|thành công|online|all-in/.test(text)) return 'success';
+      return '';
+    }
+
+    function setNode(nodes, id, label, shape) {
+      if (!id || !label) return;
+      if (!nodes[id]) {
+        nodes[id] = { id: id, label: cleanLabel(label), shape: shape || 'box' };
+      } else if (!nodes[id].label || nodes[id].label === id) {
+        nodes[id].label = cleanLabel(label);
+        nodes[id].shape = shape || nodes[id].shape;
+      }
+    }
+
+    function isTechnicalNode(node) {
+      if (!node) return true;
+      var id = String(node.id || '');
+      var label = cleanLabel(node.label || '');
+      if (label && label !== id) return false;
+      return /^(graph|flowchart|TD|LR|TB|BT|RL|style|class|classDef|subgraph|direction|end|fill|stroke|color|width|phase|start|action|decision|risk|success|discarded|Phase\d+)$/i.test(id);
+    }
+
+    function collectNodesFromLine(line, nodes) {
+      var pattern = /([A-Za-z][\w-]*)\s*(\(\(([\s\S]*?)\)\)|\(\[([\s\S]*?)\]\)|\{([\s\S]*?)\}|\[([\s\S]*?)\]|\(([\s\S]*?)\))/g;
+      var match;
+      while ((match = pattern.exec(line))) {
+        var id = match[1];
+        var label = match[3] || match[4] || match[5] || match[6] || match[7];
+        var shape = match[3] ? 'circle' : match[4] ? 'pill' : match[5] ? 'decision' : 'box';
+        if (/^(graph|flowchart|subgraph|direction|classDef|style|class)$/i.test(id)) continue;
+        setNode(nodes, id, label, shape);
+      }
+    }
+
+    function endpointId(segment, fallbackToLast) {
+      var cleaned = String(segment || '')
+        .replace(/&gt;/g, '>')
+        .replace(/&lt;/g, '<')
+        .replace(/\|[^|]*\|/g, ' ')
+        .replace(/:::[A-Za-z][\w-]*/g, ' ')
+        .replace(/["'`]/g, ' ');
+      var explicit = cleaned.match(/^\s*([A-Za-z][\w-]*)\s*(?:\(\(|\(\[|\{|\[|\()/);
+      if (explicit) return explicit[1];
+      cleaned = cleaned.replace(/\(\([\s\S]*?\)\)|\(\[[\s\S]*?\]\)|\{[\s\S]*?\}|\[[\s\S]*?\]|\([\s\S]*?\)/g, ' ');
+      var ids = cleaned.match(/\b[A-Za-z][\w-]*\b(?=\s*(?:\[\s*|\{\s*|\(\s*|\(\[|\(\(|$|\s))/g) || [];
+      ids = ids.filter(function(id) {
+        return !/^(graph|flowchart|TD|LR|TB|BT|RL|style|class|classDef|subgraph|direction|end|fill|stroke|color|width|phase|start|action|decision|risk|success|discarded)$/i.test(id);
+      });
+      if (!ids.length) return '';
+      return fallbackToLast ? ids[ids.length - 1] : ids[0];
+    }
+
+    function parseEdge(line) {
+      var normalized = line.replace(/&gt;/g, '>').replace(/&lt;/g, '<');
+      var arrowMatch = normalized.match(/-->|---|-\.->|==>/);
+      if (!arrowMatch) return null;
+      var from = endpointId(normalized.slice(0, arrowMatch.index), true);
+      var to = endpointId(normalized.slice(arrowMatch.index + arrowMatch[0].length), false);
+      if (!from || !to || from === to) return null;
+      var label = '';
+      var labelMatch = normalized.match(/\|([^|]+)\|/);
+      if (labelMatch) label = cleanLabel(labelMatch[1]);
+      return { from: from, to: to, label: label };
+    }
+
+    function parseGraph(raw) {
+      var code = String(raw || '').replace(/\r/g, '');
+      var lines = code.split('\n').map(function(line) { return line.trim(); }).filter(Boolean);
+      var direction = /^flowchart\s+LR|^graph\s+LR/i.test(lines[0] || '') ? 'LR' : 'TD';
+      var nodes = {};
+      var edges = [];
+      var groups = [];
+      var currentGroup = null;
+
+      lines.forEach(function(line) {
+        if (/^(%%|classDef|style\s|class\s|direction\s)/i.test(line)) return;
+        var subgraph = line.match(/^subgraph\s+([A-Za-z][\w-]*)\s*\[([\s\S]*?)\]/i);
+        if (subgraph) {
+          currentGroup = { id: subgraph[1], title: cleanLabel(subgraph[2]), nodes: [] };
+          groups.push(currentGroup);
+          return;
+        }
+        if (/^end\b/i.test(line)) {
+          currentGroup = null;
+          return;
+        }
+        var beforeIds = Object.keys(nodes);
+        collectNodesFromLine(line, nodes);
+        if (currentGroup) {
+          Object.keys(nodes).forEach(function(id) {
+            if (beforeIds.indexOf(id) === -1 && currentGroup.nodes.indexOf(id) === -1) {
+              currentGroup.nodes.push(id);
+            }
+          });
+        }
+        var edge = parseEdge(line);
+        if (edge) edges.push(edge);
+      });
+
+      edges.forEach(function(edge) {
+        if (!nodes[edge.from]) setNode(nodes, edge.from, edge.from, 'box');
+        if (!nodes[edge.to]) setNode(nodes, edge.to, edge.to, 'box');
+      });
+      Object.keys(nodes).forEach(function(id) {
+        if (isTechnicalNode(nodes[id])) delete nodes[id];
+      });
+      edges = edges.filter(function(edge) {
+        return nodes[edge.from] && nodes[edge.to];
+      });
+      groups.forEach(function(group) {
+        group.nodes = group.nodes.filter(function(id) { return nodes[id]; });
+      });
+
+      var ids = Object.keys(nodes);
+      if (!ids.length) return null;
+      return { direction: direction, nodes: ids.map(function(id) { return nodes[id]; }), edges: edges, groups: groups };
+    }
+
+    function parseMindmap(raw) {
+      var lines = String(raw || '').replace(/\r/g, '').split('\n');
+      var root = 'Sơ đồ';
+      var branches = [];
+      var current = null;
+
+      lines.forEach(function(line) {
+        if (!line.trim() || /^mindmap/i.test(line.trim())) return;
+        var indent = (line.match(/^\s*/) || [''])[0].length;
+        var text = line.trim();
+        var rootMatch = text.match(/^root\(\(([\s\S]*?)\)\)/i);
+        if (rootMatch) {
+          root = cleanLabel(rootMatch[1]);
+          return;
+        }
+        if (indent <= 4) {
+          current = { title: cleanLabel(text), items: [] };
+          branches.push(current);
+        } else if (current) {
+          current.items.push(cleanLabel(text));
+        }
+      });
+
+      return { root: root, branches: branches };
+    }
+
+    function computeLayers(graph) {
+      var ids = graph.nodes.map(function(node) { return node.id; });
+      var indegree = {};
+      var outgoing = {};
+      ids.forEach(function(id) {
+        indegree[id] = 0;
+        outgoing[id] = [];
+      });
+      graph.edges.forEach(function(edge) {
+        if (!outgoing[edge.from]) outgoing[edge.from] = [];
+        outgoing[edge.from].push(edge.to);
+        indegree[edge.to] = (indegree[edge.to] || 0) + 1;
+      });
+      var queue = ids.filter(function(id) { return !indegree[id]; });
+      if (!queue.length) queue = [ids[0]];
+      var layer = {};
+      queue.forEach(function(id) { layer[id] = 0; });
+
+      var safety = Math.max(24, ids.length * ids.length);
+      for (var qi = 0; qi < queue.length && safety > 0; qi++, safety--) {
+        var from = queue[qi];
+        (outgoing[from] || []).forEach(function(to) {
+          var nextLayer = Math.min((layer[from] || 0) + 1, Math.max(0, ids.length - 1));
+          if (layer[to] == null || layer[to] < nextLayer) layer[to] = nextLayer;
+          if (nextLayer < ids.length - 1) queue.push(to);
+        });
+      }
+      ids.forEach(function(id) {
+        if (layer[id] == null) layer[id] = 0;
+      });
+      return layer;
+    }
+
+    function renderMindmap(source, data, index) {
+      var section = document.createElement('section');
+      section.className = 'ssk-native-diagram ssk-native-mindmap';
+      section.dataset.nativeDiagramReady = 'true';
+      section.innerHTML =
+        '<div class="ssk-native-diagram-header">' +
+          '<div class="ssk-native-diagram-title"><i class="ph-bold ph-nodes"></i><span>' + escapeHtml(data.root) + '</span></div>' +
+          '<div class="ssk-native-diagram-kicker">Bản đồ tư duy</div>' +
+        '</div>' +
+        '<div class="ssk-native-mindmap-stage">' +
+          '<div class="ssk-native-mindmap-core"><strong>' + escapeHtml(data.root) + '</strong></div>' +
+          '<div class="ssk-native-mindmap-grid"></div>' +
+        '</div>';
+
+      var grid = section.querySelector('.ssk-native-mindmap-grid');
+      data.branches.forEach(function(branch, branchIndex) {
+        var card = document.createElement('article');
+        card.className = 'ssk-native-branch';
+        card.style.setProperty('--branch-color', COLORS[branchIndex % COLORS.length]);
+        card.innerHTML = '<h4>' + escapeHtml(branch.title) + '</h4><ul>' +
+          branch.items.map(function(item) { return '<li>' + escapeHtml(item) + '</li>'; }).join('') +
+          '</ul>';
+        grid.appendChild(card);
+      });
+      source.replaceWith(section);
+    }
+
+    function isReferenceLocalBrandFlow(graph) {
+      var ids = graph.nodes.map(function(node) { return node.id; }).sort().join(',');
+      return /A,B,C,D1,D2,E,F,G,H,I,J,K,L,M,N/.test(ids) &&
+        graph.nodes.some(function(node) { return /Local Brand 2024/i.test(node.label); }) &&
+        graph.groups && graph.groups.length === 4;
+    }
+
+    function isFiveWOneHFlow(graph) {
+      var labels = {};
+      graph.edges.forEach(function(edge) {
+        if (edge.from === 'B') labels[cleanLabel(edge.label || '').toLowerCase()] = true;
+      });
+      return graph.nodes.some(function(node) {
+        return node.id === 'B' && /5w1h/i.test(cleanLabel(node.label || ''));
+      }) && ['what', 'who', 'where', 'when', 'why', 'how'].every(function(label) {
+        return labels[label];
+      });
+    }
+
+    function referenceNodeMeta(id) {
+      var data = {
+        A: {
+          chip: 'Mục tiêu kích hoạt',
+          detail: 'Khủng hoảng sức mua bán lẻ & mặt bằng giá cao',
+          icon: 'ph-flag'
+        },
+        D1: {
+          chip: 'Dữ kiện 1',
+          detail: 'Lưu lượng ghé tiệm physical store giảm sút trầm trọng.',
+          icon: 'ph-person-simple-walk'
+        },
+        D2: {
+          chip: 'Dữ kiện 2',
+          detail: 'Áp lực định phí cao gây cạn kiệt dòng tiền khả dụng.',
+          icon: 'ph-trend-up'
+        },
+        B: {
+          chip: 'Quyết định 1 · Runway',
+          detail: 'Đảm bảo thanh khoản tối thiểu để không bị phá sản tức thì.',
+          icon: 'ph-vault'
+        },
+        C: {
+          chip: 'Quyết định 2 · Store CR',
+          detail: 'Đo lường năng lực bán lẻ thực tế của điểm bán vật lý.',
+          icon: 'ph-storefront'
+        },
+        G: {
+          chip: 'Hành động khẩn cấp',
+          detail: 'Dừng chảy máu tiền mặt, đàm phán nhận lại tiền cọc hoặc thanh lý tài sản điểm bán.',
+          icon: 'ph-warning',
+          kpiLabel: 'Tiết kiệm định phí:',
+          kpiValue: '+100% chi phí thuê'
+        },
+        H: {
+          chip: 'Quyết định 3 · Kênh Online',
+          detail: 'Kênh TikTok Shop, Shopee Mall, Fanpage có sẵn tệp khách hàng quen thuộc?',
+          icon: 'ph-globe'
+        },
+        E: {
+          chip: 'Chiến lược A',
+          detail: 'Đàm phán giảm tiền thuê, nâng trải nghiệm đón tiếp, tăng giá trị đơn hàng để bù lượng khách giảm.',
+          icon: 'ph-storefront'
+        },
+        F: {
+          chip: 'Chiến lược B',
+          detail: 'Giữ một nửa mặt bằng làm điểm nhận diện, diện tích còn lại setup phòng Live Studio và kho đóng hàng.',
+          icon: 'ph-video-camera'
+        },
+        I: {
+          chip: 'Chiến lược C',
+          detail: 'Dồn ngân sách vào KOC/KOL và các phiên Mega Live để tạo doanh thu online nhanh.',
+          icon: 'ph-broadcast'
+        },
+        J: {
+          chip: 'Chiến lược D',
+          detail: 'Thu hồi vốn qua xả hàng tồn kho, đồng thời xây lại kênh online từ nền tảng yếu.',
+          icon: 'ph-package'
+        },
+        K: {
+          chip: 'Kiểm chứng số liệu thực tế',
+          detail: 'Đánh giá doanh thu ròng sau khi trừ chi phí quảng cáo và vận hành.',
+          icon: 'ph-chart-line-up'
+        },
+        L: {
+          chip: 'Cột mốc đánh giá · Milestone',
+          detail: 'Lợi nhuận ròng sau 30 ngày thử nghiệm có chứng minh mô hình sống sót?',
+          icon: 'ph-chart-bar'
+        },
+        M: {
+          chip: 'Về đích thành công',
+          detail: 'Tăng ngân sách marketing, nhân bản kịch bản livestream hoặc đàm phán cung ứng lớn hơn.',
+          icon: 'ph-trophy'
+        },
+        N: {
+          chip: 'Vòng lặp tối ưu',
+          detail: 'Phương án đã thử không đạt kỳ vọng tài chính. Cần kiểm duyệt lại nguồn lực để đổi chiến lược.',
+          icon: 'ph-arrows-clockwise'
+        }
+      };
+      return data[id] || {};
+    }
+
+    function referenceNodeClass(id) {
+      if (id === 'A' || id === 'K') return ' is-core';
+      if (/^(B|C|H|L)$/.test(id)) return ' is-decision';
+      if (/^(G|N|J)$/.test(id)) return ' is-risk';
+      if (/^(E|I|M)$/.test(id)) return ' is-success';
+      return '';
+    }
+
+    function renderReferenceNodeBody(node, choices) {
+      var meta = referenceNodeMeta(node.id);
+      var chip = meta.chip || node.id;
+      var icon = meta.icon || 'ph-dot-outline';
+      var detail = meta.detail ? '<p class="ssk-node-detail">' + escapeHtml(meta.detail) + '</p>' : '';
+      var kpi = meta.kpiLabel ? '<div class="ssk-node-kpi"><span>' + escapeHtml(meta.kpiLabel) + '</span><strong>' + escapeHtml(meta.kpiValue || '') + '</strong></div>' : '';
+      var hasIcon = !/^(A|B|C|G|H|K|L|M|N)$/.test(node.id);
+      var content =
+        '<div class="ssk-node-row">' +
+          (hasIcon ? '<span class="ssk-node-icon"><i class="ph-bold ' + icon + '"></i></span>' : '') +
+          '<div><span class="ssk-node-chip"><i class="ph-bold ' + icon + '"></i>' + escapeHtml(chip) + '</span>' +
+          '<strong>' + escapeHtml(node.label) + '</strong>' + detail + '</div>' +
+        '</div>' + choices + kpi;
+      return content;
+    }
+
+    function renderGraph(source, graph, index) {
+      var section = document.createElement('section');
+      section.className = 'ssk-native-diagram ssk-native-flow-diagram not-prose';
+      section.dataset.nativeDiagramReady = 'true';
+      var isReferenceLayout = isReferenceLocalBrandFlow(graph);
+      var isFiveWOneHLayout = isFiveWOneHFlow(graph);
+      var isHorizontalLayout = graph.direction === 'LR' && !isReferenceLayout;
+      if (isReferenceLayout) section.classList.add('is-reference-layout');
+      if (isFiveWOneHLayout) section.classList.add('is-fivewoneh-layout');
+      if (isHorizontalLayout) section.classList.add('is-horizontal-layout');
+
+      var nodesById = {};
+      var outgoingById = {};
+      var incomingById = {};
+      graph.nodes.forEach(function(node) {
+        nodesById[node.id] = node;
+        outgoingById[node.id] = [];
+        incomingById[node.id] = [];
+      });
+      graph.edges.forEach(function(edge, edgeIndex) {
+        edge.key = edge.from + '-' + edge.to + '-' + edgeIndex;
+        if (!outgoingById[edge.from]) outgoingById[edge.from] = [];
+        if (!incomingById[edge.to]) incomingById[edge.to] = [];
+        outgoingById[edge.from].push(edge);
+        incomingById[edge.to].push(edge);
+      });
+      var fiveWOneHQuestionTargets = {};
+      if (isFiveWOneHLayout) {
+        graph.edges.forEach(function(edge) {
+          if (edge.from === 'B' && /^(what|who|where|when|why|how)$/i.test(cleanLabel(edge.label || ''))) {
+            fiveWOneHQuestionTargets[edge.to] = true;
+          }
+        });
+      }
+
+      var NODE_W = 340;
+      var NODE_H = 180;
+      var X_GAP = 170;
+      var Y_GAP = 210;
+      var MARGIN = 90;
+
+      function edgeTone(edge) {
+        var text = cleanLabel(edge.label || '').toLowerCase();
+        var target = nodesById[edge.to];
+        var targetKind = target ? nodeKind(target.label, target.shape) : '';
+        if (/không|hủy|không đạt|chưa|cạn|âm|quay lại/.test(text) || targetKind === 'risk') return 'danger';
+        if (/có|đạt|dương|đã có|thắng|success/.test(text) || targetKind === 'success') return 'success';
+        if (text || targetKind === 'decision') return 'active';
+        return 'active';
+      }
+
+      function isChoiceNode(id) {
+        var edges = outgoingById[id] || [];
+        if (edges.length < 2 || edges.length > 3) return false;
+        return edges.some(function(edge) {
+          return /có|không|đạt|chưa|dương|âm/i.test(cleanLabel(edge.label || ''));
+        });
+      }
+
+      function buildSections() {
+        if (graph.groups && graph.groups.some(function(group) { return group.nodes.length; })) {
+          return graph.groups
+            .filter(function(group) { return group.nodes.length; })
+            .map(function(group, groupIndex) {
+              return {
+                title: group.title || ('Bước ' + (groupIndex + 1)),
+                nodes: group.nodes.map(function(id) { return nodesById[id]; }).filter(Boolean)
+              };
+            });
+        }
+
+        var layers = computeLayers(graph);
+        var byLayer = {};
+        graph.nodes.forEach(function(node) {
+          var level = layers[node.id] || 0;
+          if (!byLayer[level]) byLayer[level] = [];
+          byLayer[level].push(node);
+        });
+        return Object.keys(byLayer)
+          .map(Number)
+          .sort(function(a, b) { return a - b; })
+          .map(function(level) {
+            return {
+              title: level === 0 ? 'Điểm bắt đầu' : 'Tầng ' + (level + 1),
+              nodes: byLayer[level]
+            };
+          });
+      }
+
+      function buildLayout() {
+        if (isReferenceLayout) {
+          return {
+            width: 2850,
+            height: 3070,
+            positions: {
+              A: { x: 1065, y: 110, w: 660, h: 160 },
+              D1: { x: 790, y: 340, w: 460, h: 160 },
+              D2: { x: 1600, y: 340, w: 460, h: 160 },
+              B: { x: 160, y: 660, w: 640, h: 285 },
+              C: { x: 160, y: 1095, w: 640, h: 300 },
+              G: { x: 2050, y: 660, w: 640, h: 285 },
+              H: { x: 2050, y: 1095, w: 640, h: 300 },
+              E: { x: 95, y: 1545, w: 475, h: 260 },
+              F: { x: 745, y: 1545, w: 475, h: 260 },
+              I: { x: 1530, y: 1545, w: 475, h: 260 },
+              J: { x: 2180, y: 1545, w: 475, h: 260 },
+              K: { x: 970, y: 2020, w: 720, h: 170 },
+              L: { x: 1065, y: 2310, w: 660, h: 300 },
+              M: { x: 630, y: 2745, w: 520, h: 205 },
+              N: { x: 1690, y: 2745, w: 520, h: 205 }
+            },
+            groupBoxes: []
+          };
+        }
+
+        var positions = {};
+        var groupBoxes = [];
+        var sections = buildSections();
+        var maxWidth = 0;
+
+        if (graph.direction === 'LR' && !(graph.groups && graph.groups.length)) {
+          var maxColumn = sections.reduce(function(total, layer) {
+            return Math.max(total, layer.nodes.length);
+          }, 1);
+          var columnGap = Y_GAP * 1.45;
+          var horizontalGap = X_GAP * 2;
+          var maxColumnHeight = maxColumn * NODE_H + Math.max(0, maxColumn - 1) * columnGap;
+          sections.forEach(function(layer, layerIndex) {
+            var x = MARGIN + layerIndex * (NODE_W + horizontalGap);
+            var layerHeight = layer.nodes.length * NODE_H + Math.max(0, layer.nodes.length - 1) * columnGap;
+            var columnOffset = Math.max(0, (maxColumnHeight - layerHeight) / 2);
+            maxWidth = Math.max(maxWidth, x + NODE_W + MARGIN);
+            layer.nodes.forEach(function(node, nodeIndex) {
+              positions[node.id] = {
+                x: x,
+                y: MARGIN + columnOffset + nodeIndex * (NODE_H + columnGap),
+                w: NODE_W,
+                h: NODE_H
+              };
+            });
+          });
+          return {
+            width: Math.max(760, Math.ceil(maxWidth)),
+            height: Math.max(360, MARGIN * 2 + maxColumnHeight),
+            positions: positions,
+            groupBoxes: groupBoxes
+          };
+        }
+
+        var sectionLayouts = sections.map(function(layer) {
+          var rowNodes = layer.nodes;
+          var isFiveWOneHQuestionRow = isFiveWOneHLayout &&
+            rowNodes.length === 6 &&
+            rowNodes.every(function(node) { return fiveWOneHQuestionTargets[node.id]; });
+          var columns = isFiveWOneHQuestionRow ? 6 : Math.max(1, Math.min(rowNodes.length, 3));
+          var rows = Math.ceil(rowNodes.length / columns);
+          var rowWidth = MARGIN * 2 + columns * NODE_W + Math.max(0, columns - 1) * X_GAP;
+          var groupHeight = rows * NODE_H + Math.max(0, rows - 1) * (Y_GAP / 2) + MARGIN / 2;
+          maxWidth = Math.max(maxWidth, rowWidth);
+          return {
+            layer: layer,
+            columns: columns,
+            rows: rows,
+            rowWidth: rowWidth,
+            groupHeight: groupHeight
+          };
+        });
+
+        var diagramWidth = Math.max(900, Math.ceil(maxWidth || 900));
+        var y = MARGIN;
+        sectionLayouts.forEach(function(spec, layerIndex) {
+          var layer = spec.layer;
+          var rowNodes = layer.nodes;
+          var rowOffset = Math.max(0, (diagramWidth - spec.rowWidth) / 2);
+          rowNodes.forEach(function(node, nodeIndex) {
+            var col = nodeIndex % spec.columns;
+            var row = Math.floor(nodeIndex / spec.columns);
+            positions[node.id] = {
+              x: rowOffset + MARGIN + col * (NODE_W + X_GAP),
+              y: y + row * (NODE_H + Y_GAP / 2),
+              w: NODE_W,
+              h: NODE_H
+            };
+          });
+          y += spec.groupHeight + Y_GAP;
+        });
+
+        return {
+          width: diagramWidth,
+          height: Math.max(420, Math.ceil(y - Y_GAP + MARGIN / 2)),
+          positions: positions,
+          groupBoxes: groupBoxes
+        };
+      }
+
+      function fromPort(edge) {
+        var edges = outgoingById[edge.from] || [];
+        if (edges.length < 2) return 'out';
+        var tone = edgeTone(edge);
+        if (tone === 'success') return 'out-yes';
+        if (tone === 'danger') return 'out-no';
+        return 'out';
+      }
+
+      function markerType(edge, isActive) {
+        if (!isActive) return 'default';
+        var tone = edgeTone(edge);
+        if (tone === 'success') return 'success';
+        if (tone === 'danger') return 'danger';
+        return 'active';
+      }
+
+      function activeClass(edge, isActive) {
+        if (!isActive) return 'dimmed';
+        var tone = edgeTone(edge);
+        if (tone === 'success') return 'active-success';
+        if (tone === 'danger') return 'active-danger';
+        return 'active';
+      }
+
+      function edgeLabelClass(edge, isActive) {
+        var tone = edgeTone(edge);
+        return 'ssk-native-flow-label ' + (tone === 'success' ? 'is-success ' : tone === 'danger' ? 'is-danger ' : 'is-decision ') + (isActive ? 'is-active' : 'is-dimmed');
+      }
+
+      var layout = buildLayout();
+      var canvasHeight = isReferenceLayout ? 760 : isFiveWOneHLayout ? 620 : graph.nodes.length > 10 ? 660 : Math.min(520, Math.max(360, layout.height + 90));
+      section.style.setProperty('--canvas-height', canvasHeight + 'px');
+      section.innerHTML =
+        '<div class="ssk-native-diagram-header">' +
+          '<div class="ssk-native-diagram-title"><i class="ph-bold ph-flow-arrow"></i><span>Flowchart phân tích</span></div>' +
+          '<div class="ssk-native-diagram-kicker">Interactive Web Nodes</div>' +
+        '</div>' +
+        '<div class="ssk-native-flow-canvas">' +
+          '<aside class="ssk-native-flow-controls" aria-label="Điều khiển flowchart">' +
+            '<button type="button" data-flow-zoom="out" aria-label="Thu nhỏ">-</button>' +
+            '<button type="button" data-flow-reset>Reset</button>' +
+            '<button type="button" data-flow-zoom="in" aria-label="Phóng to">+</button>' +
+            '<button type="button" data-flow-fullscreen aria-label="Mở toàn màn hình">⛶</button>' +
+            '<span class="ssk-native-flow-zoom" data-flow-zoom-label>100%</span>' +
+          '</aside>' +
+          '<div class="ssk-native-viewport-layer" style="width:' + layout.width + 'px; height:' + layout.height + 'px;">' +
+            '<svg class="ssk-native-flow-lines" viewBox="0 0 ' + layout.width + ' ' + layout.height + '" aria-hidden="true">' +
+              '<defs>' +
+                '<marker id="ssk-arrow-default-' + index + '" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 1 L 8 5 L 0 9 z" fill="#94a3b8"></path></marker>' +
+                '<marker id="ssk-arrow-active-' + index + '" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 1 L 8 5 L 0 9 z" fill="#2563eb"></path></marker>' +
+                '<marker id="ssk-arrow-success-' + index + '" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 1 L 8 5 L 0 9 z" fill="#16a34a"></path></marker>' +
+                '<marker id="ssk-arrow-danger-' + index + '" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 1 L 8 5 L 0 9 z" fill="#e11d48"></path></marker>' +
+              '</defs>' +
+            '</svg>' +
+          '</div>' +
+        '</div>';
+
+      var canvas = section.querySelector('.ssk-native-flow-canvas');
+      var viewport = section.querySelector('.ssk-native-viewport-layer');
+      var svg = section.querySelector('.ssk-native-flow-lines');
+      var zoomLabel = section.querySelector('[data-flow-zoom-label]');
+      var selectedEdges = {};
+      Object.keys(outgoingById).forEach(function(id) {
+        if (isChoiceNode(id)) selectedEdges[id] = 0;
+      });
+
+      layout.groupBoxes.forEach(function(group) {
+        var box = document.createElement('div');
+        box.className = 'ssk-native-group-box';
+        box.style.setProperty('--gx', group.x + 'px');
+        box.style.setProperty('--gy', group.y + 'px');
+        box.style.setProperty('--gw', group.w + 'px');
+        box.style.setProperty('--gh', group.h + 'px');
+        box.style.borderColor = group.color;
+        box.innerHTML =
+          (group.title ? '<strong>' + (group.index ? '<span class="ssk-native-group-index">' + escapeHtml(group.index) + '</span>' : '') + escapeHtml(group.title) + '</strong>' : '') +
+          (group.tag ? '<span class="ssk-native-group-tag">' + escapeHtml(group.tag) + '</span>' : '');
+        viewport.appendChild(box);
+      });
+
+      function choiceButtonHtml(edge, edgeIndex) {
+        var tone = edgeTone(edge);
+        return '<button type="button" data-choice-edge="' + edgeIndex + '"' + (tone === 'danger' ? ' class="is-danger-choice"' : '') + '>' + escapeHtml(edge.label || ('Nhánh ' + (edgeIndex + 1))) + '</button>';
+      }
+
+      graph.nodes.forEach(function(node, nodeIndex) {
+        var pos = layout.positions[node.id];
+        if (!pos) return;
+        var button = document.createElement('article');
+        button.className = 'ssk-native-node interactive-node';
+        button.dataset.nodeId = node.id;
+        button.dataset.node = node.id;
+        button.style.setProperty('--x', pos.x + 'px');
+        button.style.setProperty('--y', pos.y + 'px');
+        button.style.setProperty('--node-width', pos.w + 'px');
+        button.style.minHeight = pos.h + 'px';
+        button.style.setProperty('--node-color', COLORS[nodeIndex % COLORS.length]);
+        var kind = nodeKind(node.label, node.shape);
+        if (kind) button.classList.add('is-' + kind);
+        if (isReferenceLayout) button.className += referenceNodeClass(node.id);
+        var ports = '';
+        var isChoice = isChoiceNode(node.id);
+        if ((incomingById[node.id] || []).length) ports += '<span class="ssk-native-port" data-port="in"></span>';
+        if ((outgoingById[node.id] || []).length && !isChoice) ports += '<span class="ssk-native-port" data-port="out"></span>';
+        if (isChoice) {
+          ports += '<span class="ssk-native-port" data-port="out-yes"></span><span class="ssk-native-port" data-port="out-no"></span>';
+        }
+        var choices = isChoice
+          ? '<div class="ssk-native-choice-row">' + outgoingById[node.id].map(choiceButtonHtml).join('') + '</div>'
+          : '';
+        var nodeIdLabel = '';
+        button.innerHTML = ports + (isReferenceLayout
+          ? renderReferenceNodeBody(node, choices)
+          : nodeIdLabel + '<strong>' + escapeHtml(node.label) + '</strong>' + choices);
+        viewport.appendChild(button);
+      });
+      source.replaceWith(section);
+
+      var scale = 0.82;
+      var panX = 40;
+      var panY = 25;
+      var isDragging = false;
+      var hasUserAdjusted = false;
+      var startX = 0;
+      var startY = 0;
+
+      function getActiveState() {
+        var roots = graph.nodes.filter(function(node) { return !(incomingById[node.id] || []).length; }).map(function(node) { return node.id; });
+        if (!roots.length && graph.nodes[0]) roots = [graph.nodes[0].id];
+        var activeNodes = {};
+        var activeEdges = {};
+        var visits = {};
+
+        function walk(id) {
+          if (!id) return;
+          visits[id] = (visits[id] || 0) + 1;
+          if (visits[id] > 2) return;
+          activeNodes[id] = true;
+          var edges = outgoingById[id] || [];
+          if (!edges.length) return;
+          if (isChoiceNode(id)) {
+            var selected = edges[selectedEdges[id] || 0];
+            if (selected) {
+              activeEdges[selected.key] = true;
+              walk(selected.to);
+            }
+            return;
+          }
+          edges.forEach(function(edge) {
+            activeEdges[edge.key] = true;
+            walk(edge.to);
+          });
+        }
+
+        roots.forEach(walk);
+        return { nodes: activeNodes, edges: activeEdges };
+      }
+
+      function updateNodeStates() {
+        var state = getActiveState();
+        section.querySelectorAll('.ssk-native-node').forEach(function(nodeEl) {
+          var id = nodeEl.dataset.nodeId;
+          nodeEl.classList.toggle('dimmed', !state.nodes[id]);
+          nodeEl.classList.toggle('active-highlight', !!state.nodes[id] && isChoiceNode(id));
+        });
+        section.querySelectorAll('.ssk-native-choice-row button').forEach(function(btn) {
+          var nodeEl = btn.closest('.ssk-native-node');
+          var id = nodeEl ? nodeEl.dataset.nodeId : '';
+          btn.classList.toggle('is-selected', Number(btn.dataset.choiceEdge) === (selectedEdges[id] || 0));
+        });
+      }
+
+      function getPortPos(nodeId, portName) {
+        var nodeEl = viewport.querySelector('[data-node-id="' + CSS.escape(nodeId) + '"]');
+        if (!nodeEl) return null;
+        var portEl = nodeEl.querySelector('[data-port="' + portName + '"]') || nodeEl.querySelector('[data-port="out"]') || nodeEl;
+        var portRect = portEl.getBoundingClientRect();
+        var layerRect = viewport.getBoundingClientRect();
+        return {
+          x: (portRect.left + portRect.width / 2 - layerRect.left) / scale,
+          y: (portRect.top + portRect.height / 2 - layerRect.top) / scale
+        };
+      }
+
+      function drawPath(start, end, edge, isActive) {
+        if (!start || !end) return;
+        var path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        var d;
+        if (isHorizontalLayout) {
+          var direction = end.x >= start.x ? 1 : -1;
+          var dx = Math.max(62, Math.abs(end.x - start.x) * 0.42);
+          d = 'M ' + start.x + ' ' + start.y + ' C ' + (start.x + direction * dx) + ' ' + start.y + ', ' + (end.x - direction * dx) + ' ' + end.y + ', ' + end.x + ' ' + end.y;
+        } else {
+          var dy = Math.abs(end.y - start.y) * 0.55;
+          d = 'M ' + start.x + ' ' + start.y + ' C ' + start.x + ' ' + (start.y + dy) + ', ' + end.x + ' ' + (end.y - dy) + ', ' + end.x + ' ' + end.y;
+        }
+        path.setAttribute('d', d);
+        path.setAttribute('class', 'wire-path ' + activeClass(edge, isActive));
+        path.setAttribute('marker-end', 'url(#ssk-arrow-' + markerType(edge, isActive) + '-' + index + ')');
+        path.dataset.from = edge.from;
+        path.dataset.to = edge.to;
+        svg.appendChild(path);
+        if (edge.label) {
+          var label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+          var labelNearTarget = isFiveWOneHLayout && edge.from === 'B' && fiveWOneHQuestionTargets[edge.to];
+          var labelX = labelNearTarget ? end.x : (start.x + end.x) / 2;
+          var labelY = labelNearTarget ? end.y - 18 : (start.y + end.y) / 2 - 8;
+          if (isHorizontalLayout && !labelNearTarget) {
+            var labelProgress = 0.42;
+            labelX = start.x + (end.x - start.x) * labelProgress;
+            labelY = start.y + (end.y - start.y) * labelProgress - (end.y >= start.y ? 18 : -18);
+          }
+          label.setAttribute('class', edgeLabelClass(edge, isActive));
+          label.setAttribute('x', labelX);
+          label.setAttribute('y', labelY);
+          label.setAttribute('text-anchor', 'middle');
+          label.textContent = edge.label;
+          svg.appendChild(label);
+        }
+      }
+
+      function drawWires() {
+        var defs = svg.querySelector('defs');
+        svg.innerHTML = '';
+        if (defs) svg.appendChild(defs);
+        var state = getActiveState();
+        graph.edges.forEach(function(edge) {
+          var start = getPortPos(edge.from, fromPort(edge));
+          var end = getPortPos(edge.to, 'in');
+          drawPath(start, end, edge, !!state.edges[edge.key]);
+        });
+      }
+
+      function updateTransform() {
+        viewport.style.transform = 'translate(' + panX + 'px, ' + panY + 'px) scale(' + scale + ')';
+        zoomLabel.textContent = Math.round(scale * 100) + '%';
+        drawWires();
+      }
+
+      function resetView() {
+        var fitWidth = (canvas.clientWidth - 70) / layout.width;
+        if (isReferenceLayout) {
+          scale = Math.min(1.0, Math.max(0.75, fitWidth));
+          var topInputEdge = layout.positions.D2 ? (layout.positions.D2.x + layout.positions.D2.w) * scale : layout.width * scale;
+          var decisionStart = layout.positions.B ? (18 - layout.positions.B.x * scale) : 20;
+          panX = topInputEdge <= canvas.clientWidth - 24
+            ? 20
+            : Math.max((canvas.clientWidth - layout.width * scale) / 2, decisionStart);
+        } else {
+          scale = isHorizontalLayout ? Math.min(1.1, Math.max(0.8, fitWidth)) : isFiveWOneHLayout ? Math.min(0.95, Math.max(0.55, fitWidth)) : canvas.clientWidth >= 720 ? 0.9 : Math.min(0.9, Math.max(0.55, fitWidth));
+          panX = Math.max(20, (canvas.clientWidth - layout.width * scale) / 2);
+        }
+        panY = 25;
+        updateTransform();
+      }
+
+      canvas.addEventListener('mousedown', function(event) {
+        if (event.target.closest('.ssk-native-node') || event.target.closest('button') || event.target.closest('aside')) return;
+        hasUserAdjusted = true;
+        isDragging = true;
+        canvas.classList.add('is-dragging');
+        startX = event.clientX - panX;
+        startY = event.clientY - panY;
+      });
+      window.addEventListener('mousemove', function(event) {
+        if (!isDragging) return;
+        panX = event.clientX - startX;
+        panY = event.clientY - startY;
+        updateTransform();
+      });
+      window.addEventListener('mouseup', function() {
+        isDragging = false;
+        canvas.classList.remove('is-dragging');
+      });
+      canvas.addEventListener('wheel', function(event) {
+        event.preventDefault();
+        var oldScale = scale;
+        hasUserAdjusted = true;
+        var nextScale = event.deltaY < 0 ? scale * 1.1 : scale / 1.1;
+        nextScale = Math.min(Math.max(0.35, nextScale), 1.8);
+        var rect = canvas.getBoundingClientRect();
+        var mouseX = event.clientX - rect.left;
+        var mouseY = event.clientY - rect.top;
+        panX = mouseX - (mouseX - panX) * (nextScale / oldScale);
+        panY = mouseY - (mouseY - panY) * (nextScale / oldScale);
+        scale = nextScale;
+        updateTransform();
+      }, { passive: false });
+
+      section.querySelector('[data-flow-zoom="in"]').addEventListener('click', function() {
+        hasUserAdjusted = true;
+        scale = Math.min(scale * 1.2, 1.8);
+        updateTransform();
+      });
+      section.querySelector('[data-flow-zoom="out"]').addEventListener('click', function() {
+        hasUserAdjusted = true;
+        scale = Math.max(scale / 1.2, 0.35);
+        updateTransform();
+      });
+      section.querySelector('[data-flow-reset]').addEventListener('click', function() {
+        hasUserAdjusted = false;
+        resetView();
+      });
+      var fullscreenButton = section.querySelector('[data-flow-fullscreen]');
+      function syncFullscreenButton() {
+        var isFullscreen = document.fullscreenElement === section || section.classList.contains('is-fullscreen-active');
+        section.classList.toggle('is-fullscreen-active', isFullscreen);
+        fullscreenButton.textContent = isFullscreen ? '×' : '⛶';
+        fullscreenButton.setAttribute('aria-label', isFullscreen ? 'Thoát toàn màn hình' : 'Mở toàn màn hình');
+      }
+      fullscreenButton.addEventListener('click', function() {
+        hasUserAdjusted = false;
+        if (document.fullscreenElement === section || section.classList.contains('is-fullscreen-active')) {
+          section.classList.remove('is-fullscreen-active');
+          if (document.fullscreenElement === section && document.exitFullscreen) document.exitFullscreen();
+          syncFullscreenButton();
+          window.setTimeout(resetView, 120);
+          return;
+        }
+        section.classList.add('is-fullscreen-active');
+        if (section.requestFullscreen) {
+          section.requestFullscreen().catch(function() {
+            syncFullscreenButton();
+            window.setTimeout(resetView, 120);
+          });
+        }
+        syncFullscreenButton();
+        window.setTimeout(resetView, 120);
+      });
+      document.addEventListener('fullscreenchange', function() {
+        if (document.fullscreenElement !== section) section.classList.remove('is-fullscreen-active');
+        syncFullscreenButton();
+        window.setTimeout(resetView, 120);
+      });
+      syncFullscreenButton();
+
+      section.querySelectorAll('.ssk-native-choice-row button').forEach(function(btn) {
+        btn.addEventListener('click', function(event) {
+          event.stopPropagation();
+          var nodeEl = btn.closest('.ssk-native-node');
+          if (!nodeEl) return;
+          selectedEdges[nodeEl.dataset.nodeId] = Number(btn.dataset.choiceEdge) || 0;
+          updateNodeStates();
+          drawWires();
+        });
+      });
+
+      updateNodeStates();
+      resetView();
+      window.__sskNativeDiagramRedrawers = window.__sskNativeDiagramRedrawers || [];
+      window.__sskNativeDiagramRedrawers.push(function() {
+        updateNodeStates();
+        if (!hasUserAdjusted && canvas.clientWidth > 0) {
+          resetView();
+        } else {
+          updateTransform();
+        }
+      });
+    }
+
+    function escapeHtml(value) {
+      return String(value || '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+
+    function debounce(fn, wait) {
+      var timer = 0;
+      return function() {
+        window.clearTimeout(timer);
+        timer = window.setTimeout(fn, wait);
+      };
+    }
+
+    function renderNativeDiagrams(root) {
+      var scope = root || document;
+      var blocks = Array.prototype.slice.call(scope.querySelectorAll('.ssk-diagram-source:not([data-native-converted="true"])'));
+      blocks.forEach(function(block, index) {
+        block.dataset.nativeConverted = 'true';
+        var raw = block.textContent || '';
+        if (/^\s*mindmap/i.test(raw)) {
+          renderMindmap(block, parseMindmap(raw), index);
+          return;
+        }
+        var graph = parseGraph(raw);
+        if (graph) renderGraph(block, graph, index);
+      });
+      if (window.PhosphorIcons && window.PhosphorIcons.replace) window.PhosphorIcons.replace();
+    }
+
+    function redrawNativeDiagrams() {
+      (window.__sskNativeDiagramRedrawers || []).forEach(function(draw) {
+        try { draw(); } catch (error) {}
+      });
+    }
+
+    function scheduleNativeDiagramRedraw() {
+      window.setTimeout(redrawNativeDiagrams, 80);
+      window.setTimeout(redrawNativeDiagrams, 320);
+    }
+
+    function wrapNativeDiagramNavigation(name) {
+      var original = window[name];
+      if (typeof original !== 'function' || original.__nativeDiagramWrapped) return;
+      var wrapped = function() {
+        var result = original.apply(this, arguments);
+        scheduleNativeDiagramRedraw();
+        return result;
+      };
+      wrapped.__nativeDiagramWrapped = true;
+      window[name] = wrapped;
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      renderNativeDiagrams();
+      wrapNativeDiagramNavigation('showView');
+      wrapNativeDiagramNavigation('showSession');
+      wrapNativeDiagramNavigation('showLessonTab');
+      scheduleNativeDiagramRedraw();
+    });
+    window.renderSsk103NativeDiagrams = renderNativeDiagrams;
+    window.redrawSsk103NativeDiagrams = redrawNativeDiagrams;
+  })();
 </script></body></html>
